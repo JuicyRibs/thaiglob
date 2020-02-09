@@ -1,0 +1,19 @@
+{
+  "name": "thaiglob",
+  "version": "1.0.0",
+  "description": "TO be updated",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuicyRibs/thaiglob.git"
+  },
+  "author": "ThanadonTee&JuicyRibs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuicyRibs/thaiglob/issues"
+  },
+  "homepage": "https://github.com/JuicyRibs/thaiglob#readme"
+}
