@@ -1,9 +1,14 @@
-.cover {
-    background-image: url("../images/bg.jpg");   
+.cover-home {
+    background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 25rem;
+    color: white;
+}
 
+.cover-book {
+    background-image: url("../images/bookcover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
 }
 
@@ -15,4 +20,14 @@
 .hyperlink a:hover {
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.bottomright{
+    position: absolute;
+    bottom: 0;
+}
+
+.book-card img{
+    width: 140px;
+    height: 210px;
 }
