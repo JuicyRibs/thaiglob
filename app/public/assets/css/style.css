@@ -19,6 +19,20 @@
     color: white;
 }
 
+.cover-article{
+    background-image: url("../images/articlecover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.cover-event{
+    background-image: url("../images/eventcover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 1em;
