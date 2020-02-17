@@ -12,6 +12,13 @@
     color: white;
 }
 
+.cover-news {
+    background-image: url("../images/newscover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 1em;
@@ -30,4 +37,14 @@
 .book-card img{
     width: 140px;
     height: 210px;
+}
+
+.card-text small{
+    font-weight: bold;
+    color: rgb(54, 146, 221);
+}
+
+.card-text>img{
+    width: 100%;
+    /* height: 200px; */
 }
