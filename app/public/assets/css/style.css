@@ -33,6 +33,13 @@
     color: white;
 }
 
+.cover-climate{
+    background-image: url("../images/climatecover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 1em;
