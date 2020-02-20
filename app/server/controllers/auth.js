@@ -1,12 +1,18 @@
 const bcrypt = require('bcrypt');
-const admin = require('../../utils/loadUserFromEnv').getAdmin();
+
+const passport = require('../auth/passport-config');
+// const admin = require('../../utils/loadUserFromEnv').getAdmin();
 
 exports.getLogin = (req, res) => {
-	//
+	res.render('admin/login');
 };
-exports.postLogin = (req, res) => {
-	//
-};
+exports.postLogin = passport.authenticate('local', {
+	successRedirect: '/admin',
+	failureRedirect: '/login',
+	failureFlash: true,
+});
 exports.postLogout = (req, res) => {
-	//
+	req.session.destroy(err => {
+		res.redirect('/');
+	});
 };
