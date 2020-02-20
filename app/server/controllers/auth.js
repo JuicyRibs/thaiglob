@@ -1,7 +1,4 @@
-const bcrypt = require('bcrypt');
-
 const passport = require('../auth/passport-config');
-// const admin = require('../../utils/loadUserFromEnv').getAdmin();
 
 exports.getLogin = (req, res) => {
 	res.render('admin/login');
