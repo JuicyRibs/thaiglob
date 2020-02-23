@@ -69,3 +69,7 @@
     width: 100%;
     /* height: 200px; */
 }
+
+tr td:last-child{
+    padding-left: 3em;
+}
