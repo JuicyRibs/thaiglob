@@ -3,7 +3,7 @@
 - [x] @ThanadonTee, ADD a todo-list
 - [ ] @ThanadonTee, Backend stuffs
 - [ ] @JuicyRibs, ABOUT US Page
-- [ ] @JuicyRibs, RESEARCH Page
+- [x] @JuicyRibs, RESEARCH Page
 - [ ] @JuicyRibs, MULTIMEDIA Page
 - [x] @JuicyRibs, HOME Page
 - [x] @JuicyRibs, NEWS,ARTICLE,EVENTS Page
