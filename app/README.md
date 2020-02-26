@@ -2,7 +2,7 @@
 
 -   [x] @ThanadonTee, ADD a todo-list
 -   [ ] @ThanadonTee, Backend stuffs
--   [ ] @JuicyRibs, ABOUT US Page
+-   [x] @JuicyRibs, ABOUT US Page
 -   [x] @JuicyRibs, RESEARCH Page
 -   [ ] @JuicyRibs, MULTIMEDIA Page
 -   [x] @JuicyRibs, HOME Page

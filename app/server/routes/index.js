@@ -10,5 +10,6 @@ router.get('/events', indexController.getEvents);
 router.get('/books', indexController.getBooks);
 router.get('/books', indexController.getBooks);
 router.get('/researches', indexController.getResearches);
+router.get('/about', indexController.getAbout);
 
 module.exports = router;

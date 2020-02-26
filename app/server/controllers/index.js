@@ -1,29 +1,34 @@
 exports.getIndex = (req, res) =>
-	res.render('index', {
-		title: 'ThaiGlob',
-	});
+  res.render("index", {
+    title: "ThaiGlob"
+  });
 
 exports.getNews = (req, res) =>
-	res.render('news', {
-		title: 'ThaiGlob - News',
-	});
+  res.render("news", {
+    title: "ThaiGlob - News"
+  });
 
 exports.getArticles = (req, res) =>
-	res.render('articles', {
-		title: 'ThaiGlob - Articles',
-	});
+  res.render("articles", {
+    title: "ThaiGlob - Articles"
+  });
 
 exports.getEvents = (req, res) =>
-	res.render('events', {
-		title: 'ThaiGlob - Events',
-	});
+  res.render("events", {
+    title: "ThaiGlob - Events"
+  });
 
 exports.getBooks = (req, res) =>
-	res.render('book', {
-		title: 'ThaiGlob - Publications',
-	});
+  res.render("book", {
+    title: "ThaiGlob - Publications"
+  });
 
 exports.getResearches = (req, res) =>
-	res.render('research', {
-		title: 'ThaiGlob - Researches',
-	});
+  res.render("research", {
+    title: "ThaiGlob - Researches"
+  });
+
+exports.getAbout = (req, res) =>
+  res.render("about", {
+    title: "ThaiGlob - Who We Are"
+  });

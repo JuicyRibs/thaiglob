@@ -40,6 +40,13 @@
     color: white;
 }
 
+.cover-research{
+    background-image: url("../images/researchcover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 1em;
