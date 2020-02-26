@@ -1,12 +1,12 @@
 # TODO List
 
-- [x] @ThanadonTee, ADD a todo-list
-- [ ] @ThanadonTee, Backend stuffs
-- [ ] @JuicyRibs, ABOUT US Page
-- [x] @JuicyRibs, RESEARCH Page
-- [ ] @JuicyRibs, MULTIMEDIA Page
-- [x] @JuicyRibs, HOME Page
-- [x] @JuicyRibs, NEWS,ARTICLE,EVENTS Page
+-   [x] @ThanadonTee, ADD a todo-list
+-   [ ] @ThanadonTee, Backend stuffs
+-   [ ] @JuicyRibs, ABOUT US Page
+-   [x] @JuicyRibs, RESEARCH Page
+-   [ ] @JuicyRibs, MULTIMEDIA Page
+-   [x] @JuicyRibs, HOME Page
+-   [x] @JuicyRibs, NEWS,ARTICLE,EVENTS Page
 
 # File Structure
 
@@ -32,4 +32,11 @@ app
 │   ├── server.js
 │   └── uploads
 └── utils
+```
+
+# How to Install
+
+```
+npm install
+npm start
 ```
