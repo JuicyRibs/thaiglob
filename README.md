@@ -1,2 +1,3 @@
 # thaiglob
-View Web - ver4-2020.pptx for more details
+
+View Web - ver5.pdf for more details
