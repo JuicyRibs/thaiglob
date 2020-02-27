@@ -32,3 +32,8 @@ exports.getAbout = (req, res) =>
   res.render("about", {
     title: "ThaiGlob - Who We Are"
   });
+
+exports.getUpdates = (req, res) =>
+  res.render("updates", {
+    title: "ThaiGlob - Thailand Climate Changes"
+  });
