@@ -7,6 +7,7 @@
 -   [ ] @JuicyRibs, MULTIMEDIA Page
 -   [x] @JuicyRibs, HOME Page
 -   [x] @JuicyRibs, NEWS,ARTICLE,EVENTS Page
+-   [ ] @JuicyRibs, POST Page
 
 # File Structure
 
