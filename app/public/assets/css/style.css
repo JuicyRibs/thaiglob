@@ -47,6 +47,13 @@
     color: white;
 }
 
+.cover-about{
+    background-image: url("../images/aboutcover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 1em;
@@ -79,4 +86,9 @@
 
 tr td:last-child{
     padding-left: 3em;
+}
+
+footer{
+    background-color: #2E75B6;
+    color: white;
 }
