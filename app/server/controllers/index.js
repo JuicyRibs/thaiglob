@@ -37,3 +37,8 @@ exports.getUpdates = (req, res) =>
   res.render("updates", {
     title: "ThaiGlob - Thailand Climate Changes"
   });
+
+exports.getContact = (req, res) =>
+  res.render("contact", {
+    title: "ThaiGlob - Contact Us"
+  });

@@ -12,5 +12,6 @@ router.get('/books', indexController.getBooks);
 router.get('/researches', indexController.getResearches);
 router.get('/about', indexController.getAbout);
 router.get('/update', indexController.getUpdates);
+router.get('/contact', indexController.getContact);
 
 module.exports = router;
