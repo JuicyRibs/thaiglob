@@ -88,6 +88,18 @@ tr td:last-child{
     padding-left: 3em;
 }
 
+.post-header{
+    font-weight: bold;
+}
+
+.post-header>small{
+    color: green;
+}
+
+.post-header small:last-child{
+    color: grey;
+}
+
 footer{
     background-color: #2E75B6;
     color: white;

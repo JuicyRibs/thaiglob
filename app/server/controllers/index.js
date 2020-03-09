@@ -42,3 +42,8 @@ exports.getContact = (req, res) =>
   res.render("contact", {
     title: "ThaiGlob - Contact Us"
   });
+
+  exports.getPost = (req, res) =>
+  res.render("post", {
+    title: "ThaiGlob - Contact Us"
+  });
