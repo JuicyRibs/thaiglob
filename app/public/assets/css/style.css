@@ -55,7 +55,7 @@
 }
 
 .hyperlink img {
-    width: 50%;
+    width: 35%;
     padding-bottom: 1em;
 }
 
@@ -103,4 +103,8 @@ tr td:last-child{
 footer{
     background-color: #2E75B6;
     color: white;
+}
+
+a{
+    text-decoration: none;
 }
