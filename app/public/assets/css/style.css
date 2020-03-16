@@ -1,3 +1,7 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 .cover-home {
     background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
@@ -64,7 +68,7 @@
     cursor: pointer;
 }
 
-.bottomright{
+.bottom{
     position: absolute;
     bottom: 0;
 }
