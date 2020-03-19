@@ -43,7 +43,12 @@ exports.getContact = (req, res) =>
     title: "ThaiGlob - Contact Us"
   });
 
-  exports.getPost = (req, res) =>
+exports.getPost = (req, res) =>
   res.render("post", {
+    title: "ThaiGlob - Contact Us"
+  });
+
+exports.getMedia = (req, res) =>
+  res.render("media", {
     title: "ThaiGlob - Contact Us"
   });

@@ -14,5 +14,7 @@ router.get('/about', indexController.getAbout);
 router.get('/update', indexController.getUpdates);
 router.get('/contact', indexController.getContact);
 router.get('/post', indexController.getPost);
+router.get('/media', indexController.getMedia);
+
 
 module.exports = router;

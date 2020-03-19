@@ -8,7 +8,7 @@ body {
 }
 
 .cover{
-    
+    /* min-height: 20rem; */
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -45,6 +45,10 @@ body {
 
 .cover.about {
     background-image: url("../images/aboutcover.jpg");
+}
+
+.cover.media {
+    background-image: url("../images/mediacover.jpg");
 }
 
 .hyperlink img {
@@ -105,4 +109,22 @@ a:any-link {
 
 .postblock:hover{
     transform: scale(1.03);
+}
+
+.social-menu{
+    font-size: 1.8em;
+}
+
+.social-menu i{
+    margin-left: 1em;
+}
+
+.media img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.media.row div{
+    padding: 1em;
+    
 }
