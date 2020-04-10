@@ -11,16 +11,11 @@ const flash = require('express-flash');
 const session = require('express-session');
 
 mongoose
-	.connect(process.env.DB_URI, { useNewUrlParser: true })
+	.connect(process.env.DB_URI, { useNewUrlParser: true }, () => {})
 	.then(() => {
-		console.log(
-			`Database connected successfully ${
-				process.env.DB_URI
-			} - ${new Date()}`
-		);
+		console.log(`Database connected successfully - ${new Date()}`);
 	})
 	.catch(err => console.log(err));
-
 const app = express();
 
 const publicPath = path.join(__dirname, '../public');
@@ -51,10 +46,17 @@ app.disable('x-powered-by');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
+const bookRoutes = require('./routes/book');
+const postRoutes = require('./routes/posts');
+const researchRoutes = require('./routes/reserach');
 
-app.use(indexRoutes);
 app.use(authRoutes);
 app.use('/admin', adminRoutes);
+
+app.use(bookRoutes);
+app.use(postRoutes);
+app.use(researchRoutes);
+app.use(indexRoutes);
 
 app.listen(process.env.APP_PORT, () => {
 	console.log(

@@ -2,132 +2,140 @@
 
 <!-- #Cover -->
 <section class="cover book">
-  <div class="container">
-    <div class="row py-5 text-center">
-      <div class="col">
-        <h1>Publications</h1>
-        <p>Books collection realated to our organization</p>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row py-5 text-center">
+			<div class="col">
+				<h1>Publications</h1>
+				<p>Books collection realated to our organization</p>
+			</div>
+		</div>
+	</div>
 </section>
 <!-- EndCover -->
 
 <!-- #Pinned Book -->
+<% if (!Array.isArray(books) || !books.length) { %>
 <section>
-  <div class="container">
-    <div class="row justify-content-center text-center my-5">
-      <a class="col-md-4 col-sm-12">
-        <img src="../assets/images/examplebook.jpg" />
-        <div class="my-2">
-          <h4>Pinned Book</h4>
-          <p>A selection of books</p>
-        </div>
-      </a>
-      <a class="col-md-4 col-sm-12">
-        <img src="../assets/images/examplebook.jpg" />
-        <div class="my-2">
-          <h4>Pinned Book</h4>
-          <p>A selection of books</p>
-        </div>
-      </a>
-      <a class="col-md-4 col-sm-12">
-        <img src="../assets/images/examplebook.jpg" />
-        <div class="my-2">
-          <h4>Pinned Book</h4>
-          <p>A selection of books</p>
-        </div>
-      </a>
-    </div>
-  </div>
+	<div class="container">
+		<h1>There is currently no books</h1>
+	</div>
+</section>
+<% }else {%>
+<section>
+	<div class="container">
+		<div class="row justify-content-center text-center my-5">
+			<% for(pinned of pinnedBooks){ %>
+			<a class="col-md-4 col-sm-12">
+				<img
+					src="<%- (pinned.imgPath)?pinned.imgPath:'/assets/images/examplebook.jpg' %>"
+				/>
+				<div class="my-2">
+					<h4><%- pinned.title %></h4>
+					<p><%- pinned.desc %></p>
+				</div>
+			</a>
+			<% } %>
+		</div>
+	</div>
 </section>
 <!-- #End Pinned Book -->
 
 <section>
-  <div class="container">
-    <div class="row justify-content-center">
-        <input
-          class="form-control mx-3"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          style="width: 50%;"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-    </div>
-  </div>
+	<div class="container">
+		<form class="row justify-content-center">
+			<input
+				class="form-control mx-3"
+				type="search"
+				placeholder="Search"
+				aria-label="Search"
+				name="search"
+				style="width: 50%;"
+			/>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+				Search
+			</button>
+		</form>
+	</div>
 </section>
 
 <!-- #BookList -->
 <section class="mt-5">
-  <div class="container">
-    <div class="book-card">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
-          <img src="../assets/images/examplebook.jpg" />
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-8 my-2">
-          <h4>Book Title</h4>
-          <p>Some short book description</p>
-          <div class="btn btn-outline-success mb-3 bottom">
-            Download
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="book-card">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
-          <img src="../assets/images/examplebook.jpg" />
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-8 my-2 text-break">
-          <h4>Book Title</h4>
-          <p class="clearfix">
-            Some long book description. Some long book description. Some long
-            book description. Some long book description. Some long book
-            description. Some long book description. Some long book description.
-            Some long book description.
-          </p>
-          <div class="btn btn-outline-success bottom mb-3">
-            Download
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="book-card">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
-          <img src="../assets/images/examplebook.jpg" />
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-8 my-2">
-          <h4>Book Title</h4>
-          <p>Some short book description</p>
-          <div class="btn btn-outline-success bottom mb-3">
-            Download
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="book-card">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center">
-          <img src="../assets/images/examplebook.jpg" />
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-8 my-2">
-          <h4>Book Title</h4>
-          <p>Some short book description</p>
-          <div class="btn btn-outline-success bottom mb-3">
-            Download
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<% for(book of books){ %>
+		<div class="book-card">
+			<div class="row">
+				<div
+					class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center"
+				>
+					<img
+						src="<%- (book.imgPath)?book.imgPath:'/assets/images/examplebook.jpg' %>"
+					/>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-8 my-2">
+					<h4><%- book.id %></h4>
+					<p><%- book.desc %></p>
+					<div class="btn btn-outline-success mb-3 bottom">
+						Download
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<% } %>
+	</div>
 </section>
 <!-- #EndBookList -->
+<% } %>
+<!-- #Pagination -->
+<% if(pages>0) {%>
+<section class="my-5">
+	<!-- #currentPage -->
+
+	<h4>
+		Page
+		<span><%= currentPage %></span>
+		of
+		<span><%= pages %></span>
+	</h4>
+	<!-- #EndCurrentPage -->
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+			<% if (currentPage == 1 && pages > 1) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/books/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>"
+					>Page <%= parseInt(currentPage) + 1 %> ></a
+				>
+			</li>
+			<% } else if (currentPage < pages) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/books/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
+					>< Page <%= parseInt(currentPage) - 1 %>
+				</a>
+			</li>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/books/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>"
+					>Page <%= parseInt(currentPage) + 1 %> ></a
+				>
+			</li>
+			<% } else if (currentPage == pages && pages > 1) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/books/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
+					>< Page <%=parseInt(currentPage) - 1 %>
+				</a>
+			</li>
+			<% } %>
+		</ul>
+	</nav>
+</section>
+<% } %>
+
+<!-- #End Pagination -->
 <%- include('./includes/footer.ejs') %>

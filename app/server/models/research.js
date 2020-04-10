@@ -13,4 +13,32 @@ const researchSchema = new Schema({
 
 const researchModel = mongoose.model('research', researchSchema);
 
-module.exports = researchModel;
+const create = async (
+	title,
+	author,
+	institute,
+	activeYear,
+	fundSource,
+	status,
+	dlPath
+) => {
+	let research = new researchModel({
+		title: title,
+		author: author,
+		institute: institute,
+		activeYear: activeYear,
+		fundSource: fundSource,
+		status: status,
+		dlPath: dlPath,
+	});
+	return research
+		.save()
+		.catch(err => {
+			return err;
+		})
+		.then(data => {
+			return true;
+		});
+};
+
+module.exports = { researchModel, create };

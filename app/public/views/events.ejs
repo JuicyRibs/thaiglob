@@ -1,30 +1,107 @@
-<%- include('./includes/header.ejs') %> 
+<%- include('./includes/header.ejs') %>
 
-    <!-- #Cover -->
-    <section class="cover event">
-      <div class="container">
-        <div class="row py-5 text-center">
-          <div class="col">
-            <h1>Events</h1>
-            <p>What we do recently</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- #EndCover -->
+<!-- #Cover -->
+<section class="cover event">
+	<div class="container">
+		<div class="row py-5 text-center">
+			<div class="col">
+				<h1>Events</h1>
+				<p>What we do recently</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #EndCover -->
 
-    <!-- #NewsBlock -->
-    <div class="container">
-      <div class="row">
-        <%- include('./card.ejs') %>
-          <%- include('./card.ejs') %> 
-          <%- include('./card.ejs') %> 
-          <%- include('./card.ejs') %> 
-          <%- include('./card.ejs') %> 
-          <%- include('./card.ejs') %> 
-          <%- include('./card.ejs') %> 
-      </div>
-    </div>
-    <!-- #EndNewsBlock -->
-    <%- include('./includes/pagination.ejs') %> 
-<%- include('./includes/footer.ejs') %> 
+<!-- #NewsBlock -->
+<% if (!Array.isArray(posts) || !posts.length) { %>
+<section>
+	<div class="container">
+		<h1>There is currently no Events</h1>
+	</div>
+</section>
+<% }else {%>
+<section>
+	<div class="container">
+		<div class="row">
+			<% for(post of posts) {%>
+			<div class="col-lg-4 col-md-6 col-sm-12 mx-0">
+				<div class="card mt-4">
+					<a href="post/<%- post.id %> " class="postblock">
+						<div class="card-body">
+							<div class="card-text">
+								<img
+									src="<%- (post.imgPath)?post.imgPath:'/assets/images/demonews.jpg' %>"
+									alt="post_image"
+								/>
+								<div class="mt-2">
+									<h3 class="mb-0"><%- post.title %></h3>
+								</div>
+								<small><%- post.tags %></small><br />
+								<p>
+									<%- post.desc %>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</section>
+<% } %>
+<!-- #EndNewsBlock -->
+<!-- #Pagination -->
+<% if(pages>0) {%>
+<section class="my-5">
+	<!-- #currentPage -->
+
+	<h4>
+		Page
+		<span><%= currentPage %></span>
+		of
+		<span><%= pages %></span>
+	</h4>
+	<!-- #EndCurrentPage -->
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+			<% if (currentPage == 1 && pages > 1) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/events/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>"
+					>Page <%= parseInt(currentPage) + 1 %> ></a
+				>
+			</li>
+			<% } else if (currentPage < pages) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/events/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
+					>< Page <%= parseInt(currentPage) - 1 %>
+				</a>
+			</li>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/events/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>"
+					>Page <%= parseInt(currentPage) + 1 %> ></a
+				>
+			</li>
+			<% } else if (currentPage == pages && pages > 1) { %>
+			<li class="page-item">
+				<a
+					class="page-link"
+					href="/events/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
+					>< Page <%=parseInt(currentPage) - 1 %>
+				</a>
+			</li>
+			<% } %>
+		</ul>
+	</nav>
+</section>
+<% } %>
+
+<!-- #EndPagination -->
+<%- include('./includes/footer.ejs')%>

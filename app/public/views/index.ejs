@@ -129,9 +129,29 @@
 		<div class="container">
 			<h1>Latest Updates</h1>
 			<div class="row">
-				<%- include('./card.ejs') %>
-				<%- include('./card.ejs') %>
-				<%- include('./card.ejs') %>
+				<% for(post of posts) {%>
+			<div class="col-lg-4 col-md-6 col-sm-12 mx-0">
+				<div class="card mt-4">
+					<a href="post/<%- post.id %> " class="postblock">
+						<div class="card-body">
+							<div class="card-text">
+								<img
+									src="<%- (post.imgPath)?post.imgPath:'/assets/images/demonews.jpg' %>"
+									alt="post_image"
+								/>
+								<div class="mt-2">
+									<h3 class="mb-0"><%- post.title %></h3>
+								</div>
+								<small><%- post.tags %></small><br />
+								<p>
+									<%- post.desc %>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<% } %>
 			</div>
 		</div>
 	</section>

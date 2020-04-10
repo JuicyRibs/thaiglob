@@ -1,100 +1,72 @@
-<%- include('./includes/header.ejs') %> 
+<%- include('./includes/header.ejs') %>
 
-    <!-- #Cover -->
-    <section class="cover research">
-      <div class="container">
-        <div class="row py-5 text-center">
-          <div class="col">
-            <h1>Research</h1>
-            <p>Our research database</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- #EndCover -->
+<!-- #Cover -->
+<section class="cover research">
+	<div class="container">
+		<div class="row py-5 text-center">
+			<div class="col">
+				<h1>Research</h1>
+				<p>Our research database</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #EndCover -->
 
-    <!-- #Table -->
-    <section>
-      <div class="container">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Title</th>
-              <th scope="col">PI</th>
-              <th scope="col">Institute</th>
-              <th scope="col">Active Year</th>
-              <th scope="col">Fund Source</th>
-              <th scope="col">Status</th>
-              <th scope="col">Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Phenological characteristics of different forest
-                ecosystems with different latitudinal gradients and its
-                responses to climate change in southwest China- Indo –
-                China peninsula region based on canopy colour index</td>
-              <td>Sirinthornthe
-                p
-                Towprayoon</td>
-              <td>King’s Mongkut
-                University of
-                Technology
-                Thonburi
-                </td>
-              <td>2020-2022</td>
-              <td> </td>
-              <td>Concept
-                Approved</td>
-              <td>
-                <i class="fa fa-cloud-download" style="color: black;"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Variations of the Flood/Drought Condition over the
-                Indochina Peninsula: Characteristics, Mechanisms and
-                Impacts on Water Resources</td>
-              <td>Thidarat
-                BUNSRI
-                </td>
-              <td>King’s Mongkut
-                University of
-                Technology
-                Thonburi
-                </td>
-              <td>M2020-2022 ark</td>
-              <td> </td>
-              <td>Concept
-                Approved</td>
-              <td><i class="fa fa-cloud-download"></i></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Variability and Mechanism of Extreme Floods Associated
-                with the Activity of Tropic Cyclones under Changing
-                Climate and the development of Climate Change
-                Information System to support robust decision-making
-                process in adapting to the impacts of climate change in
-                the Southeast Asia region</td>
-              <td>Jerasorn
-                Santisirisomb
-                oon</td>
-              <td>Ramkhamhaeng
-                University</td>
-              <td>2020-2022 </td>
-              <td> </td>
-              <td>Concept
-                Approved
-                </td>
-              <td><i class="fa fa-cloud-download"></i></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-    <!-- #EndTable -->
-    <%- include('./includes/pagination.ejs') %> 
-<%- include('./includes/footer.ejs') %> 
+<!-- #Table -->
+<section>
+	<div class="container">
+		<table class="table" id="table_id">
+			<thead>
+				<tr>
+					<th scope="col">No.</th>
+					<th scope="col">Title</th>
+					<th scope="col">PI</th>
+					<th scope="col">Institute</th>
+					<th scope="col">Active Year</th>
+					<th scope="col">Fund Source</th>
+					<th scope="col">Status</th>
+					<th scope="col">Download</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for([index, research] of researches.entries()) {%>
+				<tr>
+					<th scope="row"><%- index %></th>
+					<td>
+						<%- research.title %>
+					</td>
+					<td><%- research.author %></td>
+					<td><%- research.institute %></td>
+					<td><%- research.activeYear %></td>
+					<td><%- research.fundSource %></td>
+					<td><%- research.status %></td>
+					<td>
+						<a href="<%- research.dlPath %>" download>
+							<i
+								class="fa fa-cloud-download"
+								style="color: black;"
+							></i
+						></a>
+					</td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</section>
+<!-- #EndTable -->
+<!-- #StartPagination -->
+<script
+	type="text/javascript"
+	charset="utf8"
+	src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"
+></script>
+
+<script>
+	$(document).ready(function() {
+		$('#table_id').dataTable();
+	});
+</script>
+<!-- #EndPagination -->
+<%- include('./includes/footer.ejs') %>
