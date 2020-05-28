@@ -1,22 +1,33 @@
-body {
-    font-family: 'Roboto Condensed', sans-serif;
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.covershow .row{
+.navbar-nav {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.cloud{
+    font-family: Cloud;
+    font-weight: lighter;
+    src: url(../fonts/Cloud-Light.otf)
+}
+
+.covershow .row {
     width: 100vw;
-    height: 30rem;
+    height: 45rem;
 }
 
-.cover{
+.cover {
     /* min-height: 20rem; */
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    height: 100%;
 }
 
-.cover.home{
+.cover.home {
     background-image: url("../images/bg.jpg");
-    height: 30rem;
 }
 
 .cover.book {
@@ -52,13 +63,23 @@ body {
 }
 
 .hyperlink img {
-    width: 35%;
-    padding-bottom: 1em;
+    width: 50%;
+    padding-bottom: 2em;
+    border-bottom: 3px black solid;
+    margin-bottom: 1em;
 }
 
 .hyperlink a:hover {
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.carousel-inner div {
+    width: 100vw;
+}
+
+.innerText {
+    padding-left: 10rem;
 }
 
 .bottom {
@@ -98,8 +119,8 @@ tr td:last-child {
 }
 
 footer {
-    background-color: #2E75B6;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 a:any-link {
@@ -107,24 +128,78 @@ a:any-link {
     color: black;
 }
 
-.postblock:hover{
+.postblock:hover {
     transform: scale(1.03);
 }
 
-.social-menu{
+.social-menu {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.social-menu i {
+    margin-left: 10px;
     font-size: 1.8em;
 }
 
-.social-menu i{
-    margin-left: 1em;
-}
-
-.media img{
+.media img {
     width: 100%;
     object-fit: contain;
 }
 
-.media.row div{
+.media.row div {
     padding: 1em;
-    
+
+}
+
+
+/* Update tab in index */
+.tab{
+    padding: 50px 0px;
+    width: 25vw;
+    background-color: #CECECE;
+}
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 11px 0px 11px 88px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab div {
+    margin: 11px 0px 11px 9vw;
+}
+
+.tablinks img {
+    width: 3.5em;
+    margin: 0px 15px;
+    padding: 8px;
+    background-color: #393838;
+    border: #393838 1px solid;
+    border-radius: 30px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  color: #28A745;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  width: 70vw;
+  border-left: none;
+  height: 30rem;
 }
