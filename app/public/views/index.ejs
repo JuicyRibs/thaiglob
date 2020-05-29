@@ -1,7 +1,7 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section>
+<!-- <section> -->
   <div class="covershow">
     <div class="row">
       <div id="homecover" class="carousel slide" data-ride="carousel">
@@ -40,30 +40,30 @@
       </div>
     </div>
   </div>
-</section>
+<!-- </section> -->
 <!-- EndCover -->
 
 <!-- #HyperLinked -->
 <section>
   <div class="container">
     <div class="row justify-content-center hyperlink text-center my-5">
-      <a class="col-md-3 col-sm-12" href="books">
+      <a class="col-md-3 col-sm-12" href="/researches">
         <img src="../assets/images/projects.png" />
         <h4>Research Projects</h4>
         <p>โครงการวิจัย</p>
       </a>
-      <a class="col-md-3 col-sm-12" href="news">
+      <a class="col-md-3 col-sm-12" href="/">
         <img src="../assets/images/issues.png" />
         <h4>Research Issues</h4>
         <p>ประเด็นวิจัย</p>
       </a>
-      <a class="col-md-3 col-sm-12" href="articles">
+      <a class="col-md-3 col-sm-12" href="/">
         <img src="../assets/images/knowledge.png" />
         <h4>Knowledge Corner</h4>
         <p>มุมความรู้<br>
           ด้านการเปลี่ยนแปลงภูมิอากาศ</p>
       </a>
-      <a class="col-md-3 col-sm-12" href="events">
+      <a class="col-md-3 col-sm-12" href="/">
         <img src="../assets/images/connect.png" />
         <h4>Contact us</h4>
         <p>ติดต่อเรา</p>
@@ -91,11 +91,11 @@
     </div>
 
     <div id="Book" class="tabcontent">
-      <p>London is the capital city of England.</p>
+      <%- include('./update_tab/booktab.ejs') %>
     </div>
 
     <div id="Article" class="tabcontent" style="display: none;">
-      <p>Paris is the capital of France.</p>
+      <%- include('./update_tab/utilitytabs.ejs') %>
     </div>
 
     <div id="Media" class="tabcontent" style="display: none;">

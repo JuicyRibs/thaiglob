@@ -2,6 +2,15 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, 
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
 .navbar-nav {
     font-size: 1.3em;
     font-weight: 600;
@@ -14,7 +23,7 @@ body{
 }
 
 .covershow .row {
-    width: 100vw;
+    width: 100%;
     height: 45rem;
 }
 
@@ -23,7 +32,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .cover.home {
@@ -103,7 +112,11 @@ body{
 }
 
 tr td:last-child {
-    padding-left: 3em;
+    margin-left: 3em;
+}
+
+.research-entry {
+    border: 2px rgb(0, 0, 0) solid;
 }
 
 .post-header {
@@ -123,7 +136,7 @@ footer {
     color: black;
 }
 
-a:any-link {
+.hyperlink a {
     text-decoration: none;
     color: black;
 }
@@ -199,7 +212,12 @@ a:any-link {
 .tabcontent {
   float: left;
   padding: 0px 12px;
-  width: 70vw;
+  width: 75vw;
   border-left: none;
-  height: 30rem;
+  height: fit-content;
+  background-color: #F1F1F1;
+}
+
+.date {
+    color: #51991E;
 }
