@@ -90,6 +90,14 @@ body {
     margin-bottom: 1em;
 }
 
+.hyperlink p {
+    font-family: Cloud;
+    font-weight: lighter;
+    src: url(../fonts/Cloud-Light.otf);
+    font-size: 1.2em;
+    
+}
+
 .hyperlink a:hover {
     transform: scale(1.2);
     cursor: pointer;
@@ -200,6 +208,7 @@ footer {
     padding: 50px 0px;
     width: 25vw;
     background-color: #CECECE;
+    font-size: 1.2em;
 }
 .tab button {
   display: block;
@@ -219,7 +228,7 @@ footer {
 }
 
 .tablinks img {
-    width: 3.5em;
+    width: 2.5em;
     margin: 0px 15px;
     padding: 8px;
     background-color: #393838;
