@@ -8,5 +8,6 @@ router.get('/about', indexController.getAbout);
 router.get('/update', indexController.getUpdates);
 router.get('/contact', indexController.getContact);
 router.get('/media', indexController.getMedia);
+router.get('/research-issues', indexController.getIssues);
 
 module.exports = router;
