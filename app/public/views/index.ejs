@@ -1,7 +1,7 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section>
+<!-- <section> -->
   <div class="covershow">
     <div class="row">
       <div id="homecover" class="carousel slide" data-ride="carousel">
@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-</section>
+<!-- </section> -->
 <!-- EndCover -->
 
 <!-- #HyperLinked -->
@@ -91,11 +91,11 @@
     </div>
 
     <div id="Book" class="tabcontent">
-      <p>London is the capital city of England.</p>
+      <%- include('./update_tab/booktab.ejs') %>
     </div>
 
     <div id="Article" class="tabcontent" style="display: none;">
-      <p>Paris is the capital of France.</p>
+      <%- include('./update_tab/utilitytabs.ejs') %>
     </div>
 
     <div id="Media" class="tabcontent" style="display: none;">
