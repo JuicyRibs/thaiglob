@@ -30,9 +30,10 @@ body {
 .cover {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     color: white;
     height: 20rem;
-    
+
 }
 
 .covertitle {
@@ -117,9 +118,22 @@ body {
     bottom: 0;
 }
 
-.book-card img {
-    width: 140px;
-    height: 210px;
+.booklist a {
+    text-decoration: none;
+    color: black;
+}
+
+.booklist:hover {
+    transform: scale(1.03);
+}
+
+.booklist img {
+    width: 100%;
+}
+
+.booklist .cloud {
+    font-size: large;
+    font-weight: 600;
 }
 
 .card-text small {
@@ -179,9 +193,7 @@ footer {
     color: black;
 }
 
-.postblock:hover {
-    transform: scale(1.03);
-}
+.postblock:hover {}
 
 .social-menu {
     font-size: 1.5em;
@@ -262,12 +274,6 @@ footer {
     color: #51991E;
 }
 
-.corner>h2 {
-    width: fit-content;
-    border-bottom: 1px #707070 solid;
-    color: #669900;
-}
-
 .corner .cloud {
     font-size: 1.3em;
 }
@@ -277,6 +283,20 @@ footer {
 
 }
 
+.corner>a h2 {
+    width: fit-content;
+    border-bottom: 1px #707070 solid;
+    color: #669900;
+}
+
+.corner>a h2:hover {
+    transform: scale(1.1);
+}
+
+.corner>a:hover {
+    text-decoration: none;
+}
+
 .corner img {
     width: 100%;
 }
@@ -284,12 +304,6 @@ footer {
 .gry {
     background-color: #EEF1EF;
 }
-
-/* .bigbook img{
-    width: 80%;
-    margin-right: 4%;
-    margin-left: 16%;
-} */
 
 .btn-circle.btn-lg {
     z-index: 9999;

@@ -1,23 +1,65 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section class="cover article">
-	<div class="container">
-		<div class="row py-5 text-center">
-			<div class="col">
-				<h1>Article</h1>
-				<p>Latest Articles from our organization</p>
+<div class="cover article">
+	<div class="row" style="height: 100%;">
+		<div class="my-auto innerText">
+			<div class="covertitle">
+				Articles and Infographics
+				<p class="cloud">
+					บทความและอินโฟกราฟฟิก
+				</p>
 			</div>
 		</div>
 	</div>
-</section>
+</div>
+
 <!-- #EndCover -->
+
+<div class="container">
+	<div class="row my-3">
+		<div class="col-6">
+			<p>
+				<a href="/" style="text-decoration: none; color: black;">Home</a>
+				>
+				<span>
+					<a href="/knowledge-corner" style="text-decoration: none; color: black;">Knowledge Corner</a>
+				</span>
+				>
+				<span>
+					<a href="/articles" style="text-decoration: none; color: #28a745;">Articles and Infographics
+					</a>
+				</span>
+			</p>
+		</div>
+		<div class="col-6">
+			<form class="row">
+				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
+					name="search" style="width: 80%;" />
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+					Filter
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <!-- #NewsBlock -->
 <% if (!Array.isArray(posts) || !posts.length) { %>
-<section>
-	<div class="container">
-		<h1>There is currently no Articles</h1>
+<section style="height: 75vh;">
+	<div class="row cloud" style="height: 100%;">
+		<div class="my-auto mx-auto text-center">
+			<div style="font-size: 2em;">
+				ไม่พบบทความที่ท่านต้องการ
+			</div>
+			<br />
+			<div style="font-size: 1.5em;">
+				The article you're looking for is not available
+			</div>
+			<button class="btn btn-success mt-4" onclick="window.location.href='/articles'">
+				ย้อนกลับ
+			</button>
+		</div>
 	</div>
 </section>
 <% }else {%>
@@ -25,26 +67,13 @@
 	<div class="container">
 		<div class="row">
 			<% for(post of posts) {%>
-			<div class="col-lg-4 col-md-6 col-sm-12 mx-0">
-				<div class="card mt-4">
-					<a href="post/<%- post.id %> " class="postblock">
-						<div class="card-body">
-							<div class="card-text">
-								<img
-									src="<%- (post.imgPath)?post.imgPath:'/assets/images/demonews.jpg' %>"
-									alt="post_image"
-								/>
-								<div class="mt-2">
-									<h3 class="mb-0"><%- post.title %></h3>
-								</div>
-								<small><%- post.tags %></small><br />
-								<p>
-									<%- post.desc %>
-								</p>
-							</div>
-						</div>
-					</a>
-				</div>
+			<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+				<a href="post/<%- post.id %> " class="postblock" style="text-decoration: none;">
+					<!-- <img src="<%- (post.imgPath)?post.imgPath:'/assets/images/demoarticle.jpg' %>" /> -->
+					<img src="../assets/images/demoarticle.jpg">
+					<div class="cloud"><%- post.title %></div>
+					<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
+				</a>
 			</div>
 			<% } %>
 		</div>
@@ -68,40 +97,20 @@
 		<ul class="pagination justify-content-center">
 			<% if (currentPage == 1 && pages > 1) { %>
 			<li class="page-item">
-				<a
-					class="page-link"
-					href="/articles/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>"
-					>Page <%= parseInt(currentPage) + 1 %> ></a
-				>
+				<a class="page-link" href="/articles/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>">Page
+					<%= parseInt(currentPage) + 1 %> ></a>
 			</li>
 			<% } else if (currentPage < pages) { %>
 			<li class="page-item">
-				<a
-					class="page-link"
-					href="/articles/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
-					>< Page <%= parseInt(currentPage) - 1 %>
-				</a>
-			</li>
-			<li class="page-item">
-				<a
-					class="page-link"
-					href="/articles/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>"
-					>Page <%= parseInt(currentPage) + 1 %> ></a
-				>
+				<a class="page-link" href="/articles/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>">
+					< Page <%= parseInt(currentPage) - 1 %> </a> </li> <li class="page-item">
+						<a class="page-link"
+							href="/articles/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>">Page
+							<%= parseInt(currentPage) + 1 %> ></a>
 			</li>
 			<% } else if (currentPage == pages && pages > 1) { %>
 			<li class="page-item">
-				<a
-					class="page-link"
-					href="/articles/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
-					>< Page <%=parseInt(currentPage) - 1 %>
-				</a>
-			</li>
-			<% } %>
-		</ul>
-	</nav>
-</section>
-<% } %>
-
-<!-- #EndPagination -->
-<%- include('./includes/footer.ejs')%>
+				<a class="page-link" href="/articles/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>">
+					< Page <%=parseInt(currentPage) - 1 %> </a> </li> <% } %> </ul> </nav> </section> <% } %> <!--
+						#EndPagination -->
+						<%- include('./includes/footer.ejs')%>
