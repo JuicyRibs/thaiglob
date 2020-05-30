@@ -3,7 +3,7 @@ const router = express.Router();
 
 const researchController = require('../controllers/research');
 
-router.get('/researches/:page?', researchController.getResearchPage);
-router.post('/researches/', researchController.create);
+router.get('/research/:page?', researchController.getResearchPage);
+router.post('/research/', researchController.create);
 
 module.exports = router;

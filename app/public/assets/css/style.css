@@ -67,8 +67,8 @@ body {
     background-image: url("../images/eventcover.jpg");
 }
 
-.cover.climate {
-    background-image: url("../images/climatecover.jpg");
+.cover.corner {
+    background-image: url("../images/cornercover.jpg");
 }
 
 .cover.research {
@@ -259,3 +259,32 @@ footer {
 .date {
     color: #51991E;
 }
+
+.corner>h2 {
+    width: fit-content;
+    border-bottom: 1px #707070 solid;
+    color: #669900;
+}
+
+.corner .cloud {
+    font-size: 1.3em;
+}
+
+.corner button {
+    width: 100%;
+
+}
+
+.corner img {
+    width: 100%;
+}
+
+.gry {
+    background-color: #EEF1EF;
+}
+
+/* .bigbook img{
+    width: 80%;
+    margin-right: 4%;
+    margin-left: 16%;
+} */

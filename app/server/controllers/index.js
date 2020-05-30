@@ -13,8 +13,8 @@ exports.getAbout = async (req, res) =>
     title: "ThaiGlob - Who We Are",
   });
 
-exports.getUpdates = async (req, res) =>
-  res.render("updates", {
+exports.getCorner = async (req, res) =>
+  res.render("knowledge_corner", {
     title: "ThaiGlob - Thailand Climate Changes",
   });
 

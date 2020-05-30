@@ -5,7 +5,7 @@ const indexController = require('../controllers/index');
 
 router.get('/', indexController.getIndex);
 router.get('/about', indexController.getAbout);
-router.get('/update', indexController.getUpdates);
+router.get('/knowledge-corner', indexController.getCorner);
 router.get('/contact', indexController.getContact);
 router.get('/media', indexController.getMedia);
 router.get('/research-issues', indexController.getIssues);
