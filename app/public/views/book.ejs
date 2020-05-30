@@ -1,141 +1,86 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section class="cover book">
-	<div class="container">
-		<div class="row py-5 text-center">
-			<div class="col">
-				<h1>Publications</h1>
-				<p>Books collection realated to our organization</p>
+<div class="cover book">
+	<div class="row" style="height: 100%;">
+		<div class="my-auto innerText">
+			<div class="covertitle">
+				Publication
+				<p class="cloud">
+					หนังสือและสิ่งพิมพ์
+				</p>
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 <!-- EndCover -->
+
+<div class="container">
+	<div class="row my-3">
+		<div class="col-6">
+			<p>
+				<a href="/" style="text-decoration: none; color: black;">Home</a>
+				>
+				<span>
+					<a href="/knowledge-corner" style="text-decoration: none; color: black;">Knowledge Corner</a>
+				</span>
+				>
+				<span>
+					<a href="/publication" style="text-decoration: none; color: #28a745;">Publication</a>
+				</span>
+			</p>
+		</div>
+		<div class="col-6">
+			<form class="row">
+				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
+					name="search" style="width: 80%;" />
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+					Filter
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <!-- #Pinned Book -->
 <% if (!Array.isArray(books) || !books.length) { %>
-<section>
-	<div class="container">
-		<h1>There is currently no books</h1>
+<section style="height: 75vh;">
+	<div class="row cloud" style="height: 100%;">
+		<div class="my-auto mx-auto text-center">
+			<div style="font-size: 2em;">
+				ไม่พบหนังสือที่ท่านต้องการ
+			</div>
+			<br />
+			<div style="font-size: 1.5em;">
+				The book you're looking for is not available
+			</div>
+			<button class="btn btn-success mt-4" onclick="window.location.href='/publication'">
+				ย้อนกลับ
+			</button>
+		</div>
 	</div>
 </section>
 <% }else {%>
-<section>
-	<div class="container">
-		<div class="row justify-content-center text-center my-5">
-			<% for(pinned of pinnedBooks){ %>
-			<a class="col-md-4 col-sm-12">
-				<img
-					src="<%- (pinned.imgPath)?pinned.imgPath:'/assets/images/examplebook.jpg' %>"
-				/>
-				<div class="my-2">
-					<h4><%- pinned.title %></h4>
-					<p><%- pinned.desc %></p>
-				</div>
-			</a>
-			<% } %>
-		</div>
-	</div>
-</section>
-<!-- #End Pinned Book -->
-
-<section>
-	<div class="container">
-		<form class="row justify-content-center">
-			<input
-				class="form-control mx-3"
-				type="search"
-				placeholder="Search"
-				aria-label="Search"
-				name="search"
-				style="width: 50%;"
-			/>
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-				Search
-			</button>
-		</form>
-	</div>
-</section>
-
 <!-- #BookList -->
 <section class="mt-5">
 	<div class="container">
-		<% for(book of books){ %>
-		<div class="book-card">
-			<div class="row">
-				<div
-					class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center"
-				>
-					<img
-						src="<%- (book.imgPath)?book.imgPath:'/assets/images/examplebook.jpg' %>"
-					/>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-8 my-2">
-					<h4><%- book.id %></h4>
-					<p><%- book.desc %></p>
-					<div class="btn btn-outline-success mb-3 bottom">
-						Download
-					</div>
-				</div>
+		<div class="row">
+			<% for(book of books){ %>
+			<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+				<img src="<%- (book.imgPath)?book.imgPath:'/assets/images/examplebook.jpg' %>" />
+				<div class="cloud"><%- book.id %></div>
+				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
 			</div>
+			<% } %>
 		</div>
-		<hr />
-		<% } %>
+		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
+		</button>
 	</div>
 </section>
 <!-- #EndBookList -->
 <% } %>
-<!-- #Pagination -->
-<% if(pages>0) {%>
-<section class="my-5">
-	<!-- #currentPage -->
 
-	<h4>
-		Page
-		<span><%= currentPage %></span>
-		of
-		<span><%= pages %></span>
-	</h4>
-	<!-- #EndCurrentPage -->
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<% if (currentPage == 1 && pages > 1) { %>
-			<li class="page-item">
-				<a
-					class="page-link"
-					href="/books/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>"
-					>Page <%= parseInt(currentPage) + 1 %> ></a
-				>
-			</li>
-			<% } else if (currentPage < pages) { %>
-			<li class="page-item">
-				<a
-					class="page-link"
-					href="/books/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
-					>< Page <%= parseInt(currentPage) - 1 %>
-				</a>
-			</li>
-			<li class="page-item">
-				<a
-					class="page-link"
-					href="/books/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>"
-					>Page <%= parseInt(currentPage) + 1 %> ></a
-				>
-			</li>
-			<% } else if (currentPage == pages && pages > 1) { %>
-			<li class="page-item">
-				<a
-					class="page-link"
-					href="/books/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>"
-					>< Page <%=parseInt(currentPage) - 1 %>
-				</a>
-			</li>
-			<% } %>
-		</ul>
-	</nav>
-</section>
-<% } %>
 
 <!-- #End Pagination -->
 <%- include('./includes/footer.ejs') %>
