@@ -15,24 +15,47 @@
 </div>
 <!-- EndCover -->
 
+<div class="container">
+  <p class="my-3">
+    <a href="/" style="text-decoration: none; color: black;">Home</a>
+    >
+    <span>
+      <a href="/about" style="text-decoration: none; color: #28a745;"
+        >About Us</a
+      >
+    </span>
+  </p>
+</div>
+
 <!-- #TextSection -->
 <section>
   <div class="container my-5">
     <div class="row">
+      <div class="col text-center">
+        <img src="../assets/images/logo.png" style="width: 75%; height: auto;">
+      </div>
       <div class="col-sm-12 col-md-6 col-lg-8 my-auto">
-        <h2 style="font-weight: 300;" class="cloud">ศูนย์ประสานงานและพัฒนางานวิจัยด้านโลกร้อนและการเปลี่ยนแปลงสภาพภูมิอากาศ (THAI-GLOB)</h2>
+        <h2 style="font-weight: 300;" class="cloud">
+          ศูนย์ประสานงานและพัฒนางานวิจัยด้านโลกร้อนและการเปลี่ยนแปลงสภาพภูมิอากาศ (THAI-GLOB)</h2>
         <p>เป็นศูนย์ประสานงานและพัฒนางานวิจัยด้านโลกร้อนและการเปลี่ยนแปลงสภาพภูมิอากาศ
           ภายใต้การสนับสนุนจากสำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์วิจัยและนวัตกรรม (สกสว.) และสำนักงานการวิจัยแห่งชาติ
           (วช.) มีภารกิจหลัก คือ
           เพื่อสร้างและสนับสนุนให้เกิดโครงการวิจัยชนิดบูรณาการในประเด็นวิจัยด้านโลกร้อนและการเปลี่ยนแปลงภูมิอากาศ
           รวมไปถึงการติดตามและประสานงานภายในและภายนอกชุดโครงการเพื่อให้โครงการวิจัยบรรลุเป้าหมายตามที่วางไว้และเกิดประโยชน์อย่างเป็นรูปธรรม
         </p>
-      </div>
-      <div class="col text-center">
-        <img src="../assets/images/project logo ใส.png" style="width: 75%; height: auto;">
+        <button class="btn btn-success cloud px-4" onclick="window.location.href='/contact'"
+          style="font-size: 1.2em;">ติดต่อเรา</button>
       </div>
     </div>
   </div>
 </section>
 <!-- #endTextSection -->
+
+<!-- Timeline -->
+<section class="gry py-5">
+  <div class="container">
+    <h2 class="pb-4" style="font-weight: 700; color: #669900;">THAI-GLOB Timeline</h2>
+    <img src="../assets/images/timeline.png">
+  </div>
+</section>
 <%- include('./includes/footer.ejs') %>

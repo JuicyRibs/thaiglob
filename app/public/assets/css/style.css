@@ -85,6 +85,10 @@ body {
     background-image: url("../images/mediacover.jpg");
 }
 
+.cover.contact {
+    background-image: url("../images/contactcover.jpg");
+}
+
 .hyperlink img {
     width: 50%;
     padding-bottom: 2em;
@@ -331,4 +335,9 @@ footer {
 .medialist .cloud {
     font-size: large;
     font-weight: 600;
+}
+
+.contactDetail img {
+    height: 3em;
+    margin-right: 1em;
 }
