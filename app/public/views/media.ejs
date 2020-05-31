@@ -1,50 +1,62 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section class="cover media">
-	<div class="container my-auto">
-		<div class="row py-5 text-center">
-			<div class="col">
-				<h1>Media</h1>
-				<p>Feature media</p>
+<div class="cover media">
+	<div class="row" style="height: 100%;">
+		<div class="my-auto innerText">
+			<div class="covertitle">
+				Multimedia
+				<p class="cloud">
+					สื่อมัลติมีเดีย
+				</p>
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 <!-- #EndCover -->
+
+<div class="container">
+	<div class="row my-3">
+		<div class="col-6">
+			<p>
+				<a href="/" style="text-decoration: none; color: black;">Home</a>
+				>
+				<span>
+					<a href="/knowledge-corner" style="text-decoration: none; color: black;">Knowledge Corner</a>
+				</span>
+				>
+				<span>
+					<a href="/media" style="text-decoration: none; color: #28a745;">Multimedia</a>
+				</span>
+			</p>
+		</div>
+		<div class="col-6">
+			<form class="row">
+				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
+					name="search" style="width: 80%;" />
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+					Filter
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <!-- #NewsBlock -->
 <section>
 	<div class="container">
-		<div class="row media align-items-center">
-			<div class="col-sm-12 col-md-6">
-				<iframe
-					width="100%"
-					height="315"
-					src="https://www.youtube.com/embed/7nJRGARveVc"
-					frameborder="0"
-					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
-				></iframe>
+		<div class="row">
+			<% for(var i=0; i<8; i++) {%>
+			<div class="col-lg-4 col-md-6 py-4 px-5 medialist">
+				<img src="../assets/images/newscover.jpg"/>
+				<div class="cloud">เปรียบเทียบ Excel Power BI และ Power BI Desktop</div>
+				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
 			</div>
-			<div class="col-sm-12 col-md-6">
-				<img src="../assets/images/articlecover.jpg" />
-			</div>
-			<div class="col-sm-12 col-md-6">
-				<img src="../assets/images/eventcover.jpg" />
-			</div>
-			<div class="col-sm-12 col-md-6">
-				<iframe
-					width="100%"
-					height="315"
-					src="https://www.youtube.com/embed/wpKWAfoW9dY"
-					frameborder="0"
-					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
-				></iframe>
-			</div>
+			<% } %>
 		</div>
-	</div>
+		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
+		</button>
 </section>
 
 <!-- #EndNewsBlock -->

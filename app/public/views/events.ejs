@@ -76,39 +76,11 @@
 			</div>
 			<% } %>
 		</div>
+		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
+		</button>
 	</div>
 </section>
 <% } %>
-<!-- #EndNewsBlock -->
-<!-- #Pagination -->
-<% if(pages>0) {%>
-<section class="my-5">
-	<!-- #currentPage -->
-
-	<h4>
-		Page
-		<span><%= currentPage %></span>
-		of
-		<span><%= pages %></span>
-	</h4>
-	<!-- #EndCurrentPage -->
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<% if (currentPage == 1 && pages > 1) { %>
-			<li class="page-item">
-				<a class="page-link" href="/events/<%= parseInt(currentPage) + 1 %>/?search=<%=searchVal%>">Page
-					<%= parseInt(currentPage) + 1 %> ></a>
-			</li>
-			<% } else if (currentPage < pages) { %>
-			<li class="page-item">
-				<a class="page-link" href="/events/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>">
-					< Page <%= parseInt(currentPage) - 1 %> </a> </li> <li class="page-item">
-						<a class="page-link" href="/events/<%= parseInt(currentPage) + 1 %>/?search<%=searchVal%>">Page
-							<%= parseInt(currentPage) + 1 %> ></a>
-			</li>
-			<% } else if (currentPage == pages && pages > 1) { %>
-			<li class="page-item">
-				<a class="page-link" href="/events/<%= parseInt(currentPage) - 1 %>/?search<%=searchVal%>">
-					< Page <%=parseInt(currentPage) - 1 %> </a> </li> <% } %> </ul> </nav> </section> <% } %> <!--
-						#EndPagination -->
-						<%- include('./includes/footer.ejs')%>
+<!-- End news block -->
+<%- include('./includes/footer.ejs')%>

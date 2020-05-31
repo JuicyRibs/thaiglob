@@ -193,8 +193,6 @@ footer {
     color: black;
 }
 
-.postblock:hover {}
-
 .social-menu {
     font-size: 1.5em;
     font-weight: bolder;
@@ -207,14 +205,9 @@ footer {
 
 .media img {
     width: 100%;
-    object-fit: contain;
+    /* height: 56.25%; */
+    object-fit: cover;
 }
-
-.media.row div {
-    padding: 1em;
-
-}
-
 
 /* Update tab in index */
 .tab {
@@ -238,7 +231,7 @@ footer {
 }
 
 .tab div {
-    margin: 11px 0px 11px 9vw;
+    margin: 11px 0px 11px 8vw;
 }
 
 .tablinks img {
@@ -320,4 +313,22 @@ footer {
     -webkit-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
     box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
+}
+
+.medialist img {
+    width: 100%;
+}
+
+.medialist a {
+    text-decoration: none;
+    color: black;
+}
+
+.medialist:hover {
+    transform: scale(1.03);
+}
+
+.medialist .cloud {
+    font-size: large;
+    font-weight: 600;
 }
