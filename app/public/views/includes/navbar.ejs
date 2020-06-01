@@ -1,46 +1,63 @@
 <section>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div
-			class="collapse navbar-collapse justify-content-between"
-			id="navbarSupportedContent"
-		>
+		<div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 			<a class="navbar-brand" href="/">
-				<img
-					src="/assets/images/project logo ใส.png"
-					style="height: 5em;"
-				/>
+				<img src="/assets/images/project logo ใส.png" style="height: 5em;" />
 			</a>
 			<ul class="navbar-nav">
 				<li class="nav-item active">
 					<a class="nav-link" href="/">Home</a>
 				</li>
 				<li style="border-left: 1px solid rgb(175, 175, 175);"></li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/research">Research Projects</a>
+				<li class="nav-item dropdown active ">
+					<div class="btn-group">
+						<a type="button" href="/research" class="pr-0 nav-link active">Research Project</class=>
+						<a type="button" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <span class="sr-only">Toggle Dropdown</span>
+						</a>
+						<d	iv class="dropdown-menu">
+						  <a class="dropdown-item btn-outline-success" href="/research-issues">Research Issues</a>
+						</d>
+					  </div>
+				</li>
+				<li style="border-left: 1px solid rgb(175, 175, 175);" class=""></li>
+				<li class="nav-item dropdown active ">
+					<div class="btn-group">
+						<a type="button" href="/knowledge-corner" class="pr-0 nav-link active">Knowledge Coner</class=>
+						<a type="button" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <span class="sr-only">Toggle Dropdown</span>
+						</a>
+						<d	iv class="dropdown-menu">
+						  <a class="dropdown-item btn-outline-success" href="/publication">Publication</a>
+						  <a class="dropdown-item btn-outline-success" href="/articles">Articles and Infographics</a>
+						  <a class="dropdown-item btn-outline-success" href="/media">Multimedia</a>
+						  <a class="dropdown-item btn-outline-success" href="/news">Climate Change News</a>
+						  <a class="dropdown-item btn-outline-success" href="/events">Events</a>
+						</d>
+					  </div>
 				</li>
 				<li style="border-left: 1px solid rgb(175, 175, 175);"></li>
 				<li class="nav-item active">
-					<a class="nav-link" href="/knowledge-corner">Knowledge Coner</a>
-				</li>
-				<li style="border-left: 1px solid rgb(175, 175, 175);"></li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/about">About Us</a>
+					<li class="nav-item dropdown active ">
+						<div class="btn-group">
+							<a type="button" href="/about" class="pr-0 nav-link active">About Us</class=>
+							<a type="button" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							  <span class="sr-only">Toggle Dropdown</span>
+							</a>
+							<d	iv class="dropdown-menu">
+							  <a class="dropdown-item btn-outline-success" href="/contact">Contact Us</a>
+							</d>
+						  </div>
+					</li>
 				</li>
 				<li class="nav-item active">
 					<a class="nav-link" href="/"><i class="fa fa-search"></i></a>
-					
+
 				</li>
 			</ul>
 		</div>
