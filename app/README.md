@@ -1,13 +1,13 @@
 # TODO List
 
 -   [x] @ThanadonTee, ADD a todo-list
--   [ ] @ThanadonTee, Backend stuffs
--   [x] @JuicyRibs, ABOUT US Page
--   [x] @JuicyRibs, RESEARCH Page
--   [ ] @JuicyRibs, MULTIMEDIA Page
--   [x] @JuicyRibs, HOME Page
--   [x] @JuicyRibs, NEWS,ARTICLE,EVENTS Page
--   [ ] @JuicyRibs, POST Page
+-   [ ] @ThanadonTee, Image Upload
+-   [ ] @ThanadonTee, ~CR~UD
+-   [ ] @ThanadonTee, Admin Panel
+-   [ ] @ThanadonTee, Quill.js Custom File handler
+-   [ ] @ThanadonTee, ~Check if sending big~ found new lead check https://stackoverflow.com/questions/39457257/ejs-include-on-click
+-   [ ] @ThanadonTee, If above work rewrite some routes
+-   [ ] @ThanadonTee, Clean up code
 
 # File Structure
 
@@ -37,7 +37,7 @@ app
 
 # How to Install
 
-```
+```bash
 npm install
-npm start
+node server/server.js
 ```
