@@ -1,4 +1,4 @@
-const postModel = require('../models/post');
+const postModel = require('../models/news');
 const postMongoose = postModel.postModel;
 
 const escapeRegex = require('../utils/regex-escape');

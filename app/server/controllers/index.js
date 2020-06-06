@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 exports.getIndex = async (req, res) =>
 	res.render('index', {
 		title: 'ThaiGlob',
@@ -38,9 +41,9 @@ exports.getIssues = async (req, res) =>
 		title: 'ThaiGlob - Research Issues',
 	});
 
-exports.getPicturesFileName = (req, res) => {
+exports.getFile = (req, res) => {
 	const fileName = req.params.fileName;
-	const filePath = path.resolve('server', 'uploads', 'pictures', fileName);
+	const filePath = path.resolve('server', 'uploads', fileName);
 
 	try {
 		if (fs.existsSync(filePath)) {

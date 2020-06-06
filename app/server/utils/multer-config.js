@@ -35,5 +35,4 @@ const uploadFile = multer({
 
 module.exports = {
 	uploadFile,
-	uploadDocument,
 };

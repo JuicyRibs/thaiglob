@@ -25,15 +25,6 @@ exports.create = async (req, res) => {
 	}
 };
 
-exports.getPinned = async (req, res) => {
-	const books = await bookModel.getPinned();
-	if (books == null) {
-		res.status(204);
-		res.json(null);
-	}
-	res.json(books);
-};
-
 exports.getBooksPage = async (req, res, next) => {
 	const resPerPage = 9;
 	const page = req.params.page || 1;
@@ -51,7 +42,7 @@ exports.getBooksPage = async (req, res, next) => {
 			books: books,
 			pinnedBooks: pinnedBooks,
 			currentPage: page,
-			pages: Math.ceil(numOfProducts / resPerPage),
+			pages: Math.ceil(numOfProducts / resPerPage), //TODO: Redo this shit
 			searchVal: searchQuery,
 			numOfResults: numOfProducts,
 		});

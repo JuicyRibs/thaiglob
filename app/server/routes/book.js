@@ -5,6 +5,6 @@ const multer = require('../utils/multer-config');
 const bookController = require('../controllers/book');
 
 router.get('/publication/:page?', bookController.getBooksPage);
-router.post('/publication/', multer.uploadDocument, bookController.create);
+router.post('/publication/', multer.uploadFile, bookController.create);
 
 module.exports = router;

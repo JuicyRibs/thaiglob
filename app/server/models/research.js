@@ -33,10 +33,10 @@ const create = async (
 	});
 	return research
 		.save()
-		.catch(err => {
+		.catch((err) => {
 			return err;
 		})
-		.then(data => {
+		.then((data) => {
 			return true;
 		});
 };
