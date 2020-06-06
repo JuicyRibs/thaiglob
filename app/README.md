@@ -1,5 +1,9 @@
 # TODO List
+FRONTEND
+-   [x] @JuicyRibs, ADD Every pages
+-   [ ] @JuicyRibs, Responsive
 
+BACKEND
 -   [x] @ThanadonTee, ADD a todo-list
 -   [ ] @ThanadonTee, Image Upload
 -   [ ] @ThanadonTee, ~CR~UD

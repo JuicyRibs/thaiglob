@@ -1,4 +1,13 @@
-<button id="btt" type="button" class="btn btn-light btn-circle btn-lg">
+<button id="btt" type="button" class="btn btn-light btn-circle btn-lg" onclick="backtotop()">
   <i class="fa fa-angle-up"></i>
 </button>
 
+<script>
+  function backtotop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+</script>
