@@ -15,7 +15,7 @@ mongoose
 	.then(() => {
 		console.log(`Database connected successfully - ${new Date()}`);
 	})
-	.catch(err => console.log(err));
+	.catch((err) => console.log(err));
 const app = express();
 
 const publicPath = path.join(__dirname, '../public');
@@ -43,7 +43,7 @@ app.use(passport.session());
 
 app.disable('x-powered-by');
 
-const indexRoutes = require('./routes/index');
+const appRoutes = require('./routes/app');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const bookRoutes = require('./routes/book');
@@ -56,7 +56,7 @@ app.use('/admin', adminRoutes);
 app.use(bookRoutes);
 app.use(postRoutes);
 app.use(researchRoutes);
-app.use(indexRoutes);
+app.use(appRoutes);
 
 app.listen(process.env.APP_PORT, () => {
 	console.log(

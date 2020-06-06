@@ -4,8 +4,13 @@ const bookMongoose = bookModel.bookModel;
 const escapeRegex = require('../utils/regex-escape');
 
 exports.create = async (req, res) => {
-	var dlPath; /*TODO Implement Upload*/
-	var imgPath; /*TODO Implement Upload*/
+	if (!req.files) {
+		res.status(500).send({
+			error: 'SERVER ERROR: CANNOT CREATE FILE',
+		});
+	}
+	var imgPath = req.files[0]['filename']; /*TODO Implement Upload*/
+	var dlPath = req.files[1]['filename']; /*TODO Implement Upload*/
 	const result = await bookModel.create(
 		req.body.title,
 		req.body.desc,

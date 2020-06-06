@@ -1,11 +1,14 @@
 # TODO List
+
 FRONTEND
+
 -   [x] @JuicyRibs, ADD Every pages
 -   [ ] @JuicyRibs, Responsive
 
 BACKEND
+
 -   [x] @ThanadonTee, ADD a todo-list
--   [ ] @ThanadonTee, Image Upload
+-   [x] @ThanadonTee, File Upload
 -   [ ] @ThanadonTee, ~CR~UD
 -   [ ] @ThanadonTee, Admin Panel
 -   [ ] @ThanadonTee, Quill.js Custom File handler

@@ -1,27 +1,27 @@
 exports.getIndex = async (req, res) =>
-  res.render("index", {
-    title: "ThaiGlob",
-  });
+	res.render('index', {
+		title: 'ThaiGlob',
+	});
 
 exports.getResearches = async (req, res) =>
-  res.render("research", {
-    title: "ThaiGlob - Researches",
-  });
+	res.render('research', {
+		title: 'ThaiGlob - Researches',
+	});
 
 exports.getAbout = async (req, res) =>
-  res.render("about", {
-    title: "ThaiGlob - Who We Are",
-  });
+	res.render('about', {
+		title: 'ThaiGlob - Who We Are',
+	});
 
 exports.getCorner = async (req, res) =>
-  res.render("knowledge_corner", {
-    title: "ThaiGlob - Thailand Climate Changes",
-  });
+	res.render('knowledge_corner', {
+		title: 'ThaiGlob - Thailand Climate Changes',
+	});
 
 exports.getContact = async (req, res) =>
-  res.render("contact", {
-    title: "ThaiGlob - Contact Us",
-  });
+	res.render('contact', {
+		title: 'ThaiGlob - Contact Us',
+	});
 
 // exports.getPost = async (req, res) =>
 // 	res.render('post', {
@@ -29,11 +29,26 @@ exports.getContact = async (req, res) =>
 // 	});
 
 exports.getMedia = async (req, res) =>
-  res.render("media", {
-    title: "ThaiGlob - Media",
-  });
+	res.render('media', {
+		title: 'ThaiGlob - Media',
+	});
 
 exports.getIssues = async (req, res) =>
-  res.render("issue", {
-    title: "ThaiGlob - Research Issues",
-  });
+	res.render('issue', {
+		title: 'ThaiGlob - Research Issues',
+	});
+
+exports.getPicturesFileName = (req, res) => {
+	const fileName = req.params.fileName;
+	const filePath = path.resolve('server', 'uploads', 'pictures', fileName);
+
+	try {
+		if (fs.existsSync(filePath)) {
+			res.sendFile(filePath);
+		} else {
+			res.sendStatus(404);
+		}
+	} catch (err) {
+		console.error(`'/pictures/${fileName}': Error due to ${err}`);
+	}
+};

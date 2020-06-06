@@ -9,5 +9,6 @@ router.get('/knowledge-corner', indexController.getCorner);
 router.get('/contact', indexController.getContact);
 router.get('/media', indexController.getMedia);
 router.get('/research-issues', indexController.getIssues);
+router.get('/pictures/:fileName', indexController.getPicturesFileName);
 
 module.exports = router;
