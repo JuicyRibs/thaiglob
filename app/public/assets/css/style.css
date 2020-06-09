@@ -20,10 +20,13 @@ body {
     font-weight: 600;
 }
 
+@font-face {
+    font-family: Cloud;
+    src: url(../fonts/Cloud-Light.otf);
+}
+
 .cloud {
     font-family: Cloud;
-    font-weight: lighter;
-    src: url(../fonts/Cloud-Light.otf)
 }
 
 .covershow .row {
@@ -229,7 +232,7 @@ footer {
     display: block;
     background-color: inherit;
     color: black;
-    padding: 11px 0px 11px 88px;
+    padding: 11px 0px 11px 44px;
     width: 100%;
     border: none;
     outline: none;
