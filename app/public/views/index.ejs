@@ -76,7 +76,7 @@
 <!-- Update tab -->
 <section class="mb-0">
   <div class="row">
-    <div class="tab cloud">
+    <div class="tab cloud" openTab(event, 'Book')>
       <button class="tablinks active" onclick="openTab(event, 'Book')"><img
           src="../assets/images/tabicon/book.png" />หนังสือและสิ่งพิมพ์</button>
       <button class="tablinks" onclick="openTab(event, 'Article')"><img
@@ -90,7 +90,7 @@
       <div class="btn btn-success cloud px-4 py-2" style="font-size: 1.2em; font-family: ;" onclick="window.location.href='/knowledge-corner'">แสดงทั้งหมด</div>
     </div>
 
-    <div id="Book" class="tabcontent">
+    <div id="Book" class="tabcontent" style="display: block;">
       <%- include('./update_tab/booktab.ejs') %>
     </div>
 

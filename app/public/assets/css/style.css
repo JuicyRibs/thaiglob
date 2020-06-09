@@ -220,58 +220,110 @@ footer {
     object-fit: cover;
 }
 
-/* Update tab in index */
-.tab {
-    padding: 50px 0px;
-    width: 25vw;
-    background-color: #CECECE;
-    font-size: 1.2em;
+@media screen and (min-width: 1200px) {
+    .tab {
+        padding: 50px 0px;
+        width: 25vw;
+        background-color: #CECECE;
+        font-size: 1.2em;
+    }
+
+    .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 11px 0px 11px 44px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .tab div {
+        margin: 11px 0px 11px 8vw;
+    }
+
+    .tablinks img {
+        width: 2.5em;
+        margin: 0px 15px;
+        padding: 8px;
+        background-color: #393838;
+        border: #393838 1px solid;
+        border-radius: 30px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+        color: #28A745;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        width: 75vw;
+        border-left: none;
+        height: fit-content;
+        background-color: #F1F1F1;
+    }
 }
 
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 11px 0px 11px 44px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-}
+@media screen and (max-width: 1199px) {
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        width: 100%;
+    }
 
-.tab div {
-    margin: 11px 0px 11px 8vw;
-}
+    .tablinks img {
+        width: 2.5em;
+        margin-right: 15px;
+        padding: 8px;
+        background-color: #393838;
+        border: #393838 1px solid;
+        border-radius: 30px;
+    }
 
-.tablinks img {
-    width: 2.5em;
-    margin: 0px 15px;
-    padding: 8px;
-    background-color: #393838;
-    border: #393838 1px solid;
-    border-radius: 30px;
-}
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-}
+    .tab div{
+        margin: 10px 16px !important;
+    }
 
-/* Create an active/current "tab button" class */
-.tab button.active {
-    color: #28A745;
-}
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
 
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    width: 75vw;
-    border-left: none;
-    height: fit-content;
-    background-color: #F1F1F1;
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
 }
 
 .date {
@@ -301,8 +353,17 @@ footer {
     text-decoration: none;
 }
 
-.corner img {
-    width: 100%;
+
+@media screen and (min-width: 992px) {
+    .corner img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .corner img {
+        width: 60%;
+    }
 }
 
 .gry {
