@@ -1,5 +1,5 @@
-<%- include('./includes/header.ejs') %>
-<%- include('./includes/backtotop.ejs') %>
+<%- include('./includes/header.ejs') %> <%- include('./includes/backtotop.ejs')
+%>
 
 <!-- #Cover -->
 <div class="cover book">
@@ -20,32 +20,50 @@
 	<div class="row my-3">
 		<div class="col-6">
 			<p>
-				<a href="/" style="text-decoration: none; color: black;">Home</a>
+				<a href="/" style="text-decoration: none; color: black;"
+					>Home</a
+				>
 				>
 				<span>
-					<a href="/knowledge-corner" style="text-decoration: none; color: black;">Knowledge Corner</a>
+					<a
+						href="/knowledge-corner"
+						style="text-decoration: none; color: black;"
+						>Knowledge Corner</a
+					>
 				</span>
 				>
 				<span>
-					<a href="/publication" style="text-decoration: none; color: #28a745;">Publication</a>
+					<a
+						href="/publication"
+						style="text-decoration: none; color: #28a745;"
+						>Publication</a
+					>
 				</span>
 			</p>
 		</div>
 		<div class="col-6">
-			<form class="row">
-				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
-					name="search" style="width: 80%;" />
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+			<div class="row">
+				<input
+					class="form-control mx-3"
+					type="search"
+					placeholder="Search By Keyword"
+					aria-label="Search"
+					name="search"
+					style="width: 80%;"
+					id="filter"
+				/>
+				<button
+					class="btn btn-outline-success my-2 my-sm-0"
+					id="filter2"
+				>
 					Filter
 				</button>
-			</form>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- #Pinned Book -->
-<% if (!Array.isArray(books) || !books.length) { %>
-<section style="height: 75vh;">
+<section style="height: 75vh;" id="before">
 	<div class="row cloud" style="height: 100%;">
 		<div class="my-auto mx-auto text-center">
 			<div style="font-size: 2em;">
@@ -55,33 +73,73 @@
 			<div style="font-size: 1.5em;">
 				The book you're looking for is not available
 			</div>
-			<button class="btn btn-success mt-4" onclick="window.location.href='/publication'">
+			<button
+				class="btn btn-success mt-4"
+				onclick="window.location.href='/publication'"
+			>
 				ย้อนกลับ
 			</button>
 		</div>
 	</div>
 </section>
-<% }else {%>
 <!-- #BookList -->
-<section class="mt-5">
+<section class="mt-5" id="after">
 	<div class="container">
-		<div class="row">
-			<% for(book of books){ %>
-			<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
-				<img src="<%- (book.imgPath)?book.imgPath:'/assets/images/examplebook.jpg' %>" />
-				<div class="cloud"><%- book.id %></div>
-				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
-			</div>
-			<% } %>
-		</div>
-		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+		<div class="row" id="shelf"></div>
+		<button
+			class="btn btn-outline-dark cloud my-4 px-5"
+			style="width: 100%;"
+			id="show"
+		>
 			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
 		</button>
 	</div>
 </section>
+<script>
+	var skip = 0;
+	var limit = 9;
+	function getmore() {
+		$.post(
+			'publication/api',
+			{
+				query: $('#filter').val() || '',
+				sortParams: '-date',
+				skip: skip,
+				limit: limit,
+			},
+			function (data, status) {
+				if (data.length < limit) {
+					$('#show').hide();
+				}
+				skip = skip + limit;
+				data.forEach((book) => {
+					var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+									<img src="/assets/images/examplebook.jpg" />
+									<div class="cloud">${book.title}</div>
+									<small class="date">
+										<i class="fa fa-clock-o"></i>&nbsp; ${book.date.split('T')[0]}
+									</small>
+								</div>
+							`;
+					$('#shelf').append(html);
+				});
+			}
+		);
+	}
+	$(document).ready(function () {
+		$('#before').hide();
+		getmore();
+	});
+	$('#show').click(getmore);
+	$('#filter2').click(function () {
+		skip = 0;
+		limit = 9;
+		$('#shelf').html('');
+		getmore();
+		$('#show').show();
+	});
+</script>
 <!-- #EndBookList -->
-<% } %>
-
 
 <!-- #End Pagination -->
 <%- include('./includes/footer.ejs') %>

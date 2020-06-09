@@ -14,7 +14,8 @@ BACKEND
 -   [ ] @ThanadonTee, Quill.js Custom File handler
 -   [x] @ThanadonTee, ~Check if sending big~ found new lead check https://stackoverflow.com/questions/39457257/ejs-include-on-click
 -   [x] @ThanadonTee, If above work rewrite some routes
--   [ ] @ThanadonTee, Implement Article work to others.
+-   [x] @ThanadonTee, ~Implement Article work to others.~ Only Events left, I forgot.
+-   [ ] @ThanadonTee, Knowledge Center/Index need work.
 -   [ ] @ThanadonTee, Clean up code
 
 # File Structure

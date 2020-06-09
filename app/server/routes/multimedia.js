@@ -1,28 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-const articleController = require('../controllers/article');
+const multimediaController = require('../controllers/multimedia');
 const authMiddleware = require('../middlewares/auth');
 const multer = require('../utils/multer-config');
 
 router.post(
 	'/create',
 	authMiddleware.isAuthenticated,
-	articleController.create
+	multimediaController.create
 );
-router.get('/:id', articleController.showById);
-router.post('/api', articleController.showByQuery);
+router.get('/:id', multimediaController.showById);
+router.post('/api', multimediaController.showByQuery);
 
 router.put(
 	'/:id/update',
 	authMiddleware.isAuthenticated,
-	articleController.updateById
+	multimediaController.updateById
 );
 
 router.delete(
 	'/:id/delete',
 	authMiddleware.isAuthenticated,
-	articleController.delete
+	multimediaController.delete
 );
 
-router.get('/', articleController.getIndex);
+router.get('/', multimediaController.getIndex);

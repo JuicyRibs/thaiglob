@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const Article = require('../models/article');
+const Multimedia = require('../models/multimedia');
 
 exports.create = function (req, res) {
 	if (!req.files) {
@@ -9,12 +9,12 @@ exports.create = function (req, res) {
 			error: 'SERVER ERROR: CANNOT CREATE FILE',
 		});
 	}
-	let article = new Article({
+	let multimedia = new Multimedia({
 		title: req.body.title,
 		body: req.body.body,
 		imgPath: req.files[0]['filename'],
 	});
-	article.save(function (err) {
+	multimedia.save(function (err) {
 		if (err) {
 			return next(err);
 		}
@@ -31,7 +31,7 @@ exports.create = function (req, res) {
         }
 */
 exports.showByQuery = function (req, res) {
-	Article.find({
+	Multimedia.find({
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
 			{ body: { $regex: req.body.query, $options: 'i' } },
@@ -43,24 +43,24 @@ exports.showByQuery = function (req, res) {
 };
 
 exports.showById = function (req, res) {
-	Article.findById(req.params.id, function (err, article) {
+	Multimedia.findById(req.params.id, function (err, multimedia) {
 		if (err) {
 			return next(err);
 		}
-		res.send(article);
+		res.send(multimedia);
 	});
 };
 
 exports.updateById = function (req, res) {
-	Article.findById(req.params.id, function (err, article) {
+	Multimedia.findById(req.params.id, function (err, multimedia) {
 		if (err) {
 			return next(err);
 		}
-		article.title = req.body.title;
+		multimedia.title = req.body.title;
 		// if there is new file remove old one
 		if (req.files) {
-			let oldFile = article.imgPath;
-			article.imgPath = req.files[0]['filename'];
+			let oldFile = multimedia.imgPath;
+			multimedia.imgPath = req.files[0]['filename'];
 			const filePath = path.resolve('server', 'uploads', oldFile);
 			try {
 				if (fs.existsSync(filePath)) {
@@ -75,8 +75,8 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		article.body = req.body.body;
-		article.save(function (err, article) {
+		multimedia.body = req.body.body;
+		multimedia.save(function (err, multimedia) {
 			if (err) {
 				return next(err);
 			}
@@ -86,7 +86,7 @@ exports.updateById = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-	Article.findByIdAndRemove(req.params.id, function (err) {
+	Multimedia.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
 			return next(err);
 		}
@@ -95,7 +95,7 @@ exports.delete = function (req, res) {
 };
 
 exports.getIndex = function (req, res) {
-	res.render('articles', {
-		title: 'ThaiGlob - Articles',
+	res.render('media', {
+		title: 'ThaiGlob - Multimedia',
 	});
 };

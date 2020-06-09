@@ -19,10 +19,19 @@ exports.create = async (req, res) => {
 	}
 };
 
-exports.getResearchPage = async (req, res, next) => {
+exports.getResearchPage = async (req, res) => {
 	const researches = await reseachMongoose.find({});
 	res.render('research', {
 		title: 'ThaiGlob - Researches',
 		researches: researches,
+	});
+};
+
+exports.delete = function (req, res) {
+	News.findByIdAndRemove(req.params.id, function (err) {
+		if (err) {
+			return next(err);
+		}
+		res.send('/admin/');
 	});
 };

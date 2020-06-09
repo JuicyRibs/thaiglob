@@ -48,14 +48,14 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const bookRoutes = require('./routes/book');
 const postRoutes = require('./routes/posts');
-const researchRoutes = require('./routes/reserach');
+const researchRoutes = require('./routes/research');
 
 app.use(authRoutes);
 app.use('/admin', adminRoutes);
 
-app.use(bookRoutes);
-app.use(postRoutes);
-app.use(researchRoutes);
+app.use('/publication', bookRoutes);
+// app.use('',postRoutes);
+app.use('/research', researchRoutes);
 app.use(appRoutes);
 
 app.listen(process.env.APP_PORT, () => {

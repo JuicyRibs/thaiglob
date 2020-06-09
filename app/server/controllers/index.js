@@ -55,3 +55,7 @@ exports.getFile = (req, res) => {
 		console.error(`'/pictures/${fileName}': Error due to ${err}`);
 	}
 };
+
+exports.postQuill = (req, res) => {
+	res.send(req.files[0].filename);
+};
