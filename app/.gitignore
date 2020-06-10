@@ -154,5 +154,5 @@ tmp/
 temp/
 
 # Pictures and Document in Uploads
-public/assests/upload/*
+server/uploads/*
 # End of https://www.gitignore.io/api/node,linux,macos,dotenv

@@ -1,21 +1,20 @@
 const path = require('path');
 const fs = require('fs');
 
-const Article = require('../models/article');
+const Event = require('../models/event');
 
 exports.create = function (req, res) {
-	console.log('Called');
 	if (!req.files) {
 		res.status(500).send({
 			error: 'SERVER ERROR: CANNOT CREATE FILE',
 		});
 	}
-	let article = new Article({
+	let event = new Event({
 		title: req.body.title,
 		body: req.body.body,
 		imgPath: req.files[0]['filename'],
 	});
-	article.save(function (err) {
+	event.save(function (err) {
 		if (err) {
 			return next(err);
 		}
@@ -31,42 +30,37 @@ exports.create = function (req, res) {
         limit: amountToFetch
         }
 */
-exports.showByQuery = async function (req, res) {
-	console.log('Called');
-	let result = await Article.find({
+exports.showByQuery = function (req, res) {
+	Event.find({
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
 			{ body: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
-		.skip(parseInt(req.body.skip))
-		.limit(parseInt(req.body.limit));
-	res.json(result);
+		.skip(req.body.skip)
+		.limit(req.body.limit);
 };
 
 exports.showById = function (req, res) {
-	Article.findById(req.params.id, function (err, article) {
+	Event.findById(req.params.id, function (err, event) {
 		if (err) {
 			return next(err);
 		}
-		res.render('post', {
-			title: 'ThaiGlob - Articles',
-			data: article,
-		});
+		res.send(event);
 	});
 };
 
 exports.updateById = function (req, res) {
-	Article.findById(req.params.id, function (err, article) {
+	Event.findById(req.params.id, function (err, event) {
 		if (err) {
 			return next(err);
 		}
-		article.title = req.body.title;
+		event.title = req.body.title;
 		// if there is new file remove old one
 		if (req.files) {
-			let oldFile = article.imgPath;
-			article.imgPath = req.files[0]['filename'];
+			let oldFile = event.imgPath;
+			event.imgPath = req.files[0]['filename'];
 			const filePath = path.resolve('server', 'uploads', oldFile);
 			try {
 				if (fs.existsSync(filePath)) {
@@ -81,8 +75,8 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		article.body = req.body.body;
-		article.save(function (err, article) {
+		event.body = req.body.body;
+		event.save(function (err, event) {
 			if (err) {
 				return next(err);
 			}
@@ -92,26 +86,7 @@ exports.updateById = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-	Article.findById(req.params.id, function (err, article) {
-		if (err) {
-			return next(err);
-		}
-		let oldFile = article.imgPath;
-		const filePath = path.resolve('server', 'uploads', oldFile);
-		try {
-			if (fs.existsSync(filePath)) {
-				fs.unlinkSync(filePath, function (err) {
-					if (err) {
-						console.error(err);
-					}
-					console.log('File has been Deleted');
-				});
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	});
-	Article.findByIdAndRemove(req.params.id, function (err) {
+	Event.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
 			return next(err);
 		}
@@ -120,7 +95,7 @@ exports.delete = function (req, res) {
 };
 
 exports.getIndex = function (req, res) {
-	res.render('articles', {
-		title: 'ThaiGlob - Articles',
+	res.render('events', {
+		title: 'ThaiGlob - Events',
 	});
 };

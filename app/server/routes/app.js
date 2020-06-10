@@ -8,7 +8,6 @@ router.get('/', indexController.getIndex);
 router.get('/about', indexController.getAbout);
 router.get('/knowledge-corner', indexController.getCorner);
 router.get('/contact', indexController.getContact);
-router.get('/media', indexController.getMedia);
 router.get('/research-issues', indexController.getIssues);
 router.get('/upload/:fileName', indexController.getFile);
 router.post(

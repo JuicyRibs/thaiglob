@@ -31,10 +31,10 @@ exports.getContact = async (req, res) =>
 // 		title: 'ThaiGlob - Contact Us',
 // 	});
 
-exports.getMedia = async (req, res) =>
-	res.render('media', {
-		title: 'ThaiGlob - Media',
-	});
+// exports.getMedia = async (req, res) =>
+// 	res.render('media', {
+// 		title: 'ThaiGlob - Media',
+// 	});
 
 exports.getIssues = async (req, res) =>
 	res.render('issue', {

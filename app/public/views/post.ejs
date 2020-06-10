@@ -1,7 +1,7 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section style="background-image: url(/assets/images/climatecover.jpg)">
+<section style="background-image: url(/upload/<%-data.imgPath%>);">
 	<div style="height: 300px;"></div>
 </section>
 <!-- EndCover -->
@@ -11,20 +11,19 @@
 	<div class="container my-5">
 		<div class="row">
 			<div class="post-header my-5">
-				<small><%- post.type %> </small>
-				<h1><%- post.title %></h1>
-				<small><%- post.tags %></small>
+				<small><%- title.split('-')[1] %> </small>
+				<h1><%- data.title %></h1>
 			</div>
 		</div>
 		<div class="row d-flex flex-row-reverse">
 			<div class="col-sm-12 col-md-10">
-				<p><%- post.body %></p>
+				<p><%- data.body %></p>
 			</div>
 			<div class="col-md-2 col-sm-4">
-				<div>
+				<!-- <div>
 					<p>Written by</p>
-					<p><%- post.author %></p>
-				</div>
+					<p></p>
+				</div> -->
 			</div>
 		</div>
 	</div>

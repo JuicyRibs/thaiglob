@@ -1,5 +1,5 @@
-<%- include('./includes/header.ejs') %>
-<%- include('./includes/backtotop.ejs') %>
+<%- include('./includes/header.ejs') %> <%- include('./includes/backtotop.ejs')
+%>
 
 <!-- #Cover -->
 <div class="cover article">
@@ -21,23 +21,41 @@
 	<div class="row my-3">
 		<div class="col-6">
 			<p>
-				<a href="/" style="text-decoration: none; color: black;">Home</a>
+				<a href="/" style="text-decoration: none; color: black;"
+					>Home</a
+				>
 				>
 				<span>
-					<a href="/knowledge-corner" style="text-decoration: none; color: black;">Knowledge Corner</a>
+					<a
+						href="/knowledge-corner"
+						style="text-decoration: none; color: black;"
+						>Knowledge Corner</a
+					>
 				</span>
 				>
 				<span>
-					<a href="/articles" style="text-decoration: none; color: #28a745;">Articles and Infographics
+					<a
+						href="/articles"
+						style="text-decoration: none; color: #28a745;"
+						>Articles and Infographics
 					</a>
 				</span>
 			</p>
 		</div>
 		<div class="col-6">
 			<form class="row">
-				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
-					name="search" style="width: 80%;" />
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+				<input
+					class="form-control mx-3"
+					type="search"
+					placeholder="Search By Keyword"
+					aria-label="Search"
+					name="search"
+					style="width: 80%;"
+				/>
+				<button
+					class="btn btn-outline-success my-2 my-sm-0"
+					type="submit"
+				>
 					Filter
 				</button>
 			</form>
@@ -46,8 +64,7 @@
 </div>
 
 <!-- #NewsBlock -->
-<% if (!Array.isArray(posts) || !posts.length) { %>
-<section style="height: 75vh;">
+<section style="height: 75vh;" id="before">
 	<div class="row cloud" style="height: 100%;">
 		<div class="my-auto mx-auto text-center">
 			<div style="font-size: 2em;">
@@ -57,33 +74,80 @@
 			<div style="font-size: 1.5em;">
 				The article you're looking for is not available
 			</div>
-			<button class="btn btn-success mt-4" onclick="window.location.href='/articles'">
+			<button
+				class="btn btn-success mt-4"
+				onclick="window.location.href='/articles'"
+			>
 				ย้อนกลับ
 			</button>
 		</div>
 	</div>
 </section>
-<% }else {%>
-<section>
+<section class="mt-5" id="after">
 	<div class="container">
-		<div class="row">
-			<% for(post of posts) {%>
-			<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
-				<a href="post/<%- post.id %> " class="postblock" style="text-decoration: none;">
-					<!-- <img src="<%- (post.imgPath)?post.imgPath:'/assets/images/demoarticle.jpg' %>" /> -->
-					<img src="../assets/images/demoarticle.jpg">
-					<div class="cloud"><%- post.title %></div>
-					<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
-				</a>
-			</div>
-			<% } %>
-		</div>
-		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+		<div class="row" id="shelf"></div>
+		<button
+			class="btn btn-outline-dark cloud my-4 px-5"
+			style="width: 100%;"
+			id="show"
+		>
 			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
 		</button>
 	</div>
 </section>
-<% } %>
+<script>
+	var skip = 0;
+	var limit = 9;
+	function getmore() {
+		$.post(
+			'articles/api',
+			{
+				query: $('#filter').val() || '',
+				sortParams: '-date',
+				skip: skip,
+				limit: limit,
+			},
+			function (data, status) {
+				if (data.length < limit) {
+					$('#show').hide();
+				}
+				skip = skip + limit;
+				data.forEach((article) => {
+					var html = `
+					<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+						<a href="/articles/${
+							article._id
+						}" class="postblock" style="text-decoration: none;">
+					<img src="${
+						article.imgPath
+							? '/upload/' + article.imgPath
+							: '/assets/images/demoarticle.jpg'
+					}" />
+					<div class="cloud">${article.title}</div>
+					<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
+						article.date.split('T')[0]
+					}</small>
+						</a>
+					</div>
+							`;
+					$('#shelf').append(html);
+				});
+			}
+		);
+	}
+	$(document).ready(function () {
+		$('#before').hide();
+		getmore();
+	});
+	$('#show').click(getmore);
+	$('#filter2').click(function () {
+		skip = 0;
+		limit = 9;
+		$('#shelf').html('');
+		getmore();
+		$('#show').show();
+	});
+</script>
 <!-- #EndNewsBlock -->
 
 <%- include('./includes/footer.ejs')%>

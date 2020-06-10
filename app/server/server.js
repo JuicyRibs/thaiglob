@@ -11,7 +11,11 @@ const flash = require('express-flash');
 const session = require('express-session');
 
 mongoose
-	.connect(process.env.DB_URI, { useNewUrlParser: true }, () => {})
+	.connect(
+		process.env.DB_URI,
+		{ useNewUrlParser: true, useUnifiedTopology: true },
+		() => {}
+	)
 	.then(() => {
 		console.log(`Database connected successfully - ${new Date()}`);
 	})
@@ -47,14 +51,13 @@ const appRoutes = require('./routes/app');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const bookRoutes = require('./routes/book');
-const postRoutes = require('./routes/posts');
+const articleRoutes = require('./routes/article');
 const researchRoutes = require('./routes/research');
 
 app.use(authRoutes);
 app.use('/admin', adminRoutes);
-
+app.use('/articles', articleRoutes);
 app.use('/publication', bookRoutes);
-// app.use('',postRoutes);
 app.use('/research', researchRoutes);
 app.use(appRoutes);
 
