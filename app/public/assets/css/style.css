@@ -227,7 +227,7 @@ footer {
 @media screen and (min-width: 1200px) {
     .tab {
         padding: 50px 0px;
-        width: 25vw;
+        width: 30vw;
         background-color: #CECECE;
         font-size: 1.2em;
     }
@@ -236,17 +236,18 @@ footer {
         display: block;
         background-color: inherit;
         color: black;
-        padding: 11px 0px 11px 44px;
+        padding: 11px 0px 11px 75px;
         width: 100%;
         border: none;
         outline: none;
         text-align: left;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 1.1em;
     }
 
     .tab div {
-        margin: 11px 0px 11px 8vw;
+        margin-left:10vw;
     }
 
     .tablinks img {
@@ -271,10 +272,9 @@ footer {
     /* Style the tab content */
     .tabcontent {
         float: left;
-        padding: 0px 12px;
-        width: 75vw;
+        padding: 0px 10vw 0px 5vw;
+        width: 70vw;
         border-left: none;
-        height: fit-content;
         background-color: #F1F1F1;
     }
 }
@@ -324,7 +324,7 @@ footer {
     /* Style the tab content */
     .tabcontent {
         display: none;
-        padding: 6px 12px;
+        padding: 6px 24px;
         border: 1px solid #ccc;
         border-top: none;
     }
