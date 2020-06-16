@@ -18,7 +18,7 @@ body {
 }
 
 /* img cropper */
-.sevenfive{
+.sevenfive {
     width: 15rem !important;
     height: 21em;
     object-fit: cover;
@@ -247,7 +247,7 @@ footer {
     }
 
     .tab div {
-        margin-left:10vw;
+        margin-left: 10vw;
     }
 
     .tablinks img {
@@ -307,7 +307,7 @@ footer {
         transition: 0.3s;
     }
 
-    .tab div{
+    .tab div {
         margin: 10px 16px !important;
     }
 
@@ -358,19 +358,14 @@ footer {
 }
 
 
-@media screen and (min-width: 992px) {
-    .corner img {
-        width: 100%;
-    }
+.corner img {
+    width: 100%;
 }
 
 @media screen and (max-width: 991px) {
-    .corner img {
-        width: 100%;
-    }
 
-    .corner img.bookstyle {
-        width: 60%;
+    .corner img {
+        width: 80%;
     }
 
     .innerText {
@@ -381,7 +376,7 @@ footer {
         font-size: 2em;
         font-weight: 700;
     }
-    
+
     .covertitle p {
         font-size: 0.7em;
     }
