@@ -108,21 +108,32 @@
 				limit: limit,
 			},
 			function (data, status) {
-				if (data.length < limit) {
-					$('#show').hide();
-				}
-				skip = skip + limit;
-				data.forEach((book) => {
-					var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
-									<img class="sevenfive" src="${book.imgPath ? book.imgPath : '/assets/images/examplebook.jpg'}" />
+				if (data.length == 0) {
+					$('#before').show();
+					$('#after').hide();
+				} else {
+					$('#before').hide();
+					$('#after').show();
+					if (data.length < limit) {
+						$('#show').hide();
+					}
+					skip = skip + limit;
+					data.forEach((book) => {
+						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+									<img class="sevenfive" src="${
+										book.imgPath
+											? book.imgPath
+											: '/assets/images/examplebook.jpg'
+									}" />
 									<div class="cloud">${book.title}</div>
 									<small class="date">
 										<i class="fa fa-clock-o"></i>&nbsp; ${book.date.split('T')[0]}
 									</small>
 								</div>
 							`;
-					$('#shelf').append(html);
-				});
+						$('#shelf').append(html);
+					});
+				}
 			}
 		);
 	}

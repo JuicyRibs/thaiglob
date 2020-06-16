@@ -18,7 +18,7 @@ exports.create = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		res.redirect('/admin/');
+		res.status(200).end();
 	});
 };
 
@@ -30,16 +30,17 @@ exports.create = function (req, res) {
         limit: amountToFetch
         }
 */
-exports.showByQuery = function (req, res) {
-	News.find({
+exports.showByQuery = async function (req, res) {
+	let result = await News.find({
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
 			{ body: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
-		.skip(req.body.skip)
-		.limit(req.body.limit);
+		.skip(parseInt(req.body.skip))
+		.limit(parseInt(req.body.limit));
+	res.json(result);
 };
 
 exports.showById = function (req, res) {

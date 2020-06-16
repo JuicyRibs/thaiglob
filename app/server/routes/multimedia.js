@@ -26,3 +26,5 @@ router.delete(
 );
 
 router.get('/', multimediaController.getIndex);
+
+module.exports = router;

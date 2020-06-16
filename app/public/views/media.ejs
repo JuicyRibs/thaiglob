@@ -32,33 +32,106 @@
 			</p>
 		</div>
 		<div class="col-6">
-			<form class="row">
-				<input class="form-control mx-3" type="search" placeholder="Search By Keyword" aria-label="Search"
-					name="search" style="width: 80%;" />
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+			<div class="row">
+				<input
+					class="form-control mx-3"
+					type="search"
+					placeholder="Search By Keyword"
+					aria-label="Search"
+					name="search"
+					style="width: 80%;"
+					id="filter"
+				/>
+				<button
+					class="btn btn-outline-success my-2 my-sm-0"
+					id="filter2"
+				>
 					Filter
 				</button>
-			</form>
+			</div>
 		</div>
 	</div>
 </div>
 
 <!-- #NewsBlock -->
-<section>
-	<div class="container">
-		<div class="row">
-			<% for(var i=0; i<8; i++) {%>
-			<div class="col-lg-4 col-md-6 py-4 px-5 medialist">
-				<img src="../assets/images/newscover.jpg"/>
-				<div class="cloud">เปรียบเทียบ Excel Power BI และ Power BI Desktop</div>
-				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
+<section style="height: 75vh;" id="before">
+	<div class="row cloud" style="height: 100%;">
+		<div class="my-auto mx-auto text-center">
+			<div style="font-size: 2em;">
+				ไม่พบงานสื่อมัลติมีเดียที่ท่านต้องการ
 			</div>
-			<% } %>
+			<br />
+			<div style="font-size: 1.5em;">
+				The multimedia you're looking for is not available
+			</div>
+			<button
+				class="btn btn-success mt-4"
+				onclick="window.location.href='/media'"
+			>
+				ย้อนกลับ
+			</button>
 		</div>
-		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;">
+	</div>
+</section>
+
+<section id="after">
+	<div class="container">
+		<div class="row" id="shelf">
+		</div>
+		<button class="btn btn-outline-dark cloud my-4 px-5" style="width: 100%;" id="show">
 			แสดงเพิ่มเติม <i class="fa fa-caret-down"></i>
 		</button>
 </section>
+<script>
+	var skip = 0;
+	var limit = 9;
+	function getmore() {
+		$.post(
+			'media/api',
+			{
+				query: $('#filter').val() || '',
+				sortParams: '-date',
+				skip: skip,
+				limit: limit,
+			},
+			function (data, status) {
+				if (data.length == 0) {
+					$('#before').show();
+					$('#after').hide();
+				} else {
+					$('#before').hide();
+					$('#after').show();
+					if (data.length < limit) {
+						$('#show').hide();
+					}
+					skip = skip + limit;
+					data.forEach((media) => {
+						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 medialist">
+				<img src="${
+			media.imgPath ? media.imgPath : '/assets/images/newscover.jpg'
+		}"/>
+				<div class="cloud">${media.title}</div>
+				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${media.date.split('T')[0]}</small>
+			</div>`;
+						$('#shelf').append(html);
+					});
+				}
+			}
+		);
+	}
+	$(document).ready(function () {
+		$('#before').hide();
+		getmore();
+	});
+	$('#show').click(getmore);
+	$('#filter2').click(function () {
+		skip = 0;
+		limit = 9;
+		$('#shelf').html('');
+		getmore();
+		$('#show').show();
+	});
+</script>
 
 <!-- #EndNewsBlock -->
 <%- include('./includes/footer.ejs') %>

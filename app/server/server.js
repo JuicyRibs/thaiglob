@@ -52,11 +52,18 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const bookRoutes = require('./routes/book');
 const articleRoutes = require('./routes/article');
+const multimediaRoutes = require('./routes/multimedia');
+const eventsRoutes = require('./routes/events');
+const newsRoutes = require('./routes/news');
 const researchRoutes = require('./routes/research');
 
 app.use(authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/articles', articleRoutes);
+app.use('/media', multimediaRoutes);
+app.use('/events', eventsRoutes);
+app.use('/news', newsRoutes);
+app.use('/media', multimediaRoutes);
 app.use('/publication', bookRoutes);
 app.use('/research', researchRoutes);
 app.use(appRoutes);

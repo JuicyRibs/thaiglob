@@ -22,3 +22,5 @@ router.delete(
 );
 
 router.get('/', newsController.getIndex);
+
+module.exports = router;

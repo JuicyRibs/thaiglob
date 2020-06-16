@@ -4,7 +4,6 @@ const fs = require('fs');
 const Article = require('../models/article');
 
 exports.create = function (req, res) {
-	console.log('Called');
 	if (!req.files) {
 		res.status(500).send({
 			error: 'SERVER ERROR: CANNOT CREATE FILE',
@@ -19,7 +18,7 @@ exports.create = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		res.redirect('/admin/');
+		res.status(200).end();
 	});
 };
 
@@ -32,7 +31,6 @@ exports.create = function (req, res) {
         }
 */
 exports.showByQuery = async function (req, res) {
-	console.log('Called');
 	let result = await Article.find({
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
