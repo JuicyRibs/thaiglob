@@ -1,0 +1,197 @@
+<%- include('header') %>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        .ql-editor {
+            min-height: 400px;
+            width: 100%;
+        }
+        .ql-container , .ql-toolbar {
+            background-color: white;
+        }
+    </style>
+	</head>
+	<body>
+        <%- include('navbar') %> 
+        <div  style="background-color: #E8E8EE;">
+        <div class="m-4 ml-5">
+                <h2>เขียนบทความ</h2>
+            </div>
+        <div class="container">
+            
+            <div>
+        <form class="my-3" action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
+  <div class="form-group">
+    <label for="title">หัวเรื่องบทความ</label>
+    <input type="text" class="form-control" id="title" name="title">
+  </div>
+  <div class="form-group">
+      <label for="body">เนื้อหาบทความ</label>
+    <div>
+            <div id="toolbar-container">
+                <span class="ql-formats">
+                    <select class="ql-font"></select>
+                    <select class="ql-size"></select>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-underline"></button>
+                    <button class="ql-strike"></button>
+                </span>
+                <span class="ql-formats">
+                    <select class="ql-color"></select>
+                    <select class="ql-background"></select>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-script" value="sub"></button>
+                    <button class="ql-script" value="super"></button>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-header" value="1"></button>
+                    <button class="ql-header" value="2"></button>
+                    <button class="ql-blockquote"></button>
+                    <button class="ql-code-block"></button>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+                    <button class="ql-indent" value="-1"></button>
+                    <button class="ql-indent" value="+1"></button>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-direction" value="rtl"></button>
+                    <select class="ql-align"></select>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-link"></button>
+                    <button class="ql-image"></button>
+                    <button class="ql-video"></button>
+                    <button class="ql-formula"></button>
+                </span>
+                <span class="ql-formats">
+                    <button class="ql-clean"></button>
+                </span>
+            </div>
+        <div class="mx-auto" id="editor"></div>
+
+            </div>
+            
+    <input type="hidden" class="form-control" id="body" name="body">
+  </div>
+  <div class="form-group">
+    <div class="col">
+        <label for="files">รูปภาพหน้าปกบทความ</label>
+        <input type="file" class="form-control-file" id="files" name="files">
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="alert alert-success" role="alert" id="Formsuccess" style="display: none;">
+    </div>
+</form>
+            </div>
+            
+
+        </div>
+        <!-- Optional JavaScript -->
+        <%- include('footer') %> 
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+        <script src="/assets/js/quill.imageUploader.min.js"></script>
+        <script src="/assets/js/resize.js"></script>
+        <script>
+            Quill.register("modules/imageUploader", ImageUploader);
+            var editor = new Quill('#editor', {
+                modules: {
+                    toolbar: '#toolbar-container',
+                    resize: {},
+		            imageUploader: {
+                        upload: file => {
+                return new Promise((resolve, reject) => {
+                  const formData = new FormData();
+                  formData.append("files", file);
+
+                  fetch(
+                    "/upload/quill",
+                    {
+                      method: "POST",
+                      body: formData
+                    }
+                  )
+                    .then(response => response.json())
+                    .then(result => {
+                      resolve('/upload/'+result);
+                    })
+                    .catch(error => {
+                      reject("Upload failed");
+                      console.error("Error:", error);
+                    });
+                });
+              }
+                    },
+                },
+                theme: 'snow',
+            });
+            editor.on('text-change', function() {
+                var justHtml = editor.root.innerHTML;
+                $("#body").val(justHtml);
+            });
+            $('#create').submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url:'/articles/create',
+                type:'post',
+                data: new FormData( this ),
+                processData: false,
+                contentType: false,
+                success:function(){
+                    $('#Formsuccess').html('Success').fadeIn('slow');
+                    $('#Formsuccess').delay(1000).fadeOut('slow');
+                }
+            });
+            });
+        </script>
+        <hr>
+        </div>
+        <div class="container">
+            <div class="m-4 ml-5">
+                <h2>แก้ไขบทความ</h2>
+            </div>
+            <table id="editTable">
+
+            </table>
+            <script>
+                    $(document).ready(function () {
+                        $.post(
+                            '/articles/api',
+                            {
+                                query: '',
+                                sortParams: '-date',
+                                skip: 0,
+                                limit: 0,
+                            },
+                            function (data, status) {
+                                $("#editTable").dataTable({
+                                    "data" : data,
+                                    "columns" : [
+                                        { "data" : "title", "title": "ชื่อบทความ"},
+                                        { "data" : "date", "title": "เวลาที่เผยแพร่"}
+                                    ],
+                                    "aoColumnDefs": [
+                                        {
+                                            "aTargets": [2],
+                                            "mData": "_id",
+                                            "mRender": function (data, type, full) {
+                                                return '<a class="btn btn-primary mx-3" href="/admin/article/'+data+'/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/article/'+data+'/delete">Delete</a>';
+                                            }
+                                        }
+                                    ]
+                                });
+                            }
+                        );
+                    });
+            </script>
+        </div>
+        
+	</body>
+</html>

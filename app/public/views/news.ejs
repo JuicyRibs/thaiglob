@@ -122,7 +122,11 @@
 					data.forEach((news) => {
 						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 medialist">
 	<a href="${news._id}" class="postblock" style="text-decoration: none;">
-		<img src="${news.imgPath ? news.imgPath : '/assets/images/demonews.jpg'}" />
+		<img src="${
+			news.imgPath
+				? '/upload/' + news.imgPath
+				: '/assets/images/demonews.jpg'
+		}" />
 		<div class="cloud">${news.title}</div>
 		<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
 			news.date.split('T')[0]

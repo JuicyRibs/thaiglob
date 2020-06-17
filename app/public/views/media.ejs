@@ -108,7 +108,7 @@
 					data.forEach((media) => {
 						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 medialist">
 				<img src="${
-			media.imgPath ? media.imgPath : '/assets/images/newscover.jpg'
+			media.imgPath ?'/upload/' +  media.imgPath : '/assets/images/newscover.jpg'
 		}"/>
 				<div class="cloud">${media.title}</div>
 				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${media.date.split('T')[0]}</small>

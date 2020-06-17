@@ -7,7 +7,7 @@ const multer = require('../utils/multer-config');
 
 router.post(
 	'/create',
-	// authMiddleware.isAuthenticated,
+	authMiddleware.isAuthenticated,
 	multer.uploadFile,
 	eventController.create
 );
@@ -16,7 +16,7 @@ router.post('/api', eventController.showByQuery);
 
 router.put(
 	'/:id/update',
-	// authMiddleware.isAuthenticated,
+	authMiddleware.isAuthenticated,
 	multer.uploadFile,
 	eventController.updateById
 );

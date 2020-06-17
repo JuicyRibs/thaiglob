@@ -78,36 +78,263 @@
   <div class="row">
     <div class="tab cloud" openTab(event, 'Book')>
       <button class="tablinks active" onclick="openTab(event, 'Book')"><img
-          src="../assets/images/tabicon/book.png" />หนังสือและสิ่งพิมพ์</button>
+          src="/assets/images/tabicon/book.png" />หนังสือและสิ่งพิมพ์</button>
       <button class="tablinks" onclick="openTab(event, 'Article')"><img
-          src="../assets/images/tabicon/info.png" />บทความและอินโฟกราฟฟิก</button>
+          src="/assets/images/tabicon/info.png" />บทความและอินโฟกราฟฟิก</button>
       <button class="tablinks" onclick="openTab(event, 'Media')"><img
-          src="../assets/images/tabicon/media.png" />สื่อมัลติมีเดีย</button>
+          src="/assets/images/tabicon/media.png" />สื่อมัลติมีเดีย</button>
       <button class="tablinks" onclick="openTab(event, 'News')"><img
-          src="../assets/images/tabicon/news.png" />ข่าวสาร</button>
+          src="/assets/images/tabicon/news.png" />ข่าวสาร</button>
       <button class="tablinks" onclick="openTab(event, 'Event')"><img
-          src="../assets/images/tabicon/event.png" />งานกิจกรรมต่างๆ</button>
+          src="/assets/images/tabicon/event.png" />งานกิจกรรมต่างๆ</button>
       <div class="btn btn-success cloud px-3 py-2 my-3" style="font-size: 1.2em;" onclick="window.location.href='/knowledge-corner'">แสดงทั้งหมด</div>
     </div>
+    <script>
+	$.post(
+		'publication/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 4,
+		},
+		function (data, status) {
+			var html = `
+<div class="row py-auto cloud">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
+    <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <img
+      style="width: 100%;"
+      src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
+    />
+    <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <img
+      style="width: 100%;"
+      src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
+    />
+    <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <img
+      style="width: 100%;"
+      src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
+    />
+    <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+  </div>
+</div>
 
+          `;
+			$('#Book').append(html);
+		}
+  );
+  	$.post(
+		'articles/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 6,
+		},
+		function (data, status) {
+			var html = `
+<div class="row" style="padding-top: 2rem;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+    </div>
+</div>
+          `;
+			$('#Article').append(html);
+		}
+  );
+    	$.post(
+		'media/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 6,
+		},
+		function (data, status) {
+			var html = `
+<div class="row" style="padding-top: 2rem;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+    </div>
+</div>
+          `;
+			$('#Media').append(html);
+		}
+  );
+    	$.post(
+		'news/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 6,
+		},
+		function (data, status) {
+			var html = `
+<div class="row" style="padding-top: 2rem;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+    </div>
+</div>
+          `;
+			$('#News').append(html);
+		}
+  );
+    	$.post(
+		'events/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 6,
+		},
+		function (data, status) {
+			var html = `
+<div class="row" style="padding-top: 2rem;">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+        <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
+        <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+    </div>
+</div>
+          `;
+			$('#Event').append(html);
+		}
+	);
+</script>
     <div id="Book" class="tabcontent" style="display: block;">
-      <%- include('./update_tab/booktab.ejs') %>
+      
     </div>
 
     <div id="Article" class="tabcontent" style="display: none;">
-      <%- include('./update_tab/utilitytabs.ejs') %>
     </div>
 
     <div id="Media" class="tabcontent" style="display: none;">
-      <p>Tokyo is the capital of Japan.</p>
     </div>
 
     <div id="News" class="tabcontent" style="display: none;">
-      <p>Tokyo is the capital of Japan.</p>
     </div>
 
     <div id="Event" class="tabcontent" style="display: none;">
-      <p>Tokyo is the capital of Japan.</p>
     </div>
   </div>
 </section>

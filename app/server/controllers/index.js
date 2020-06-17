@@ -57,5 +57,5 @@ exports.getFile = (req, res) => {
 };
 
 exports.postQuill = (req, res) => {
-	res.send(req.files[0].filename);
+	res.json(req.files[0].filename);
 };

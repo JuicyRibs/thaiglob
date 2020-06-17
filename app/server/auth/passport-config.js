@@ -10,7 +10,7 @@ passport.use(
 		async (username, password, done) => {
 			const admin = await require('../utils/loadUserFromEnv').getAdmin();
 			if (username !== admin.username) {
-				return done(null, false, { message: 'Cannot find username' });
+				return done(null, false, { message: 'Username Incorrect' });
 			}
 			try {
 				if (await bcrypt.compare(password, admin.password)) {

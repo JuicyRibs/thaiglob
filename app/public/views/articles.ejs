@@ -101,7 +101,7 @@
 	var limit = 9;
 	function getmore() {
 		$.post(
-			'articles/api',
+			'/articles/api',
 			{
 				query: $('#filter').val() || '',
 				sortParams: '-date',

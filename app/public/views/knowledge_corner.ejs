@@ -1,71 +1,107 @@
-<%- include('./includes/header.ejs') %>
-<%- include('./includes/backtotop.ejs') %>
+<%- include('./includes/header.ejs') %> <%- include('./includes/backtotop.ejs')
+%>
 <!-- #Cover -->
 <div class="cover cornerc">
-  <div class="row" style="height: 100%;">
-    <div class="my-auto innerText">
-      <div class="covertitle">
-        Knowledge Corner
-        <p class="cloud">
-          มุมความรู้ด้านการเปลี่ยนแปลงภูมิอากาศ
-        </p>
-      </div>
-    </div>
-  </div>
+	<div class="row" style="height: 100%;">
+		<div class="my-auto innerText">
+			<div class="covertitle">
+				Knowledge Corner
+				<p class="cloud">
+					มุมความรู้ด้านการเปลี่ยนแปลงภูมิอากาศ
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- #EndCover -->
 
 <div class="container">
-  <p class="my-3">
-    <a href="/" style="text-decoration: none; color: black;">Home</a>
-    >
-    <span>
-      <a href="/knowledge-corner" style="text-decoration: none; color: #28a745;"
-        >Knowledge Corner</a
-      >
-    </span>
-  </p>
+	<p class="my-3">
+		<a href="/" style="text-decoration: none; color: black;">Home</a>
+		>
+		<span>
+			<a
+				href="/knowledge-corner"
+				style="text-decoration: none; color: #28a745;"
+				>Knowledge Corner</a
+			>
+		</span>
+	</p>
 </div>
 
 <!-- Publication -->
-<section class="py-4">
-  <div class="container corner">
+<script>
+	$.post(
+		'publication/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 4,
+		},
+		function (data, status) {
+			var html = `
+        <div class="container corner">
     <a href="/publication"><h2>Publication</h2></a>
     <p class="cloud">หนังสือและสิ่งพิมพ์</p>
     <div class="row cloud">
       <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
-        <img src="../assets/images/book/Climaterisk.jpg" />
+        <img src="${
+			data[0].imgPath
+				? '/upload/' + data[0].imgPath
+				: '/assets/images/210x297.jpg'
+		}" />
       </div>
       <div class="col-sm-12 col-lg-8">
         <div class="row">
           <div class="col py-3">
             <div style="font-size: 2em; font-weight: 500;">
-              โลกสามศูนย์ (A World of Three Zeros)
+              ${data[0].title}
             </div>
             <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+              ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[0].date.split('T')[0]
+				}</small
             >
           </div>
           <div class="row mx-auto" style="width: 100%;">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="../assets/images/book/กฎหมายกับการเปลี่ยนแปลง.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+					data[1].imgPath
+						? '/upload/' + data[1].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+              <div>${data[1].title}</div>
               <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+                ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[1].date.split('T')[0]
+				}</small
               >
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="../assets/images/book/Glogal_warming_forum.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+					data[2].imgPath
+						? '/upload/' + data[2].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+              <div>${data[2].title}</div>
               <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+                ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[2].date.split('T')[0]
+				}</small
               >
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="../assets/images/book/การปรับตัว.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+					data[3].imgPath
+						? '/upload/' + data[3].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+              <div>${data[3].title}</div>
               <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+                ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[3].date.split('T')[0]
+				}</small
               >
             </div>
           </div>
@@ -76,49 +112,86 @@
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
-</section>
+          `;
+			$('#publication').append(html);
+		}
+	);
+</script>
+<section class="py-4" id="publication"></section>
 
 <!-- Infographic -->
-<section class="gry py-4">
-  <div class="corner container">
+<script>
+	$.post(
+		'articles/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 4,
+		},
+		function (data, status) {
+			var html = `
+ <div class="corner container">
     <a href="/articles"><h2>Articles and Infographics</h2></a>
     <p class="cloud">บทความและอินโฟกราฟฟิก</p>
     <div class="row cloud">
       <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
-        <img src="../assets/images/book/Glogal_warming_forum.jpg" />
+        <img src="${
+			data[0].imgPath
+				? '/upload/' + data[0].imgPath
+				: '/assets/images/210x297.jpg'
+		}" />
       </div>
       <div class="col-sm-12 col-lg-8">
         <div class="row">
           <div class="col py-3">
             <div style="font-size: 2em; font-weight: 500;">
-              ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน
+              ${data[0].title}
             </div>
             <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+              ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[0].date.split('T')[0]
+				}</small
             >
           </div>
           <div class="row mx-auto" style="width: 100%;">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="../assets/images/book/รายงานIPCC_TARC.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+					data[1].imgPath
+						? '/upload/' + data[1].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+              <div>${data[1].title}</div>
               <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+                ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[1].date.split('T')[0]
+				}</small
               >
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
               <img class="mx-xs-3 mx-sm-5 mx-md-0" 
-                src="../assets/images/book/Thailands-first-assessment-report-on-climate-change-2011-volume-2.jpg"
+                src="${
+					data[2].imgPath
+						? '/upload/' + data[2].imgPath
+						: '/assets/images/210x297.jpg'
+				}"
               />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <div>${data[2].title}</div>
               <small class="date"
                 ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
               >
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="../assets/images/book/58.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
+              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+					data[3].imgPath
+						? '/upload/' + data[3].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+              <div>${data[3].title}</div>
               <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+                ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[3].date.split('T')[0]
+				}</small
               >
             </div>
           </div>
@@ -129,40 +202,73 @@
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
-</section>
+          `;
+			$('#infographics').append(html);
+		}
+	);
+</script>
+<section class="gry py-4" id="infographics"></section>
 
 <!-- Multimedia -->
-<section class="py-4">
-  <div class="corner container">
+<script>
+	$.post(
+		'media/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 3,
+		},
+		function (data, status) {
+			var html = `
+    <div class="corner container">
     <a href="/media"><h2>Multimedia</h2></a>
     <p class="cloud">สื่อมัลติมีเดีย</p>
     <div class="row cloud">
       <div class="col-sm-12 col-md-9">
-        <img src="../assets/images/mediacover.jpg" />
+        <img src="${
+			data[0].imgPath
+				? '/upload/' + data[0].imgPath
+				: '/assets/images/800x600.jpg'
+		}" />
         <div style="font-size: 2em; font-weight: 500;">
-          "Google Docs" เครื่องมือจัดการเอกสารที่ดีที่สุด
+          ${data[0].title}
         </div>
         <small class="date"
-          ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+          ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[0].date.split('T')[0]
+			}</small
         >
       </div>
       <div class="col-sm-12 col-md-3 px-0">
         <div class="col px-xs-3 px-md-0">
-            <img src="../assets/images/articlecover.jpg" />
+            <img src="${
+				data[1].imgPath
+					? '/upload/' + data[1].imgPath
+					: '/assets/images/800x600.jpg'
+			}" />
             <div>
-              เปรียบเทียบ Excel Power BI และ Power BI Desktop
+              ${data[1].title}
             </div>
             <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+              ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[1].date.split('T')[0]
+				}</small
             >
         </div>
         <div class="col px-xs-3 px-md-0">
-          <img src="../assets/images/newscover.jpg" />
+          <img src="${
+				data[2].imgPath
+					? '/upload/' + data[2].imgPath
+					: '/assets/images/800x600.jpg'
+			}" />
           <div>
-            เปรียบเทียบ Excel Power BI และ Power BI Desktop
+            ${data[2].title}
           </div>
           <small class="date"
-            ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+            ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[2].date.split('T')[0]
+			}</small
           >
       </div>
       </div>
@@ -171,40 +277,73 @@
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
-</section>
+          `;
+			$('#multimedia').append(html);
+		}
+	);
+</script>
+<section class="py-4" id="multimedia"></section>
 
 <!-- Climate news -->
-<section class="gry py-4">
-  <div class="corner container">
+<script>
+	$.post(
+		'news/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 3,
+		},
+		function (data, status) {
+			var html = `
+<div class="corner container">
     <a href="/news"><h2>Climate Change News</h2></a>
     <p class="cloud">ข่าวสารการเปลี่ยนแปลงสภาพภูมิอากาศ</p>
     <div class="row cloud">
       <div class="col-sm-12 col-md-9">
-        <img src="../assets/images/research_issue/2.jpg" />
+        <img src="${
+			data[0].imgPath
+				? '/upload/' + data[0].imgPath
+				: '/assets/images/210x297.jpg'
+		}" />
         <div style="font-size: 2em; font-weight: 500;">
-          "Google Docs" เครื่องมือจัดการเอกสารที่ดีที่สุด
+          ${data[0].title}
         </div>
         <small class="date"
-          ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+          ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[0].date.split('T')[0]
+			}</small
         >
       </div>
       <div class="col-sm-12 col-md-3 px-0"">
         <div class="col px-xs-3 px-md-0">
-            <img src="../assets/images/research_issue/4.jpg" />
+            <img src="${
+				data[1].imgPath
+					? '/upload/' + data[1].imgPath
+					: '/assets/images/210x297.jpg'
+			}" />
             <div>
-              เปรียบเทียบ Excel Power BI และ Power BI Desktop
+              ${data[1].title}
             </div>
             <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+              ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[1].date.split('T')[0]
+				}</small
             >
         </div>
         <div class="col px-xs-3 px-md-0">
-          <img src="../assets/images/research_issue/1.jpg" />
+          <img src="${
+				data[2].imgPath
+					? '/upload/' + data[2].imgPath
+					: '/assets/images/210x297.jpg'
+			}" />
           <div>
-            เปรียบเทียบ Excel Power BI และ Power BI Desktop
+            ${data[2].title}
           </div>
           <small class="date"
-            ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
+            ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[2].date.split('T')[0]
+			}</small
           >
       </div>
       </div>
@@ -213,58 +352,97 @@
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
-</section>
+          `;
+			$('#news').append(html);
+		}
+	);
+</script>
+<section class="gry py-4" id="news"></section>
 
 <!-- Event -->
-<section class="py-4">
-  <div class="container corner">
-    <a href="/events"><h2>Events</h2></a>
-    <p class="cloud">งานกิจกรรมต่างๆ</p>
-    <div class="row cloud">
-      <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
-        <img src="../assets/images/book/Climaterisk.jpg" />
-      </div>
-      <div class="col-sm-12 col-lg-8">
-        <div class="row">
-          <div class="col py-3">
-            <div style="font-size: 2em; font-weight: 500;">
-              โลกสามศูนย์ (A World of Three Zeros)
-            </div>
-            <small class="date"
-                >28/03/2563</small
-              >
-          </div>
-          <div class="row mx-auto" style="width: 100%;">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img src="../assets/images/book/กฎหมายกับการเปลี่ยนแปลง.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
-              <small class="date"
-                >28/03/2563</small
-              >
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img src="../assets/images/book/Glogal_warming_forum.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
-              <small class="date"
-                >28/03/2563</small
-              >
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img src="../assets/images/book/การปรับตัว.jpg" />
-              <div>ทักษะความเข้าใจและใช้เทคโนโลยีดิจิทัล 9 ด้าน</div>
-              <small class="date"
-                >28/03/2563</small
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/events'">
-      แสดงทั้งหมด <i class="fa fa-caret-down"></i>
-    </button>
-  </div>
-</section>
+<script>
+	$.post(
+		'events/api',
+		{
+			query: $('#filter').val() || '',
+			sortParams: '-date',
+			skip: 0,
+			limit: 4,
+		},
+		function (data, status) {
+			var html = `
+<div class="container corner">
+		<a href="/events"><h2>Events</h2></a>
+		<p class="cloud">งานกิจกรรมต่างๆ</p>
+		<div class="row cloud">
+			<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+				<img src="${
+					data[0].imgPath
+						? '/upload/' + data[0].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+			</div>
+			<div class="col-sm-12 col-lg-8">
+				<div class="row">
+					<div class="col py-3">
+						<div style="font-size: 2em; font-weight: 500;">
+							${data[0].title}
+						</div>
+						<small class="date">${data[0].date.split('T')[0]}</small>
+					</div>
+					<div class="row mx-auto" style="width: 100%;">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+							<img
+								src="${
+									data[1].imgPath
+										? '/upload/' + data[1].imgPath
+										: '/assets/images/210x297.jpg'
+								}"
+							/>
+							<div>
+								${data[1].title}
+							</div>
+							<small class="date">${data[1].date.split('T')[0]}</small>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+							<img
+								src="${
+									data[2].imgPath
+										? '/upload/' + data[2].imgPath
+										: '/assets/images/210x297.jpg'
+								}"
+							/>
+							<div>
+								${data[2].title}
+							</div>
+							<small class="date">${data[2].date.split('T')[0]}</small>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+							<img src="${
+								data[3].imgPath
+									? '/upload/' + data[3].imgPath
+									: '/assets/images/210x297.jpg'
+							}" />
+							<div>
+								${data[3].title}
+							</div>
+							<small class="date">${data[3].date.split('T')[0]}</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			class="btn btn-outline-dark cloud my-4"
+			onclick="window.location.href='/events'"
+		>
+			แสดงทั้งหมด <i class="fa fa-caret-down"></i>
+		</button>
+	</div>
+          `;
+			$('#events').append(html);
+		}
+	);
+</script>
+<section class="py-4" id="events"></section>
 <%- include('./includes/footer.ejs') %>
-
-

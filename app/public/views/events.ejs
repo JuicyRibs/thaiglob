@@ -123,7 +123,9 @@
 						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
 	<a href="${event._id}" class="postblock" style="text-decoration: none;">
 		<img class="sevenfive" src="${
-			event.imgPath ? event.imgPath : '/assets/images/demoevent.jpg'
+			event.imgPath
+				? '/upload/' + event.imgPath
+				: '/assets/images/demoevent.jpg'
 		}"/>
 		<div class="cloud">${event.title}</div>
 		<small class="date">
