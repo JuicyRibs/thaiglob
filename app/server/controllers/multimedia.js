@@ -12,7 +12,7 @@ exports.create = function (req, res) {
 	let multimedia = new Multimedia({
 		title: req.body.title,
 		body: req.body.body,
-		imgPath: req.files[0]['filename'],
+		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
 	});
 	multimedia.save(function (err) {
 		if (err) {

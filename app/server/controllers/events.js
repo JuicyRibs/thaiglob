@@ -12,7 +12,7 @@ exports.create = function (req, res) {
 	let event = new Event({
 		title: req.body.title,
 		body: req.body.body,
-		imgPath: req.files[0]['filename'],
+		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
 	});
 	event.save(function (err) {
 		if (err) {
