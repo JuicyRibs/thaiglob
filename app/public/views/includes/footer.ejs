@@ -12,15 +12,21 @@
 					<div class="col text-right">
 						<span class="social-menu mt-5 hyperlink">
 							<a onclick="window.location.href='/contact'">Contact Us</a>
-							<i class="fa fa-facebook"></i>
-							<i class="fa fa-twitter"></i>
-							<i class="fa fa-envelope"></i>
+							<a href='https://www.facebook.com/THAIGLOB/'><i class="fa fa-facebook"></i></a>
+							<a href='https://twitter.com/thaiglob'><i class="fa fa-twitter"></i></a>
+							<i class="fa fa-envelope" data-toggle="tooltip" data-placement="top" title="Thaiglob@gmail.com"></i>
 						</span>
 					</div>
 				</div>
 			</div>
 			</div>
 		</footer>
+
+		<script>
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+		</script>
 
 
 		</body>
