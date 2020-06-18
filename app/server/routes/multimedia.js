@@ -8,6 +8,7 @@ const multer = require('../utils/multer-config');
 router.post(
 	'/create',
 	authMiddleware.isAuthenticated,
+	multer.uploadFile,
 	multimediaController.create
 );
 router.get('/:id', multimediaController.showById);
