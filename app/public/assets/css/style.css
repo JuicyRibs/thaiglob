@@ -380,6 +380,7 @@ footer {
     .covertitle p {
         font-size: 0.7em;
     }
+
 }
 
 .gry {
@@ -424,4 +425,29 @@ footer {
 .contactDetail img {
     height: 3em;
     margin-right: 1em;
+}
+
+.contactDetail img:hover {
+    transform: scale(1.1);
+}
+
+.timeline .flat {
+    display: block;
+    width: 100%;
+}
+
+.timeline .up {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+
+    .timeline .up {
+        display: block;
+        width: 100%;
+    }
+
+    .timeline .flat {
+        display: none;
+    }
 }
