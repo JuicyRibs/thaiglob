@@ -13,6 +13,9 @@ exports.create = function (req, res) {
 		title: req.body.title,
 		body: req.body.body,
 		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
+		tag: req.body.tag,
+		date: req.body.date,
+		desc: req.body.desc,
 	});
 	news.save(function (err) {
 		if (err) {
@@ -35,6 +38,8 @@ exports.showByQuery = async function (req, res) {
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
 			{ body: { $regex: req.body.query, $options: 'i' } },
+			{ tag: { $regex: req.body.query, $options: 'i' } },
+			{ desc: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
@@ -48,7 +53,10 @@ exports.showById = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		res.send(news);
+		res.render('post', {
+			title: 'ThaiGlob - News',
+			data: news,
+		});
 	});
 };
 
@@ -58,6 +66,7 @@ exports.updateById = function (req, res) {
 			return next(err);
 		}
 		news.title = req.body.title;
+		news.body = req.body.body;
 		// if there is new file remove old one
 		if (req.files) {
 			let oldFile = news.imgPath;
@@ -76,22 +85,42 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		news.body = req.body.body;
+		news.tag = req.body.tag;
+		news.date = req.body.date;
+		news.desc = req.body.desc;
 		news.save(function (err, news) {
 			if (err) {
 				return next(err);
 			}
-			res.send('/admin/');
+			res.status(200).end();
 		});
 	});
 };
 
 exports.delete = function (req, res) {
+	News.findById(req.params.id, function (err, news) {
+		if (err) {
+			return next(err);
+		}
+		const filePath = path.resolve('server', 'uploads', news.imgPath);
+		try {
+			if (fs.existsSync(filePath)) {
+				fs.unlinkSync(filePath, function (err) {
+					if (err) {
+						console.error(err);
+					}
+					console.log('File has been Deleted');
+				});
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	});
 	News.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
 			return next(err);
 		}
-		res.send('/admin/');
+		res.status(200).end();
 	});
 };
 

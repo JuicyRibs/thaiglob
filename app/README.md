@@ -10,12 +10,18 @@ BACKEND
 -   [x] @ThanadonTee, ADD a todo-list
 -   [x] @ThanadonTee, File Upload
 -   [x] @ThanadonTee, ~CRUD~
--   [ ] @ThanadonTee, Admin Panel
--   [ ] @ThanadonTee, Quill.js Custom File handler
+-   [x] @ThanadonTee, Admin Panel
+-   [x] @ThanadonTee, Quill.js Custom File handler
 -   [x] @ThanadonTee, ~Check if sending big~ found new lead check https://stackoverflow.com/questions/39457257/ejs-include-on-click
 -   [x] @ThanadonTee, If above work rewrite some routes
 -   [x] @ThanadonTee, ~Implement Article work to others.~ Only Events left, I forgot.
 -   [ ] @ThanadonTee, Knowledge Center/Index need work.
+-   [x] @ThanadonTee, update model with tag and desc
+-   [x] @ThanadonTee, update research to current structure
+-   [x] @ThanadonTee, fix quilljs
+-   [ ] @ThanadonTee, copy admin page
+-   [ ] @ThanadonTee, add dummy data
+-   [ ] @ThanadonTee, show new data
 -   [ ] @ThanadonTee, Clean up code
 
 # File Structure

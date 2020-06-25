@@ -13,6 +13,9 @@ exports.create = function (req, res) {
 		title: req.body.title,
 		body: req.body.body,
 		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
+		tag: req.body.tag,
+		date: req.body.date,
+		desc: req.body.desc,
 	});
 	article.save(function (err) {
 		if (err) {
@@ -35,6 +38,8 @@ exports.showByQuery = async function (req, res) {
 		$or: [
 			{ title: { $regex: req.body.query, $options: 'i' } },
 			{ body: { $regex: req.body.query, $options: 'i' } },
+			{ tag: { $regex: req.body.query, $options: 'i' } },
+			{ desc: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
@@ -61,7 +66,8 @@ exports.updateById = function (req, res) {
 			return next(err);
 		}
 		article.title = req.body.title;
-		// if there is new file remove old one
+		article.body = req.body.body;
+		// if there is new file remove old file
 		if (req.files) {
 			let oldFile = article.imgPath;
 			article.imgPath = req.files[0]['filename'];
@@ -79,12 +85,14 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		article.body = req.body.body;
+		article.tag = req.body.tag;
+		article.date = req.body.date;
+		article.desc = req.body.desc;
 		article.save(function (err, article) {
 			if (err) {
 				return next(err);
 			}
-			res.send('/admin/');
+			res.status(200).end();
 		});
 	});
 };
@@ -94,8 +102,7 @@ exports.delete = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		let oldFile = article.imgPath;
-		const filePath = path.resolve('server', 'uploads', oldFile);
+		const filePath = path.resolve('server', 'uploads', article.imgPath);
 		try {
 			if (fs.existsSync(filePath)) {
 				fs.unlinkSync(filePath, function (err) {
@@ -113,7 +120,7 @@ exports.delete = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		res.send('/admin/');
+		res.status(200).end();
 	});
 };
 

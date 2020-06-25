@@ -9,21 +9,3 @@ const bookSchema = new Schema({
 });
 
 module.exports = mongoose.model('Book', bookSchema);
-
-// const create = async (title, desc, dlpath, imgPath) => {
-// 	let book = new bookModel({
-// 		title: title,
-// 		dlPath: dlpath,
-// 		imgPath: imgPath,
-// 	});
-// 	return book
-// 		.save()
-// 		.catch((err) => {
-// 			return err;
-// 		})
-// 		.then((data) => {
-// 			return true;
-// 		});
-// };
-
-// module.exports = { bookModel, create };

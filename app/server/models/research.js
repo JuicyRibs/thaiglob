@@ -11,34 +11,4 @@ const researchSchema = new Schema({
 	dlPath: String,
 });
 
-const researchModel = mongoose.model('research', researchSchema);
-
-const create = async (
-	title,
-	author,
-	institute,
-	activeYear,
-	fundSource,
-	status,
-	dlPath
-) => {
-	let research = new researchModel({
-		title: title,
-		author: author,
-		institute: institute,
-		activeYear: activeYear,
-		fundSource: fundSource,
-		status: status,
-		dlPath: dlPath,
-	});
-	return research
-		.save()
-		.catch((err) => {
-			return err;
-		})
-		.then((data) => {
-			return true;
-		});
-};
-
-module.exports = { researchModel, create };
+module.exports = mongoose.model('Research', researchSchema);

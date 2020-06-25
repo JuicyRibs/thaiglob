@@ -6,24 +6,12 @@ const EventSchema = new Schema({
 	body: String,
 	imgPath: String,
 	date: { type: Date, default: Date.now },
+	tag: [
+		{
+			type: String,
+		},
+	],
+	desc: String,
 });
 
 module.exports = mongoose.model('Event', EventSchema);
-
-// const create = async (title, body, imgPath) => {
-// 	let event = new eventModel({
-// 		title: title,
-// 		body: body,
-// 		imgPath: imgPath,
-// 	});
-// 	return event
-// 		.save()
-// 		.catch((err) => {
-// 			return err;
-// 		})
-// 		.then((data) => {
-// 			return true;
-// 		});
-// };
-
-// module.exports = { eventModel, create };
