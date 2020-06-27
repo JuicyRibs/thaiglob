@@ -41,78 +41,100 @@
 		},
 		function (data, status) {
 			var html = `
-        <div class="container corner">
-    <a href="/publication"><h2>Publication</h2></a>
-    <p class="cloud">หนังสือและสิ่งพิมพ์</p>
-    <div class="row cloud">
-      <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
-        <img src="${
-			data[0].imgPath
-				? '/upload/' + data[0].imgPath
-				: '/assets/images/210x297.jpg'
-		}" />
-      </div>
-      <div class="col-sm-12 col-lg-8">
-        <div class="row">
-          <div class="col py-3">
-            <div style="font-size: 2em; font-weight: 500;">
-              ${data[0].title}
-            </div>
-            <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[0].date.split('T')[0]
-				}</small
-            >
-          </div>
-          <div class="row mx-auto" style="width: 100%;">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
-					data[1].imgPath
-						? '/upload/' + data[1].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-              <div>${data[1].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[1].date.split('T')[0]
-				}</small
-              >
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
-					data[2].imgPath
-						? '/upload/' + data[2].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-              <div>${data[2].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[2].date.split('T')[0]
-				}</small
-              >
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-              <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
-					data[3].imgPath
-						? '/upload/' + data[3].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-              <div>${data[3].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[3].date.split('T')[0]
-				}</small
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/publication'">
-      แสดงทั้งหมด <i class="fa fa-caret-down"></i>
-    </button>
-  </div>
-          `;
+	       <div class="container corner">
+	   <a href="/publication"><h2>Publication</h2></a>
+	   <p class="cloud">หนังสือและสิ่งพิมพ์</p>
+	<div class="row cloud">
+		`;
+			if (typeof data[0] != 'undefined') {
+				html += `<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+	       <img src="${
+				data[0].imgPath
+					? '/upload/' + data[0].imgPath
+					: '/assets/images/210x297.jpg'
+			}" />
+	     </div>
+	     <div class="col-sm-12 col-lg-8">
+	       <div class="row">
+	         <div class="col py-3">
+	           <div style="font-size: 2em; font-weight: 500;">
+	             ${data[0].title}
+	           </div>
+	           <small class="date"
+	             ><i class="fa fa-clock-o"></i>&nbsp; ${
+						data[0].date.split('T')[0]
+					}</small
+	           >
+		  </div>`;
+			} else {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+				ไม่พบเนื้อหาดังกล่าว
+			</div>;
+
+				`;
+			}
+			html += `
+			<div class="row mx-auto" style="width: 100%;">
+				`;
+			if (typeof data[1] != 'undefined') {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+	             <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+						data[1].imgPath
+							? '/upload/' + data[1].imgPath
+							: '/assets/images/210x297.jpg'
+					}" />
+	             <div>${data[1].title}</div>
+	             <small class="date"
+	               ><i class="fa fa-clock-o"></i>&nbsp; ${
+						data[1].date.split('T')[0]
+					}</small
+	             >
+			</div>`;
+			}
+			if (typeof data[2] != 'undefined') {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+	             <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+						data[2].imgPath
+							? '/upload/' + data[2].imgPath
+							: '/assets/images/210x297.jpg'
+					}" />
+	             <div>${data[2].title}</div>
+	             <small class="date"
+	               ><i class="fa fa-clock-o"></i>&nbsp; ${
+						data[2].date.split('T')[0]
+					}</small
+	             >
+			</div>`;
+			}
+			if (typeof data[3] != 'undefined') {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+	             <img class="mx-xs-3 mx-sm-5 mx-md-0" src="${
+						data[3].imgPath
+							? '/upload/' + data[3].imgPath
+							: '/assets/images/210x297.jpg'
+					}" />
+	             <div>${data[3].title}</div>
+	             <small class="date"
+	               ><i class="fa fa-clock-o"></i>&nbsp; ${
+						data[3].date.split('T')[0]
+					}</small
+	             >
+			</div>`;
+			}
+			html += `
+	         </div>
+	       </div>
+	     </div>
+	   </div>
+	   <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/publication'">
+	     แสดงทั้งหมด <i class="fa fa-caret-down"></i>
+	   </button>
+	 </div>
+	         `;
 			$('#publication').append(html);
 		}
 	);
@@ -134,7 +156,10 @@
  <div class="corner container">
     <a href="/articles"><h2>Articles and Infographics</h2></a>
     <p class="cloud">บทความและอินโฟกราฟฟิก</p>
-    <div class="row cloud">
+	<div class="row cloud">
+		`;
+			if (typeof data[0] != 'undefined') {
+				html += `
       <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
         <img class="sevenfive" src="${
 			data[0].imgPath
@@ -153,8 +178,20 @@
 					data[0].date.split('T')[0]
 				}</small
             >
-          </div>
-          <div class="row mx-auto" style="width: 100%;">
+		  </div>
+		  `;
+			} else {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+				ไม่พบเนื้อหาดังกล่าว
+			</div>;
+
+				`;
+			}
+			html += `
+		  <div class="row mx-auto" style="width: 100%;">`;
+			if (typeof data[1] != 'undefined') {
+				html += `
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
               <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" src="${
 					data[1].imgPath
@@ -167,7 +204,11 @@
 					data[1].date.split('T')[0]
 				}</small
               >
-            </div>
+			</div>
+			`;
+			}
+			if (typeof data[2] != 'undefined') {
+				html += `
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
               <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" 
                 src="${
@@ -180,7 +221,11 @@
               <small class="date"
                 ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
               >
-            </div>
+			</div>
+			`;
+			}
+			if (typeof data[3] != 'undefined') {
+				html += `
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
               <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" src="${
 					data[3].imgPath
@@ -193,7 +238,10 @@
 					data[3].date.split('T')[0]
 				}</small
               >
-            </div>
+			</div>
+			`;
+			}
+			html += `
           </div>
         </div>
       </div>
@@ -224,7 +272,10 @@
     <div class="corner container">
     <a href="/media"><h2>Multimedia</h2></a>
     <p class="cloud">สื่อมัลติมีเดีย</p>
-    <div class="row cloud">
+	<div class="row cloud">
+		`;
+			if (typeof data[0] != 'undefined') {
+				html += `
       <div class="col-sm-12 col-md-9">
         <img src="${
 			data[0].imgPath
@@ -239,9 +290,21 @@
 				data[0].date.split('T')[0]
 			}</small
         >
-      </div>
-      <div class="col-sm-12 col-md-3 px-0">
-        <div class="col px-xs-3 px-md-0">
+	  </div>`;
+			} else {
+				html += `
+	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+				ไม่พบเนื้อหาดังกล่าว
+			</div>;
+
+				`;
+			}
+			html += `
+			<div class="col-sm-12 col-md-3 px-0">
+				`;
+			if (typeof data[1] != 'undefined') {
+				html += `
+							<div class="col px-xs-3 px-md-0">
             <img src="${
 				data[1].imgPath
 					? '/upload/' + data[1].imgPath
@@ -255,7 +318,10 @@
 					data[1].date.split('T')[0]
 				}</small
             >
-        </div>
+		</div>`;
+			}
+			if (typeof data[2] != 'undefined') {
+				html += `
         <div class="col px-xs-3 px-md-0">
           <img src="${
 				data[2].imgPath
@@ -270,8 +336,10 @@
 				data[2].date.split('T')[0]
 			}</small
           >
-      </div>
-      </div>
+		  </div>`;
+			}
+			html += `
+		</div>
     </div>
     <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/media'">
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
@@ -296,63 +364,86 @@
 		},
 		function (data, status) {
 			var html = `
-<div class="corner container">
-    <a href="/news"><h2>Climate Change News</h2></a>
-    <p class="cloud">ข่าวสารการเปลี่ยนแปลงสภาพภูมิอากาศ</p>
-    <div class="row cloud">
-      <div class="col-sm-12 col-md-9">
-        <img src="${
-			data[0].imgPath
-				? '/upload/' + data[0].imgPath
-				: '/assets/images/210x297.jpg'
-		}" />
-        <div style="font-size: 2em; font-weight: 500;">
-          ${data[0].title}
-        </div>
-        <small class="date"
-          ><i class="fa fa-clock-o"></i>&nbsp; ${
-				data[0].date.split('T')[0]
-			}</small
-        >
-      </div>
-      <div class="col-sm-12 col-md-3 px-0"">
-        <div class="col px-xs-3 px-md-0">
-            <img src="${
-				data[1].imgPath
-					? '/upload/' + data[1].imgPath
+	<div class="corner container">
+	    <a href="/news"><h2>Climate Change News</h2></a>
+	    <p class="cloud">ข่าวสารการเปลี่ยนแปลงสภาพภูมิอากาศ</p>
+		<div class="row cloud">
+			`;
+			if (typeof data[0] != 'undefined') {
+				html += `
+	      <div class="col-sm-12 col-md-9">
+	        <img src="${
+				data[0].imgPath
+					? '/upload/' + data[0].imgPath
 					: '/assets/images/210x297.jpg'
 			}" />
-            <div>
-              ${data[1].title}
-            </div>
-            <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[1].date.split('T')[0]
+	        <div style="font-size: 2em; font-weight: 500;">
+	          ${data[0].title}
+	        </div>
+	        <small class="date"
+	          ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[0].date.split('T')[0]
 				}</small
-            >
-        </div>
-        <div class="col px-xs-3 px-md-0">
-          <img src="${
-				data[2].imgPath
-					? '/upload/' + data[2].imgPath
-					: '/assets/images/210x297.jpg'
-			}" />
-          <div>
-            ${data[2].title}
-          </div>
-          <small class="date"
-            ><i class="fa fa-clock-o"></i>&nbsp; ${
-				data[2].date.split('T')[0]
-			}</small
-          >
-      </div>
-      </div>
-    </div>
-    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/news'">
-      แสดงทั้งหมด <i class="fa fa-caret-down"></i>
-    </button>
-  </div>
-          `;
+	        >
+		  </div>
+		  `;
+			} else {
+				html += `
+		           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+					ไม่พบเนื้อหาดังกล่าว
+				</div>;
+
+					`;
+			}
+			html += `
+				<div class="col-sm-12 col-md-3 px-0"">
+					`;
+			if (typeof data[1] != 'undefined') {
+				html += `
+								<div class="col px-xs-3 px-md-0">
+	            <img src="${
+					data[1].imgPath
+						? '/upload/' + data[1].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+	            <div>
+	              ${data[1].title}
+	            </div>
+	            <small class="date"
+	              ><i class="fa fa-clock-o"></i>&nbsp; ${
+						data[1].date.split('T')[0]
+					}</small
+	            >
+			</div>
+			`;
+			}
+			if (typeof data[2] != 'undefined') {
+				html += `
+	        <div class="col px-xs-3 px-md-0">
+	          <img src="${
+					data[2].imgPath
+						? '/upload/' + data[2].imgPath
+						: '/assets/images/210x297.jpg'
+				}" />
+	          <div>
+	            ${data[2].title}
+	          </div>
+	          <small class="date"
+	            ><i class="fa fa-clock-o"></i>&nbsp; ${
+					data[2].date.split('T')[0]
+				}</small
+	          >
+		  </div>
+		  `;
+			}
+			html += `
+	      </div>
+	    </div>
+	    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/news'">
+	      แสดงทั้งหมด <i class="fa fa-caret-down"></i>
+	    </button>
+	  </div>
+	          `;
 			$('#news').append(html);
 		}
 	);
@@ -371,75 +462,98 @@
 		},
 		function (data, status) {
 			var html = `
-<div class="container corner">
-		<a href="/events"><h2>Events</h2></a>
-		<p class="cloud">งานกิจกรรมต่างๆ</p>
-		<div class="row cloud">
-			<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
-				<img src="${
-					data[0].imgPath
-						? '/upload/' + data[0].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-			</div>
-			<div class="col-sm-12 col-lg-8">
-				<div class="row">
-					<div class="col py-3">
-						<div style="font-size: 2em; font-weight: 500;">
-							${data[0].title}
-						</div>
-						<small class="date">${data[0].date.split('T')[0]}</small>
-					</div>
-					<div class="row mx-auto" style="width: 100%;">
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-							<img
-								src="${
-									data[1].imgPath
-										? '/upload/' + data[1].imgPath
-										: '/assets/images/210x297.jpg'
-								}"
-							/>
-							<div>
-								${data[1].title}
-							</div>
-							<small class="date">${data[1].date.split('T')[0]}</small>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-							<img
-								src="${
-									data[2].imgPath
-										? '/upload/' + data[2].imgPath
-										: '/assets/images/210x297.jpg'
-								}"
-							/>
-							<div>
-								${data[2].title}
-							</div>
-							<small class="date">${data[2].date.split('T')[0]}</small>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-							<img src="${
-								data[3].imgPath
-									? '/upload/' + data[3].imgPath
-									: '/assets/images/210x297.jpg'
-							}" />
-							<div>
-								${data[3].title}
-							</div>
-							<small class="date">${data[3].date.split('T')[0]}</small>
-						</div>
-					</div>
+	<div class="container corner">
+			<a href="/events"><h2>Events</h2></a>
+			<p class="cloud">งานกิจกรรมต่างๆ</p>
+			<div class="row cloud">
+				`;
+			if (typeof data[0] != 'undefined') {
+				html += `
+				<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+					<img src="${
+						data[0].imgPath
+							? '/upload/' + data[0].imgPath
+							: '/assets/images/210x297.jpg'
+					}" />
 				</div>
+				<div class="col-sm-12 col-lg-8">
+						<div class="col py-3">
+							<div style="font-size: 2em; font-weight: 500;">
+								${data[0].title}
+							</div>
+							<small class="date">${data[0].date.split('T')[0]}</small>
+						</div>
+						`;
+			} else {
+				html += `
+		           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+					ไม่พบเนื้อหาดังกล่าว
+				</div>;
+
+					`;
+			}
+			html += `
+						<div class="row mx-auto" style="width: 100%;">`;
+			if (typeof data[1] != 'undefined') {
+				html += `
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+								<img
+									src="${
+										data[1].imgPath
+											? '/upload/' + data[1].imgPath
+											: '/assets/images/210x297.jpg'
+									}"
+								/>
+								<div>
+									${data[1].title}
+								</div>
+								<small class="date">${data[1].date.split('T')[0]}</small>
+							</div>
+							`;
+			}
+			if (typeof data[2] != 'undefined') {
+				html += `
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+								<img
+									src="${
+										data[2].imgPath
+											? '/upload/' + data[2].imgPath
+											: '/assets/images/210x297.jpg'
+									}"
+								/>
+								<div>
+									${data[2].title}
+								</div>
+								<small class="date">${data[2].date.split('T')[0]}</small>
+							</div>
+							`;
+			}
+			if (typeof data[3] != 'undefined') {
+				html += `
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
+								<img src="${
+									data[3].imgPath
+										? '/upload/' + data[3].imgPath
+										: '/assets/images/210x297.jpg'
+								}" />
+								<div>
+									${data[3].title}
+								</div>
+								<small class="date">${data[3].date.split('T')[0]}</small>
+							</div>
+							`;
+			}
+			html += `
+						</div>
 			</div>
+			<button
+				class="btn btn-outline-dark cloud my-4"
+				onclick="window.location.href='/events'"
+			>
+				แสดงทั้งหมด <i class="fa fa-caret-down"></i>
+			</button>
 		</div>
-		<button
-			class="btn btn-outline-dark cloud my-4"
-			onclick="window.location.href='/events'"
-		>
-			แสดงทั้งหมด <i class="fa fa-caret-down"></i>
-		</button>
-	</div>
-          `;
+	          `;
 			$('#events').append(html);
 		}
 	);
