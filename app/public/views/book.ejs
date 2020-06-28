@@ -120,6 +120,7 @@
 					skip = skip + limit;
 					data.forEach((book) => {
 						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
+									<a href="/upload/${book.dlPath}" download>
 									<img class="sevenfive" src="${
 										book.imgPath
 											? '/upload/' + book.imgPath
@@ -129,6 +130,7 @@
 									<small class="date">
 										<i class="fa fa-clock-o"></i>&nbsp; ${book.date.split('T')[0]}
 									</small>
+									</a>
 								</div>
 							`;
 						$('#shelf').append(html);

@@ -8,7 +8,7 @@ const bookController = require('../controllers/book');
 router.get('/', bookController.getIndex);
 router.post('/api', bookController.showByQuery);
 router.post(
-	'/',
+	'/create',
 	authMiddleware.isAuthenticated,
 	multer.uploadFile,
 	bookController.create

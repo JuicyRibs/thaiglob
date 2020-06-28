@@ -10,5 +10,10 @@ router.get(
 	adminController.getArticle
 );
 router.get('/event', authMiddleware.isAuthenticated, adminController.getEvent);
+router.get(
+	'/book',
+	authMiddleware.isAuthenticated,
+	adminController.getPublication
+);
 
 module.exports = router;
