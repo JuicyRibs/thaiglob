@@ -20,89 +20,31 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>เขียนบทความ</h2>
-                <p>Article and Infographics</p>
+                <h2>อัพโหลดหนังสือและสิ่งพิมพ์</h2>
+                <p>Publications</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
-                        <label for="title">หัวเรื่องบทความ</label>
+                        <label for="title">ชื่อหนังสือ</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="form-group">
-                        <label for="desc">เรื่องย่อบทความ</label>
-                        <input type="text" class="form-control" id="desc" name="desc" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="body">เนื้อหาบทความ</label>
-                        <div>
-                            <div id="toolbar-container">
-                                <span class="ql-formats">
-                                    <select class="ql-font"></select>
-                                    <select class="ql-size"></select>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-bold"></button>
-                                    <button class="ql-italic"></button>
-                                    <button class="ql-underline"></button>
-                                    <button class="ql-strike"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <select class="ql-color"></select>
-                                    <select class="ql-background"></select>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-script" value="sub"></button>
-                                    <button class="ql-script" value="super"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-header" value="1"></button>
-                                    <button class="ql-header" value="2"></button>
-                                    <button class="ql-blockquote"></button>
-                                    <button class="ql-code-block"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-list" value="ordered"></button>
-                                    <button class="ql-list" value="bullet"></button>
-                                    <button class="ql-indent" value="-1"></button>
-                                    <button class="ql-indent" value="+1"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-direction" value="rtl"></button>
-                                    <select class="ql-align"></select>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-link"></button>
-                                    <button class="ql-image"></button>
-                                    <button class="ql-video"></button>
-                                    <button class="ql-formula"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <button class="ql-clean"></button>
-                                </span>
-                            </div>
-                            <div class="mx-auto" id="editor"></div>
-
-                        </div>
-
-                        <input type="hidden" class="form-control" id="body" name="body">
-                    </div>
-                    <div class="form-row">
-                        <div class="col date" data-provide="datepicker" id="datetimePicker">
+                        <div class="date" data-provide="datepicker" id="datetimePicker">
                             <label for="date">วันที่</label>
                             <input type="text" class="form-control" id="date" name="date" required>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
                             </div>
                         </div>
-                        <div class="col">
-                            <label for="files">รูปภาพหน้าปกบทความ</label>
-                            <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="files">รูปภาพหน้าปกหนังสือ</label>
+                        <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
                     </div>
-                    <div class="form-group mt-3">
-                        <label for="tag">แท็ก</label>
-                        <input type="text" class="form-control" id="tag" name="tag"  data-role="tagsinput" required>
+                    <div class="form-group">
+                        <label for="files2">ไฟล์หนังสือ</label>
+                        <input type="file" class="form-control-file" id="files2" name="files" required>
+                    </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;">

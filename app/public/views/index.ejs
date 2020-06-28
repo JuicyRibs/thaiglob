@@ -104,9 +104,10 @@
   if(typeof data[0] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <a href="/upload/${data[0].dlPath}" download>
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
   </div>
   `}else{
     html += `
@@ -118,36 +119,39 @@
   if(typeof data[1] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <a href="/upload/${data[1].dlPath}" download>
     <img
       style="width: 100%;"
       src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
   </div>
   `
 }
 if(typeof data[2] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <a href="/upload/${data[2].dlPath}" download>
     <img
       style="width: 100%;"
       src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
   </div>
   `
 }
 if(typeof data[3] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
+    <a href="/upload/${data[3].dlPath}" download>
     <img
       style="width: 100%;"
       src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
   </div>
   `
 }
@@ -172,9 +176,10 @@ if(typeof data[3] != "undefined"){
   if(typeof data[0] != "undefined"){
     html +=`
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
     `
   }else{
@@ -186,37 +191,42 @@ if(typeof data[3] != "undefined"){
   }
   if(typeof data[1] != "undefined"){
     html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>`
   }
     if(typeof data[2] != "undefined"){
     html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>`
   }
     if(typeof data[3] != "undefined"){
     html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>`
   }
     if(typeof data[4] != "undefined"){
     html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>`
   }
     if(typeof data[5] != "undefined"){
     html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/articles/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>`
   }
     html += `
@@ -240,9 +250,10 @@ if(typeof data[3] != "undefined"){
   if(typeof data[0] != "undefined"){
     html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
     `}else{
     html += `
@@ -254,41 +265,46 @@ if(typeof data[3] != "undefined"){
     if(typeof data[1] != "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[2] != "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[3] != "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[4] != "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[5] != "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/media/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>
     `}
 
@@ -313,9 +329,10 @@ if(typeof data[3] != "undefined"){
     if(typeof data[0]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>`}else{
     html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
@@ -326,37 +343,42 @@ if(typeof data[3] != "undefined"){
     if(typeof data[1]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>`}
     if(typeof data[2]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>`}
     if(typeof data[3]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>`}
     if(typeof data[4]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>`}
     if(typeof data[5]!= "undefined"){
       html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/news/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>`}
     html +=`
 </div>
@@ -379,9 +401,10 @@ if(typeof data[3] != "undefined"){
     if(typeof data[0] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
     `}else{
     html += `
@@ -393,41 +416,46 @@ if(typeof data[3] != "undefined"){
     if(typeof data[1] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[2] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[3] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[4] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>
     `}
     if(typeof data[5] != "undefined"){
       html+= `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3">
+      <a href="/events/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>
     `}
     html+=`

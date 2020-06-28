@@ -1,453 +1,457 @@
 html {
-    /* height: 100%; */
-    overflow-y: auto;
+	/* height: 100%; */
+	overflow-y: auto;
 }
 
 body {
-    /* width: 100%;
+	/* width: 100%;
     height: 100%; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
 }
 
 .navbar-nav {
-    font-size: 1.3em;
-    font-weight: 600;
+	font-size: 1.3em;
+	font-weight: 600;
 }
 
 /* img cropper */
 .sevenfive {
-    width: 15rem !important;
-    height: 21em;
-    object-fit: cover;
+	width: 15rem !important;
+	height: 21em;
+	object-fit: cover;
 }
 
 @font-face {
-    font-family: Cloud;
-    src: url(../fonts/Cloud-Light.otf);
+	font-family: Cloud;
+	src: url(../fonts/Cloud-Light.otf);
 }
 
 .cloud {
-    font-family: Cloud;
+	font-family: Cloud;
 }
 
 .covershow .row {
-    width: 100%;
-    height: 45rem;
+	width: 100%;
+	height: 45rem;
 }
 
 .cover {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    height: 20rem;
-
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: white;
+	height: 20rem;
 }
 
 .covertitle {
-    font-size: 3em;
-    font-weight: 700;
+	font-size: 3em;
+	font-weight: 700;
 }
 
 .covertitle p {
-    font-size: 0.7em;
+	font-size: 0.7em;
 }
 
 .covershow .cover {
-    height: 45rem;
+	height: 45rem;
 }
 
 .cover.home {
-    background-image: url("../images/bg.jpg");
+	background-image: url('../images/bg.jpg');
 }
 
 .cover.book {
-    background-image: url("../images/bookcover.jpg");
+	background-image: url('../images/bookcover.jpg');
 }
 
 .cover.news {
-    background-image: url("../images/newscover.jpg");
+	background-image: url('../images/newscover.jpg');
 }
 
 .cover.article {
-    background-image: url("../images/articlecover.jpg");
+	background-image: url('../images/articlecover.jpg');
 }
 
 .cover.event {
-    background-image: url("../images/eventcover.jpg");
+	background-image: url('../images/eventcover.jpg');
 }
 
 .cover.cornerc {
-    background-image: url("../images/cornercover.jpg");
+	background-image: url('../images/cornercover.jpg');
 }
 
 .cover.research {
-    background-image: url("../images/researchcover.jpg");
+	background-image: url('../images/researchcover.jpg');
 }
 
 .cover.about {
-    background-image: url("../images/aboutcover.jpg");
+	background-image: url('../images/aboutcover.jpg');
 }
 
 .cover.media {
-    background-image: url("../images/mediacover.jpg");
+	background-image: url('../images/mediacover.jpg');
 }
 
 .cover.contact {
-    background-image: url("../images/contactcover.jpg");
+	background-image: url('../images/contactcover.jpg');
 }
 
 .hyperlink img {
-    width: 50%;
-    padding-bottom: 2em;
-    border-bottom: 3px black solid;
-    margin-bottom: 1em;
+	width: 50%;
+	padding-bottom: 2em;
+	border-bottom: 3px black solid;
+	margin-bottom: 1em;
 }
 
 .hyperlink p {
-    font-family: Cloud;
-    font-weight: lighter;
-    src: url(../fonts/Cloud-Light.otf);
-    font-size: 1.2em;
-
+	font-family: Cloud;
+	font-weight: lighter;
+	src: url(../fonts/Cloud-Light.otf);
+	font-size: 1.2em;
 }
 
 .hyperlink a:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+	transform: scale(1.2);
+	cursor: pointer;
 }
 
 .carousel-inner div {
-    width: 100vw;
+	width: 100vw;
 }
 
 .innerText {
-    padding-left: 10rem;
+	padding-left: 10rem;
 }
 
 .bottom {
-    position: absolute;
-    bottom: 0;
+	position: absolute;
+	bottom: 0;
 }
 
 .booklist a {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .booklist:hover {
-    transform: scale(1.03);
+	transform: scale(1.03);
 }
 
 .booklist img {
-    width: 100%;
+	width: 100%;
 }
 
 .booklist .cloud {
-    font-size: large;
-    font-weight: 600;
+	font-size: large;
+	font-weight: 600;
 }
 
 .card-text small {
-    font-weight: bold;
-    color: rgb(54, 146, 221);
+	font-weight: bold;
+	color: rgb(54, 146, 221);
 }
 
-.card-text>img {
-    width: 100%;
-    /* height: 200px; */
+.card-text > img {
+	width: 100%;
+	/* height: 200px; */
 }
 
 tr td:last-child {
-    margin-left: 3em;
+	margin-left: 3em;
 }
 
 .research-entry {
-    border: 2px rgb(0, 0, 0) solid;
+	border: 2px rgb(0, 0, 0) solid;
 }
 
 .post-header {
-    font-weight: bold;
+	font-weight: bold;
 }
 
-.post-header>small {
-    color: green;
+.post-header > small {
+	color: green;
 }
 
 .post-header small:last-child {
-    color: grey;
+	color: grey;
 }
 
 footer {
-    background-color: white;
-    color: black;
+	background-color: white;
+	color: black;
 }
 
 .hyperlink a {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .cover.issue {
-    background-image: url("../images/issuecover.jpg");
+	background-image: url('../images/issuecover.jpg');
 }
 
-
 .issue img {
-    width: 184px;
-    height: 184px;
-    border-radius: 50%;
-    object-fit: cover;
+	width: 184px;
+	height: 184px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .plainText a {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .social-menu {
-    font-size: 1.5em;
-    font-weight: bolder;
+	font-size: 1.5em;
+	font-weight: bolder;
 }
 
 .social-menu i {
-    margin-left: 10px;
-    font-size: 1.8em;
+	margin-left: 10px;
+	font-size: 1.8em;
 }
 
 .media img {
-    width: 100%;
-    /* height: 56.25%; */
-    object-fit: cover;
+	width: 100%;
+	/* height: 56.25%; */
+	object-fit: cover;
 }
 
 @media screen and (min-width: 1200px) {
-    .tab {
-        padding: 50px 0px;
-        width: 30vw;
-        background-color: #CECECE;
-        font-size: 1.2em;
-    }
+	.tab {
+		padding: 50px 0px;
+		width: 30vw;
+		background-color: #cecece;
+		font-size: 1.2em;
+	}
 
-    .tab button {
-        display: block;
-        background-color: inherit;
-        color: black;
-        padding: 11px 0px 11px 75px;
-        width: 100%;
-        border: none;
-        outline: none;
-        text-align: left;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 1.1em;
-    }
+	.tab button {
+		display: block;
+		background-color: inherit;
+		color: black;
+		padding: 11px 0px 11px 75px;
+		width: 100%;
+		border: none;
+		outline: none;
+		text-align: left;
+		cursor: pointer;
+		transition: 0.3s;
+		font-size: 1.1em;
+	}
 
-    .tab div {
-        margin-left: 10vw;
-    }
+	.tab div {
+		margin-left: 10vw;
+	}
 
-    .tablinks img {
-        width: 2.5em;
-        margin: 0px 15px;
-        padding: 8px;
-        background-color: #393838;
-        border: #393838 1px solid;
-        border-radius: 30px;
-    }
+	.tablinks img {
+		width: 2.5em;
+		margin: 0px 15px;
+		padding: 8px;
+		background-color: #393838;
+		border: #393838 1px solid;
+		border-radius: 30px;
+	}
 
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+		background-color: #ddd;
+	}
 
-    /* Create an active/current "tab button" class */
-    .tab button.active {
-        color: #28A745;
-    }
+	/* Create an active/current "tab button" class */
+	.tab button.active {
+		color: #28a745;
+	}
 
-    /* Style the tab content */
-    .tabcontent {
-        float: left;
-        padding: 0px 10vw 0px 5vw;
-        width: 70vw;
-        border-left: none;
-        background-color: #F1F1F1;
-    }
+	/* Style the tab content */
+	.tabcontent {
+		float: left;
+		padding: 0px 10vw 0px 5vw;
+		width: 70vw;
+		border-left: none;
+		background-color: #f1f1f1;
+	}
 }
 
 @media screen and (max-width: 1199px) {
-    .tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        width: 100%;
-    }
+	.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+		width: 100%;
+	}
 
-    .tablinks img {
-        width: 2.5em;
-        margin-right: 15px;
-        padding: 8px;
-        background-color: #393838;
-        border: #393838 1px solid;
-        border-radius: 30px;
-    }
+	.tablinks img {
+		width: 2.5em;
+		margin-right: 15px;
+		padding: 8px;
+		background-color: #393838;
+		border: #393838 1px solid;
+		border-radius: 30px;
+	}
 
-    /* Style the buttons that are used to open the tab content */
-    .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-    }
+	/* Style the buttons that are used to open the tab content */
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+	}
 
-    .tab div {
-        margin: 10px 16px !important;
-    }
+	.tab div {
+		margin: 10px 16px !important;
+	}
 
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+		background-color: #ddd;
+	}
 
-    /* Create an active/current tablink class */
-    .tab button.active {
-        background-color: #ccc;
-    }
+	/* Create an active/current tablink class */
+	.tab button.active {
+		background-color: #ccc;
+	}
 
-    /* Style the tab content */
-    .tabcontent {
-        display: none;
-        padding: 6px 24px;
-        border: 1px solid #ccc;
-        border-top: none;
-    }
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+		padding: 6px 24px;
+		border: 1px solid #ccc;
+		border-top: none;
+	}
 }
 
 .date {
-    color: #51991E;
+	color: #51991e;
 }
 
 .corner .cloud {
-    font-size: 1.3em;
+	font-size: 1.3em;
 }
 
 .corner button {
-    width: 100%;
-
+	width: 100%;
 }
 
-.corner>a h2 {
-    width: fit-content;
-    border-bottom: 1px #707070 solid;
-    color: #669900;
+.corner > a h2 {
+	width: fit-content;
+	border-bottom: 1px #707070 solid;
+	color: #669900;
 }
 
-.corner>a h2:hover {
-    transform: scale(1.1);
+.corner > a h2:hover {
+	transform: scale(1.1);
 }
 
-.corner>a:hover {
-    text-decoration: none;
+.corner > a:hover {
+	text-decoration: none;
 }
-
 
 .corner img {
-    width: 100%;
+	width: 100%;
 }
 
 @media screen and (max-width: 991px) {
+	.corner img {
+		width: 80%;
+	}
 
-    .corner img {
-        width: 80%;
-    }
+	.innerText {
+		padding-left: 3em;
+	}
 
-    .innerText {
-        padding-left: 3em;
-    }
+	.covertitle {
+		font-size: 2em;
+		font-weight: 700;
+	}
 
-    .covertitle {
-        font-size: 2em;
-        font-weight: 700;
-    }
-
-    .covertitle p {
-        font-size: 0.7em;
-    }
-
+	.covertitle p {
+		font-size: 0.7em;
+	}
 }
 
 .gry {
-    background-color: #EEF1EF;
+	background-color: #eef1ef;
 }
 
 .btn-circle.btn-lg {
-    z-index: 9999;
-    width: 50px;
-    height: 50px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 25px;
-    border: 1px #b8b8b8 solid;
-    position: fixed;
-    bottom: 25px;
-    right: 50px;
-    -webkit-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
-    -moz-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
-    box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
+	z-index: 9999;
+	width: 50px;
+	height: 50px;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 25px;
+	border: 1px #b8b8b8 solid;
+	position: fixed;
+	bottom: 25px;
+	right: 50px;
+	-webkit-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
+	-moz-box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
+	box-shadow: 10px 13px 45px -6px rgba(0, 0, 0, 0.36);
 }
 
 .medialist img {
-    width: 100%;
+	width: 100%;
 }
 
 .medialist a {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .medialist:hover {
-    transform: scale(1.03);
+	transform: scale(1.03);
 }
 
 .medialist .cloud {
-    font-size: large;
-    font-weight: 600;
+	font-size: large;
+	font-weight: 600;
 }
 
 .contactDetail img {
-    height: 3em;
-    margin-right: 1em;
+	height: 3em;
+	margin-right: 1em;
 }
 
 .contactDetail img:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .timeline .flat {
-    display: block;
-    width: 100%;
+	display: block;
+	width: 100%;
 }
 
 .timeline .up {
-    display: none;
+	display: none;
 }
 
 @media screen and (max-width: 991px) {
+	.timeline .up {
+		display: block;
+		width: 100%;
+	}
 
-    .timeline .up {
-        display: block;
-        width: 100%;
-    }
+	.timeline .flat {
+		display: none;
+	}
+}
 
-    .timeline .flat {
-        display: none;
-    }
+a:link {
+	text-decoration: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+a:visited {
+	text-decoration: inherit;
+	color: inherit;
+	cursor: pointer;
 }

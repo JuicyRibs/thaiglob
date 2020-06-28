@@ -9,5 +9,6 @@ router.get(
 	authMiddleware.isAuthenticated,
 	adminController.getArticle
 );
+router.get('/event', authMiddleware.isAuthenticated, adminController.getEvent);
 
 module.exports = router;
