@@ -20,7 +20,7 @@ body {
 /* img cropper */
 .sevenfive {
 	width: 15rem !important;
-	height: 21em;
+	height: 21rem;
 	object-fit: cover;
 }
 
@@ -124,6 +124,7 @@ body {
 
 .innerText {
 	padding-left: 10rem;
+	padding-right: 10rem;
 }
 
 .bottom {
@@ -167,12 +168,14 @@ tr td:last-child {
 	border: 2px rgb(0, 0, 0) solid;
 }
 
-.post-header {
+.post-header > small {
+	color: green;
 	font-weight: bold;
 }
 
-.post-header > small {
-	color: green;
+.post-header > p {
+	color: rgb(102, 102, 102);
+	font-size: 1.1em;
 }
 
 .post-header small:last-child {
@@ -453,5 +456,14 @@ a:link {
 a:visited {
 	text-decoration: inherit;
 	color: inherit;
+	cursor: pointer;
+}
+
+.copy-to-clip{
+	font-size: 1.3em;
+}
+
+.copy-to-clip:hover{
+	opacity: .5; -webkit-filter: grayscale(100%) sepia(100%);
 	cursor: pointer;
 }

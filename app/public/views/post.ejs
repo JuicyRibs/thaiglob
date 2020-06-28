@@ -1,32 +1,77 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
+<section
+	style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
 	<div style="height: 300px;"></div>
 </section>
 <!-- EndCover -->
 
 <!-- #PostSection -->
 <section>
-	<div class="container my-5">
-		<div class="row">
-			<div class="post-header my-5">
-				<small><%- title.split('-')[1] %> </small>
-				<h1><%- data.title %></h1>
+	<div class="container my-3">
+		<div class="row pt-3">
+			<div class="col-sm-12 col-md-8">
+				<div class="post-header">
+					<small><%- title.split('-')[1] %> </small>
+					<h1><%- data.title %></h1>
+					<p><%- data.desc %></p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4" style="font-size: 1.3em;">
+				<div class="row align-items-center">
+					<div style="border-right: 2px solid black; padding-right: 0.3em;">Share </div>
+					<div id="share" style="margin-right: 0.6em;"></div>
+					<div class="copy-to-clip" data-toggle="tooltip" onclick="copyURL()"><i class="fa fa-link"></i></div>
+				</div>
 			</div>
 		</div>
 		<div class="row d-flex flex-row-reverse">
-			<div class="col-sm-12 col-md-10">
+			<div class="col-sm-12 col-md-12">
 				<p><%- data.body %></p>
 			</div>
-			<div class="col-md-2 col-sm-4">
-				<!-- <div>
+			<!-- <div class="col-md-2 col-sm-4">
+				<div>
 					<p>Written by</p>
 					<p></p>
-				</div> -->
-			</div>
+				</div>
+			</div> -->
 		</div>
 	</div>
 </section>
+
+<script>
+
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+	
+	$('.copy-to-clip').tooltip({
+		trigger: 'click',
+		placement: 'bottom'
+	});
+
+</script>
+<script>
+	function copyURL() {
+		console.log("copy..");
+		var dummy = document.createElement('input'),
+			text = window.location.href;
+
+		document.body.appendChild(dummy);
+		dummy.value = text;
+		dummy.select();
+		document.execCommand('copy');
+		document.body.removeChild(dummy);
+	}
+</script>
+<script src="/assets/js/jssocials.min.js"></script>
+<script>
+	$("#share").jsSocials({
+		showLabel: false,
+		showCount: false,
+		shares: ["facebook", "twitter"]
+	});
+</script>
 <!-- #endPostSection -->
 <%- include('./includes/footer.ejs') %>
