@@ -165,7 +165,7 @@ tr td:last-child {
 }
 
 .research-entry {
-	border: 2px rgb(0, 0, 0) solid;
+	border: 2px solid rgb(0, 0, 0);
 }
 
 .post-header > small {
