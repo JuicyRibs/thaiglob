@@ -19,9 +19,10 @@ BACKEND
 -   [x] @ThanadonTee, update model with tag and desc
 -   [x] @ThanadonTee, update research to current structure
 -   [x] @ThanadonTee, fix quilljs
--   [ ] @ThanadonTee, copy admin page
+-   [x] @ThanadonTee, copy admin page
 -   [ ] @ThanadonTee, add dummy data
--   [ ] @ThanadonTee, show new data
+-   [x] @ThanadonTee, show new data
+-   [ ] @ThanadonTee, Convert dataTable to fooTable
 -   [ ] @ThanadonTee, Clean up code
 
 # File Structure

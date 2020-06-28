@@ -25,6 +25,8 @@ router.delete(
 	researchController.delete
 );
 
+router.post('/api', researchController.showAll);
+
 router.get('/', researchController.getIndex);
 
 module.exports = router;

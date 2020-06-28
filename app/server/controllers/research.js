@@ -3,6 +3,14 @@ const fs = require('fs');
 
 const Research = require('../models/research');
 
+exports.showAll = async function (req, res) {
+	let result = await Research.find({})
+		.sort(req.body.sortParams)
+		.skip(parseInt(req.body.skip))
+		.limit(parseInt(req.body.limit));
+	res.json(result);
+};
+
 exports.create = function (req, res) {
 	if (!req.files) {
 		res.status(500).send({

@@ -15,5 +15,16 @@ router.get(
 	authMiddleware.isAuthenticated,
 	adminController.getPublication
 );
+router.get(
+	'/media',
+	authMiddleware.isAuthenticated,
+	adminController.getMultimedia
+);
+router.get('/news', authMiddleware.isAuthenticated, adminController.getNews);
+router.get(
+	'/research',
+	authMiddleware.isAuthenticated,
+	adminController.getResearch
+);
 
 module.exports = router;
