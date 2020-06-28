@@ -1,5 +1,6 @@
 require('dotenv').config();
 // import swal from 'sweetalert';
+const Swal = require('sweetalert2');
 const path = require('path');
 const mongoose = require('mongoose');
 const express = require('express');

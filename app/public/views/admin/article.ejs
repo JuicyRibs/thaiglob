@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="upload()">Submit</button>
                     <div class="alert alert-success" role="alert" id="Formsuccess" style="display: none;">
                     </div>
                 </form>
@@ -164,6 +164,16 @@
 
         </table>
         <script>
+            function upload() {
+                console.log("Uploading...");
+                Swal.fire({
+                    title: 'อัพโหลดสำเร็จ',
+                    type: 'success',
+                    timer: 4000,
+                }, function () {
+                    location.reload();  
+                })
+            }
             $(document).ready(function () {
                 $.post(
                     '/articles/api', {
