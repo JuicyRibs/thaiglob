@@ -168,6 +168,11 @@ tr td:last-child {
 	border: 2px solid rgb(0, 0, 0);
 }
 
+.research-entry a{
+	color: white !important;
+}
+
+
 .post-header > small {
 	color: green;
 	font-weight: bold;
