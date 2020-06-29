@@ -64,8 +64,10 @@
                     </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
-            <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;">
-            </div>
+            <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
+                    <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
+                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;">
+                    </div>
             </form>
         </div>
         <hr>
@@ -82,6 +84,7 @@
     <script>
         $('#create').submit(function (e) {
             e.preventDefault();
+                $('#FormUploading').html('Uploading').fadeIn('slow');
             $.ajax({
                 url: '/research/create',
                 type: 'post',
@@ -89,13 +92,22 @@
                 processData: false,
                 contentType: false,
                 success: function () {
-                    $('#Formsuccess').html('Success').fadeIn('slow');
-                    $('#Formsuccess').delay(1000).fadeOut('slow');
-                    $('#Formsuccess').delay(1100).queue(function () {
-                        location.reload();
-                        $(this).dequeue();
-                    });
-                }
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#Formsuccess').html('Success').fadeIn('slow');
+                        $('#Formsuccess').delay(1000).fadeOut('slow');
+                        $('#Formsuccess').delay(1100).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    },
+                    error: function () {
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#FormFailed').html('Error. Please try again.').fadeIn('slow');
+                        $('#FormFailed').delay(2000).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    }
             });
         });
     </script>
