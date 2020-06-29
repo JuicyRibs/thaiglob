@@ -155,7 +155,7 @@ body {
 	color: rgb(54, 146, 221);
 }
 
-.card-text > img {
+.card-text>img {
 	width: 100%;
 	/* height: 200px; */
 }
@@ -165,19 +165,22 @@ tr td:last-child {
 }
 
 .research-entry {
-	border: 2px solid rgb(0, 0, 0);
+	border: 30px solid rgba(255, 255, 255, 0);
+	border-radius: 15px;
+	padding-bottom: 5em;
+	box-shadow: 0px 0px 19px -7px rgba(0,0,0,0.29);
 }
 
-.research-entry a{
+.research-entry a {
 	color: white !important;
 }
 
 
-.post-header > small {
+.post-header>small {
 	color: green;
 }
 
-.post-header > div {
+.post-header>div {
 	font-size: 1.1em;
 }
 
@@ -345,17 +348,17 @@ footer {
 	width: 100%;
 }
 
-.corner > a h2 {
+.corner>a h2 {
 	width: fit-content;
 	border-bottom: 1px #707070 solid;
 	color: #669900;
 }
 
-.corner > a h2:hover {
+.corner>a h2:hover {
 	transform: scale(1.1);
 }
 
-.corner > a:hover {
+.corner>a:hover {
 	text-decoration: none;
 }
 
@@ -462,11 +465,12 @@ a:visited {
 	cursor: pointer;
 }
 
-#copy-to-clip{
+#copy-to-clip {
 	font-size: 1.3em;
 }
 
-#copy-to-clip:hover{
-	opacity: .5; -webkit-filter: grayscale(100%) sepia(100%);
+#copy-to-clip:hover {
+	opacity: .5;
+	-webkit-filter: grayscale(100%) sepia(100%);
 	cursor: pointer;
 }
