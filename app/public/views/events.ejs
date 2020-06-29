@@ -121,7 +121,7 @@
 					skip = skip + limit;
 					data.forEach((event) => {
 						var html = `<div class="col-lg-4 col-md-6 py-4 px-5 booklist">
-	<a href="${event._id}" class="postblock" style="text-decoration: none;">
+	<a href="/events/${event._id}" class="postblock" style="text-decoration: none;">
 		<img class="sevenfive" src="${
 			event.imgPath
 				? '/upload/' + event.imgPath
