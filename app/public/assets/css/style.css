@@ -175,11 +175,9 @@ tr td:last-child {
 
 .post-header > small {
 	color: green;
-	font-weight: bold;
 }
 
-.post-header > p {
-	color: rgb(102, 102, 102);
+.post-header > div {
 	font-size: 1.1em;
 }
 
@@ -464,11 +462,11 @@ a:visited {
 	cursor: pointer;
 }
 
-.copy-to-clip{
+#copy-to-clip{
 	font-size: 1.3em;
 }
 
-.copy-to-clip:hover{
+#copy-to-clip:hover{
 	opacity: .5; -webkit-filter: grayscale(100%) sepia(100%);
 	cursor: pointer;
 }

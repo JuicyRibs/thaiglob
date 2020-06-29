@@ -1,33 +1,32 @@
 <%- include('./includes/header.ejs') %>
 
 <!-- #Cover -->
-<section
-	style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
-	<div style="height: 300px;"></div>
-</section>
+
 <!-- EndCover -->
 
 <!-- #PostSection -->
-<section>
+<section style="border-top: 5px solid green;">
 	<div class="container my-3">
-		<div class="row pt-3">
-			<div class="col-sm-12 col-md-8">
-				<div class="post-header">
-					<small><%- title.split('-')[1] %> </small>
-					<h1><%- data.title %></h1>
-					<p><%- data.desc %></p>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4" style="font-size: 1.3em;">
-				<div class="row align-items-center">
-					<div style="border-right: 2px solid black; padding-right: 0.3em;">Share </div>
-					<div id="share" style="margin-right: 0.6em;"></div>
-					<div class="copy-to-clip" data-toggle="tooltip" onclick="copyURL()"><i class="fa fa-link"></i></div>
-				</div>
+		<div class="row">
+			<div class="post-header">
+				<small style="font-weight: bold;"><%- title.split('-')[1] %> </small>
+				<h1><%- data.title %></h1>
+				<div><%- data.desc %></div>
+				<small>29-06-2020</small>
 			</div>
 		</div>
+		<div class="row align-items-center my-4"
+			style="color: rgb(102, 102, 102); border-bottom: 1px solid rgb(102, 102, 102);">
+			<div style="padding-right: 1em; font-weight: bold;">SHARE</div>
+			<div id="share" style="margin-right: 0.6em;"></div>
+			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><i class="fa fa-link"></i></div>
+		</div>
+		<div class="row"
+			style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
+			<div style="height: 70vh;"></div>
+		</div>
 		<div class="row d-flex flex-row-reverse">
-			<div class="col-sm-12 col-md-12">
+			<div class="col-sm-12 col-md-12 px-0">
 				<p><%- data.body %></p>
 			</div>
 			<!-- <div class="col-md-2 col-sm-4">
@@ -40,17 +39,26 @@
 	</div>
 </section>
 
+<script
+  src="https://code.jquery.com/jquery-1.11.0.min.js"
+  integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="
+  crossorigin="anonymous"></script>
+  <!-- <script
+  src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"
+  integrity="sha256-z8sq+fwXy6xX1HLBJZ5doyrWmFBhQ9lG3p/AKoipKKs="
+  crossorigin="anonymous"></script> -->
 <script>
+	$('#copy-to-clip').tooltip({
 
-	$(function () {
-		$('[data-toggle="tooltip"]').tooltip()
-	})
-	
-	$('.copy-to-clip').tooltip({
-		trigger: 'click',
-		placement: 'bottom'
+		disabled: true,
+		close: function (event, ui) {
+			$(this).tooltip('disable');
+		}
 	});
 
+	$('#copy-to-clip').on('click', function () {
+		$(this).tooltip('enable').tooltip('open');
+	});
 </script>
 <script>
 	function copyURL() {
