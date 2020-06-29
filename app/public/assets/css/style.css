@@ -371,7 +371,7 @@ footer {
 }
 
 @media screen and (max-width: 991px) {
-	.corner img {
+	#publication .corner img {
 		width: 80%;
 	}
 
