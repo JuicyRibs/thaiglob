@@ -34,15 +34,6 @@ exports.create = function (req, res) {
 	});
 };
 
-exports.delete = function (req, res) {
-	News.findByIdAndRemove(req.params.id, function (err) {
-		if (err) {
-			return next(err);
-		}
-		res.send('/admin/');
-	});
-};
-
 exports.updateById = function (req, res) {
 	Research.findById(req.params.id, function (err, research) {
 		if (err) {

@@ -60,6 +60,15 @@ exports.showById = function (req, res) {
 	});
 };
 
+exports.jsonById = function (req, res) {
+	Article.findById(req.params.id, function (err, article) {
+		if (err) {
+			return next(err);
+		}
+		res.json(article);
+	});
+};
+
 exports.updateById = function (req, res) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {

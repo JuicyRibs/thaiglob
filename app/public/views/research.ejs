@@ -1,80 +1,94 @@
-<%- include('./includes/header.ejs') %>
-<%- include('./includes/backtotop.ejs') %>
+<%- include('./includes/header.ejs') %> <%- include('./includes/backtotop.ejs')
+%>
 
 <!-- #Cover -->
 <div class="cover research">
-  <div class="row" style="height: 100%;">
-    <div class="my-auto innerText">
-      <div class="covertitle">
-        Research Projects
-        <p class="cloud">
-          โครงการวิจัย
-        </p>
-      </div>
-    </div>
-  </div>
+	<div class="row" style="height: 100%;">
+		<div class="my-auto innerText">
+			<div class="covertitle">
+				Research Projects
+				<p class="cloud">
+					โครงการวิจัย
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- #EndCover -->
 <div class="container">
-  <p class="my-3">
-    <a href="/" style="text-decoration: none; color: black;">Home</a>
-    >
-    <span>
-      <a href="/research" style="text-decoration: none; color: #28a745;"
-        >Research Projects</a
-      >
-    </span>
-  </p>
+	<p class="my-3">
+		<a href="/" style="text-decoration: none; color: black;">Home</a>
+		>
+		<span>
+			<a href="/research" style="text-decoration: none; color: #28a745;"
+				>Research Projects</a
+			>
+		</span>
+	</p>
 </div>
 <!-- #Table -->
 <section>
-  <div class="container">
-    <table class="table table-borderless table-hover" id="table_id">
-      <thead>
-        <tr>
-          <!-- <th scope="col">No.</th> -->
-          <th style="width:49%" scope="col">Title</th>
-          <th style="width:15%" scope="col">PI</th>
-          <!-- <th scope="col">Institute</th> -->
-          <th style="width:13%" scope="col">Active Year</th>
-          <!-- <th scope="col">Fund Source</th> -->
-          <th style="width:10%" scope="col">Status</th>
-          <th style="width:13%" scope="col">Download</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for([index, research] of researches.entries()) {%>
-        <tr class="research-entry">
-          <td>
-            <%- research.title %>
-          </td>
-          <td><%- research.author %></td>
-          <td><%- research.activeYear %></td>
-          <td><%- research.status %></td>
-          <td>
-            <a class="btn btn-success" href="<%- research.dlPath %>" download>
-              Abstract &nbsp;<i class="fa fa-download"></i
-            ></a>
-          </td>
-        </tr>
-        <% } %>
-      </tbody>
-    </table>
-  </div>
+	<div class="container">
+		<table
+			class="table table-borderless table-hover"
+			id="table_id"
+			data-paging="true"
+			data-sorting="true"
+			data-filtering="true"
+		>
+			<thead>
+				<tr>
+					<!-- <th scope="col">No.</th> -->
+					<th
+						style="width: 6%;"
+						scope="col"
+						data-type="number"
+						data-sorted="true"
+					>
+						#
+					</th>
+					<th style="width: 49%;" scope="col">Title</th>
+					<th style="width: 15%;" scope="col">PI</th>
+					<!-- <th scope="col">Institute</th> -->
+					<th style="width: 10%;" scope="col">Active Year</th>
+					<!-- <th scope="col">Fund Source</th> -->
+					<th style="width: 10%;" scope="col">Status</th>
+					<th style="width: 10%;" scope="col">Download</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for([index, research] of researches.entries()) {%>
+				<tr class="research-entry" data-expanded="true">
+					<td><%- index %></td>
+					<td>
+						<%- research.title %>
+					</td>
+					<td><%- research.author %></td>
+					<td><%- research.activeYear %></td>
+					<td><%- research.status %></td>
+					<td>
+						<a
+							class="btn btn-success"
+							href="<%- research.dlPath %>"
+							download
+						>
+							Abstract &nbsp;<i class="fa fa-download"></i
+						></a>
+					</td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
 </section>
 <!-- #EndTable -->
 
 <!-- #StartPagination -->
-<script
-  type="text/javascript"
-  charset="utf8"
-  src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"
-></script>
-
+<script src="/assets/js/footable.min.js"></script>
 <script>
-  $(document).ready(function () {
-    $("#table_id").dataTable();
-  });
+	$(document).ready(function () {
+		$('#table_id').footable();
+	});
 </script>
 <!-- #EndPagination -->
 <%- include('./includes/footer.ejs') %>

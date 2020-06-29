@@ -20,10 +20,11 @@ BACKEND
 -   [x] @ThanadonTee, update research to current structure
 -   [x] @ThanadonTee, fix quilljs
 -   [x] @ThanadonTee, copy admin page
--   [ ] @ThanadonTee, add dummy data
+-   [x] @ThanadonTee, add dummy data
 -   [x] @ThanadonTee, show new data
--   [ ] @ThanadonTee, Convert dataTable to fooTable
--   [ ] @ThanadonTee, Clean up code
+-   [x] @ThanadonTee, Convert dataTable to fooTable
+-   [ ] @ThanadonTee, Add edit and Delete pages
+-   [ ] @ThanadonTee, Add carosal selector
 
 # File Structure
 

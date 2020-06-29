@@ -3,25 +3,25 @@ exports.getIndex = (req, res) => {
 };
 
 exports.getArticle = (req, res) => {
-	res.render('admin/article');
+	res.render('admin/create/article');
 };
 
 exports.getEvent = (req, res) => {
-	res.render('admin/event');
+	res.render('admin/create/event');
 };
 
 exports.getMultimedia = (req, res) => {
-	res.render('admin/media');
+	res.render('admin/create/media');
 };
 
 exports.getPublication = (req, res) => {
-	res.render('admin/book');
+	res.render('admin/create/book');
 };
 
 exports.getNews = (req, res) => {
-	res.render('admin/news');
+	res.render('admin/create/news');
 };
 
 exports.getResearch = (req, res) => {
-	res.render('admin/research');
+	res.render('admin/create/research');
 };
