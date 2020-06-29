@@ -341,7 +341,11 @@ footer {
 }
 
 .corner .cloud {
-	font-size: 0.9em;
+	font-size: 1em;
+}
+
+.corner p.cloud {
+	font-size: 1.3em;
 }
 
 .corner button {
@@ -369,6 +373,10 @@ footer {
 @media screen and (max-width: 991px) {
 	.corner img {
 		width: 80%;
+	}
+
+	.showcase{
+		width: 100% !important;
 	}
 
 	.innerText {
