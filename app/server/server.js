@@ -29,7 +29,7 @@ app.set('views', viewPath);
 
 app.use(cors());
 app.use(express.static(publicPath));
-app.use(express.json({ limit: 1048576 }));
+app.use(express.json({ limit: 1048576000 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 app.use(compression());
