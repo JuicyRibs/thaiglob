@@ -461,6 +461,12 @@ footer {
 	}
 }
 
+@media screen and (max-width: 767px) {
+	.sevenfive{
+		width: 100% !important;
+	}
+}
+
 a:link {
 	text-decoration: inherit;
 	color: inherit;
