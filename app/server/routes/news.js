@@ -5,13 +5,19 @@ const newsController = require('../controllers/news');
 const authMiddleware = require('../middlewares/auth');
 const multer = require('../utils/multer-config');
 
-router.post('/create', authMiddleware.isAuthenticated, newsController.create);
+router.post(
+	'/create',
+	authMiddleware.isAuthenticated,
+	multer.uploadFile,
+	newsController.create
+);
 router.get('/:id', newsController.showById);
 router.post('/api', newsController.showByQuery);
 
 router.put(
 	'/:id/update',
 	authMiddleware.isAuthenticated,
+	multer.uploadFile,
 	newsController.updateById
 );
 
