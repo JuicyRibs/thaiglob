@@ -16,6 +16,7 @@ exports.create = function (req, res) {
 		tag: req.body.tag,
 		date: req.body.date,
 		desc: req.body.desc,
+		author: req.body.author,
 	});
 	article.save(function (err) {
 		if (err) {
@@ -40,6 +41,7 @@ exports.showByQuery = async function (req, res) {
 			{ body: { $regex: req.body.query, $options: 'i' } },
 			{ tag: { $regex: req.body.query, $options: 'i' } },
 			{ desc: { $regex: req.body.query, $options: 'i' } },
+			{ author: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
@@ -97,6 +99,7 @@ exports.updateById = function (req, res) {
 		article.tag = req.body.tag;
 		article.date = req.body.date;
 		article.desc = req.body.desc;
+		article.author = req.body.author;
 		article.save(function (err, article) {
 			if (err) {
 				return next(err);

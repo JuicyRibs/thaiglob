@@ -16,6 +16,7 @@ exports.create = function (req, res) {
 		tag: req.body.tag,
 		date: req.body.date,
 		desc: req.body.desc,
+		author: req.body.author,
 	});
 	multimedia.save(function (err) {
 		if (err) {
@@ -40,6 +41,7 @@ exports.showByQuery = async function (req, res) {
 			{ body: { $regex: req.body.query, $options: 'i' } },
 			{ tag: { $regex: req.body.query, $options: 'i' } },
 			{ desc: { $regex: req.body.query, $options: 'i' } },
+			{ author: { $regex: req.body.query, $options: 'i' } },
 		],
 	})
 		.sort(req.body.sortParams)
@@ -97,6 +99,7 @@ exports.updateById = function (req, res) {
 		multimedia.tag = req.body.tag;
 		multimedia.date = req.body.date;
 		multimedia.desc = req.body.desc;
+		multimedia.author = req.body.author;
 		multimedia.save(function (err, multimedia) {
 			if (err) {
 				return next(err);

@@ -9,6 +9,7 @@ const researchSchema = new Schema({
 	// fundSource: String,
 	status: String,
 	dlPath: String,
+	author: String,
 });
 
 module.exports = mongoose.model('Research', researchSchema);

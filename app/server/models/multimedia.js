@@ -12,6 +12,7 @@ const MultimediaSchema = new Schema({
 		},
 	],
 	desc: String,
+	author: String,
 });
 
 module.exports = mongoose.model('Multimedia', MultimediaSchema);
