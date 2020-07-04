@@ -20,25 +20,25 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>เขียนบทความ</h2>
-                <p>Article and Infographics</p>
+                <h2>สร้างอีเว้นท์</h2>
+                <p>Events</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
-                        <label for="title">หัวเรื่องบทความ</label>
+                        <label for="title">ชื่ออีเว้นท์</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="form-group">
-                        <label for="desc">เรื่องย่อบทความ</label>
+                        <label for="desc">รายละเอียดย่อ</label>
                         <input type="text" class="form-control" id="desc" name="desc" required>
                     </div>
                     <div class="form-group">
-                        <label for="author">ผู้เขียนบทความ</label>
+                        <label for="author">ผู้เขียน</label>
                         <input type="text" class="form-control" id="author" name="author" required>
                     </div>
                     <div class="form-group">
-                        <label for="body">เนื้อหาบทความ</label>
+                        <label for="body">เนื้อหาอีเว้นท์</label>
                         <div>
                             <div id="toolbar-container">
                                 <span class="ql-formats">
@@ -89,7 +89,7 @@
 
                         </div>
 
-                        <input type="hidden" class="form-control" id="body" name="body">
+                        <input type="hidden" class="form-control" id="body" name="body" required>
                     </div>
                     <div class="form-row">
                         <div class="col date" data-provide="datepicker" id="datetimePicker">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label for="files">รูปภาพหน้าปกบทความ</label>
+                            <label for="files">รูปภาพหน้าปกอีเว้นท์</label>
                             <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
                         </div>
                     </div>
@@ -109,10 +109,10 @@
                         <input type="text" class="form-control" id="tag" name="tag"  data-role="tagsinput" required>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
-                    <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
-                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;">
+                    <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;">
                     </div>
+                    <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
+                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;"></div>>
                 </form>
             </div>
 
@@ -164,15 +164,12 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/articles/create',
+                    url: '/events/create',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
@@ -201,16 +198,18 @@
     </div>
     <div class="container">
         <div class="cloud my-4">
-            <h2>แก้ไขบทความ</h2>
+            <h2>แก้ไขอีเว้นท์</h2>
         </div>
         <table id="editTable">
 
         </table>
         <script>
-            
+            $(function () {
+                $('#datetimePicker').datepicker();
+            });
             $(document).ready(function () {
                 $.post(
-                    '/articles/api', {
+                    '/events/api', {
                         query: '',
                         sortParams: '-date',
                         skip: 0,
@@ -221,7 +220,7 @@
                             "data": data,
                             "columns": [{
                                     "data": "title",
-                                    "title": "ชื่อบทความ"
+                                    "title": "ชื่ออีเว้นท์"
                                 },
                                 {
                                     "data": "date",
@@ -232,9 +231,9 @@
                                 "aTargets": [2],
                                 "mData": "_id",
                                 "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-primary mx-3" href="/admin/article/' +
+                                    return '<a class="btn btn-primary mx-3" href="/admin/events/' +
                                         data +
-                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/article/' +
+                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/events/' +
                                         data + '/delete">Delete</a>';
                                 }
                             }]

@@ -20,22 +20,22 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>เขียนบทความ</h2>
+                <h2>แก้ไขบทความ</h2>
                 <p>Article and Infographics</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
                         <label for="title">หัวเรื่องบทความ</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= data.title %> " required>
                     </div>
                     <div class="form-group">
                         <label for="desc">เรื่องย่อบทความ</label>
-                        <input type="text" class="form-control" id="desc" name="desc" required>
+                        <input type="text" class="form-control" id="desc" name="desc" value="<%= data.desc %> " required>
                     </div>
                     <div class="form-group">
                         <label for="author">ผู้เขียนบทความ</label>
-                        <input type="text" class="form-control" id="author" name="author" required>
+                        <input type="text" class="form-control" id="author" name="author" value="<%= data.author %> " required>
                     </div>
                     <div class="form-group">
                         <label for="body">เนื้อหาบทความ</label>
@@ -85,8 +85,8 @@
                                     <button class="ql-clean"></button>
                                 </span>
                             </div>
-                            <div class="mx-auto" id="editor"></div>
-
+                            <div class="mx-auto" id="editor"><%- data.body %></div>
+                            
                         </div>
 
                         <input type="hidden" class="form-control" id="body" name="body">
@@ -94,7 +94,7 @@
                     <div class="form-row">
                         <div class="col date" data-provide="datepicker" id="datetimePicker">
                             <label for="date">วันที่</label>
-                            <input type="text" class="form-control" id="date" name="date" required>
+                            <input type="text" class="form-control" id="date" name="date" <%- data.date %> required>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
                             </div>
@@ -167,6 +167,12 @@
             $(function () {
                 $('#datetimePicker').datepicker();
             });
+            $(document).ready(function(){
+                var tags = <%- data.tag ? data.tag : [] %>
+                tags.forEach(element => {
+                    $("#tag").tagsinput('add', element);
+                });
+            })
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
@@ -199,52 +205,7 @@
         </script>
         <hr>
     </div>
-    <div class="container">
-        <div class="cloud my-4">
-            <h2>แก้ไขบทความ</h2>
-        </div>
-        <table id="editTable">
-
-        </table>
-        <script>
-            
-            $(document).ready(function () {
-                $.post(
-                    '/articles/api', {
-                        query: '',
-                        sortParams: '-date',
-                        skip: 0,
-                        limit: 0,
-                    },
-                    function (data, status) {
-                        $("#editTable").dataTable({
-                            "data": data,
-                            "columns": [{
-                                    "data": "title",
-                                    "title": "ชื่อบทความ"
-                                },
-                                {
-                                    "data": "date",
-                                    "title": "เวลาที่เผยแพร่"
-                                }
-                            ],
-                            "aoColumnDefs": [{
-                                "aTargets": [2],
-                                "mData": "_id",
-                                "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-primary mx-3" href="/admin/article/' +
-                                        data +
-                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/article/' +
-                                        data + '/delete">Delete</a>';
-                                }
-                            }]
-                        });
-                    }
-                );
-            });
-        </script>
-    </div>
-
+   
 </body>
 
 </html>

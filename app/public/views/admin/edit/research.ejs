@@ -1,0 +1,164 @@
+<%- include('../header') %>
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="/assets/css/tagsinput.css">
+<style>
+    .ql-editor {
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .ql-container,
+    .ql-toolbar {
+        background-color: white;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('../navbar') %>
+    <div style="background-color: #E8E8EE;">
+        <div class="container">
+            <div class="cloud py-4">
+                <h2>อัพโหลดโครงการวิจัย</h2>
+                <p>Research Projects</p>
+            </div>
+            <div>
+                <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
+                    <div class="form-group">
+                        <label for="title">ชื่อโครงการวิจัย</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">PI</label>
+                        <input type="text" class="form-control" id="author" name="author" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="institute">ชื่อหน่วยงาน</label>
+                        <input type="text" class="form-control" id="institute" name="institute" required>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="activeYear">Active Year</label>
+                        <input type="text" class="form-control" id="activeYear" name="activeYear" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="fundSource">Fund Source</label>
+                        <input type="text" class="form-control" id="fundSource" name="fundSource" required>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <!-- <input type="text" class="form-control" id="status" name="status" required> -->
+                        <select type="text" class="form-control" id="status" name="status" required>
+                            <option>Approved</option>
+                            <option>In progress</option>
+                            <option>Extended</option>
+                            <option>On hold </option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="files">Abstract</label>
+                        <input type="file" class="form-control-file" id="files" name="files" required>
+                    </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
+                    <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
+                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;">
+                    </div>
+            </form>
+        </div>
+        <hr>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <%- include('../footer') %>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+    </script>
+    <script src="/assets/js/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+    </script>
+    <script>
+        $('#create').submit(function (e) {
+            e.preventDefault();
+                $('#FormUploading').html('Uploading').fadeIn('slow');
+            $.ajax({
+                url: '/research/create',
+                type: 'post',
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function () {
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#Formsuccess').html('Success').fadeIn('slow');
+                        $('#Formsuccess').delay(1000).fadeOut('slow');
+                        $('#Formsuccess').delay(1100).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    },
+                    error: function () {
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#FormFailed').html('Error. Please try again.').fadeIn('slow');
+                        $('#FormFailed').delay(2000).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    }
+            });
+        });
+    </script>
+    </div>
+    <div class="container">
+        <div class="cloud my-4">
+            <h2>แก้ไข Research</h2>
+        </div>
+        <table id="editTable">
+
+        </table>
+        <script>
+            $(function () {
+                $('#datetimePicker').datepicker();
+            });
+            $(document).ready(function () {
+                $.post(
+                    '/research/api', {
+                        query: '',
+                        sortParams: '-date',
+                        skip: 0,
+                        limit: 0,
+                    },
+                    function (data, status) {
+                        $("#editTable").dataTable({
+                            "data": data,
+                            "columns": [{
+                                "data": "title",
+                                "title": "Title"
+                            }, {
+                                "data": "author",
+                                "title": "PI"
+                            }, {
+                                "data": "activeYear",
+                                "title": "Active Year"
+                            }, ],
+                            "aoColumnDefs": [{
+                                "aTargets": [3],
+                                "mData": "_id",
+                                "mRender": function (data, type, full) {
+                                    return '<a class="btn btn-danger mx-3" href="/admin/publication/' +
+                                        data + '/delete">Delete</a>';
+                                }
+                            }]
+                        });
+                    }
+                );
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>

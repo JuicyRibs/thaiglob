@@ -20,25 +20,25 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>เขียนบทความ</h2>
-                <p>Article and Infographics</p>
+                <h2>เขียนข่าว</h2>
+                <p>Climate Change News</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
-                        <label for="title">หัวเรื่องบทความ</label>
+                        <label for="title">หัวเรื่องข่าว</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="form-group">
-                        <label for="desc">เรื่องย่อบทความ</label>
+                        <label for="desc">เรื่องย่อข่าว</label>
                         <input type="text" class="form-control" id="desc" name="desc" required>
                     </div>
                     <div class="form-group">
-                        <label for="author">ผู้เขียนบทความ</label>
+                        <label for="author">ผู้เขียน</label>
                         <input type="text" class="form-control" id="author" name="author" required>
                     </div>
                     <div class="form-group">
-                        <label for="body">เนื้อหาบทความ</label>
+                        <label for="body">เนื้อหาข่าว</label>
                         <div>
                             <div id="toolbar-container">
                                 <span class="ql-formats">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label for="files">รูปภาพหน้าปกบทความ</label>
+                            <label for="files">รูปภาพหน้าปกข่าว</label>
                             <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
                         </div>
                     </div>
@@ -164,15 +164,12 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/articles/create',
+                    url: '/news/create',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
@@ -201,16 +198,18 @@
     </div>
     <div class="container">
         <div class="cloud my-4">
-            <h2>แก้ไขบทความ</h2>
+            <h2>แก้ไขข่าว</h2>
         </div>
         <table id="editTable">
 
         </table>
         <script>
-            
+            $(function () {
+                $('#datetimePicker').datepicker();
+            });
             $(document).ready(function () {
                 $.post(
-                    '/articles/api', {
+                    '/news/api', {
                         query: '',
                         sortParams: '-date',
                         skip: 0,
@@ -221,7 +220,7 @@
                             "data": data,
                             "columns": [{
                                     "data": "title",
-                                    "title": "ชื่อบทความ"
+                                    "title": "ชื่อข่าว"
                                 },
                                 {
                                     "data": "date",
