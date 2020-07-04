@@ -168,7 +168,7 @@
                 $('#datetimePicker').datepicker();
             });
             $(document).ready(function(){
-                var tags = <%- data.tag ? data.tag : [] %>
+                var tags = [<%- data.tag %>];
                 tags.forEach(element => {
                     $("#tag").tagsinput('add', element);
                 });
