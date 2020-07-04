@@ -164,9 +164,7 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
+            
             $(document).ready(function(){
                 var tags = <%- JSON.stringify(data.tag) %>;
                 tags.forEach(element => {
@@ -178,8 +176,8 @@
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/articles/create',
-                    type: 'post',
+                    url: '/articles/<%- data._id %>/update',
+                    type: 'PUT',
                     data: new FormData(this),
                     processData: false,
                     contentType: false,
