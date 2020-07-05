@@ -1,4 +1,5 @@
 const Article = require('../models/article');
+const Event = require('../models/event');
 
 exports.getIndex = (req, res) => {
 	res.render('admin/index');
@@ -20,6 +21,16 @@ exports.editArticle = (req, res) => {
 
 exports.getEvent = (req, res) => {
 	res.render('admin/create/event');
+};
+exports.editEvent = (req, res) => {
+	Event.findById(req.params.id, function (err, event) {
+		if (err) {
+			return next(err);
+		}
+		res.render('admin/edit/event', {
+			data: event,
+		});
+	});
 };
 
 exports.getMultimedia = (req, res) => {

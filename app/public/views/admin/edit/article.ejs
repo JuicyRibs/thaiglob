@@ -22,6 +22,8 @@
             <div class="cloud py-4">
                 <h2>แก้ไขบทความ</h2>
                 <p>Article and Infographics</p>
+                    
+
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
@@ -94,7 +96,7 @@
                     <div class="form-row">
                         <div class="col date" data-provide="datepicker" id="datetimePicker">
                             <label for="date">วันที่</label>
-                            <input type="text" class="form-control" id="date" name="date" <%- data.date %> required>
+                            <input type="text" class="form-control" id="date" name="date"  required>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
                             </div>
@@ -170,6 +172,7 @@
                 tags.forEach(element => {
                     $("#tag").tagsinput('add', element);
                 });
+                $('#date').val( moment('<%- data.date %>').format('MM/DD/YYYY'));
             })
             $('#create').submit(function (e) {
                 e.preventDefault();
@@ -186,7 +189,7 @@
                         $('#Formsuccess').html('Success').fadeIn('slow');
                         $('#Formsuccess').delay(1000).fadeOut('slow');
                         $('#Formsuccess').delay(1100).queue(function() {
-                            location.reload();
+                            window.location.href = "/admin/article";
                             $(this).dequeue();
                         });
                     },

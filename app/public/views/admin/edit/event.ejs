@@ -20,22 +20,22 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>สร้างอีเว้นท์</h2>
+                <h2>แก้ไขอีเว้นท์</h2>
                 <p>Events</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
                         <label for="title">ชื่ออีเว้นท์</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= data.title %> " required>
                     </div>
                     <div class="form-group">
                         <label for="desc">รายละเอียดย่อ</label>
-                        <input type="text" class="form-control" id="desc" name="desc" required>
+                        <input type="text" class="form-control" id="desc" name="desc" value="<%= data.desc %> " required>
                     </div>
                     <div class="form-group">
                         <label for="author">ผู้เขียน</label>
-                        <input type="text" class="form-control" id="author" name="author" required>
+                        <input type="text" class="form-control" id="author" name="author" value="<%= data.author %> " required>
                     </div>
                     <div class="form-group">
                         <label for="body">เนื้อหาอีเว้นท์</label>
@@ -85,7 +85,7 @@
                                     <button class="ql-clean"></button>
                                 </span>
                             </div>
-                            <div class="mx-auto" id="editor"></div>
+                            <div class="mx-auto" id="editor"><%- data.body %> </div>
 
                         </div>
 
@@ -112,7 +112,7 @@
                     <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;">
                     </div>
                     <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
-                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;"></div>>
+                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;"></div>
                 </form>
             </div>
 
@@ -164,12 +164,19 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
+            $(document).ready(function(){
+                var tags = <%- JSON.stringify(data.tag) %>;
+                tags.forEach(element => {
+                    $("#tag").tagsinput('add', element);
+                });
+                $('#date').val( moment('<%- data.date %>').format('MM/DD/YYYY'));
+            })
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/events/create',
+                    url: '/events/<%- data._id %>/update',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
@@ -179,7 +186,7 @@
                         $('#Formsuccess').html('Success').fadeIn('slow');
                         $('#Formsuccess').delay(1000).fadeOut('slow');
                         $('#Formsuccess').delay(1100).queue(function() {
-                            location.reload();
+                            window.location.href = "/admin/event";
                             $(this).dequeue();
                         });
                     },
@@ -195,53 +202,6 @@
             });
         </script>
         <hr>
-    </div>
-    <div class="container">
-        <div class="cloud my-4">
-            <h2>แก้ไขอีเว้นท์</h2>
-        </div>
-        <table id="editTable">
-
-        </table>
-        <script>
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
-            $(document).ready(function () {
-                $.post(
-                    '/events/api', {
-                        query: '',
-                        sortParams: '-date',
-                        skip: 0,
-                        limit: 0,
-                    },
-                    function (data, status) {
-                        $("#editTable").dataTable({
-                            "data": data,
-                            "columns": [{
-                                    "data": "title",
-                                    "title": "ชื่ออีเว้นท์"
-                                },
-                                {
-                                    "data": "date",
-                                    "title": "เวลาที่เผยแพร่"
-                                }
-                            ],
-                            "aoColumnDefs": [{
-                                "aTargets": [2],
-                                "mData": "_id",
-                                "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-primary mx-3" href="/admin/events/' +
-                                        data +
-                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/events/' +
-                                        data + '/delete">Delete</a>';
-                                }
-                            }]
-                        });
-                    }
-                );
-            });
-        </script>
     </div>
 
 </body>

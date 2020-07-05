@@ -18,6 +18,11 @@ router.get(
 );
 // EVENT
 router.get('/event', authMiddleware.isAuthenticated, adminController.getEvent);
+router.get(
+	'/event/:id/edit',
+	authMiddleware.isAuthenticated,
+	adminController.editEvent
+);
 // BOOKS
 router.get(
 	'/book',
