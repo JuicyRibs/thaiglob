@@ -20,22 +20,22 @@
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>เขียนสื่อมัลติมีเดีย</h2>
+                <h2>แก้ไขสื่อมัลติมีเดีย</h2>
                 <p>Multimedia</p>
             </div>
             <div>
                 <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
                     <div class="form-group">
                         <label for="title">หัวเรื่องสื่อมัลติมีเดีย</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= data.title %> " required>
                     </div>
                     <div class="form-group">
                         <label for="desc">เรื่องย่อสื่อมัลติมีเดีย</label>
-                        <input type="text" class="form-control" id="desc" name="desc" required>
+                        <input type="text" class="form-control" id="desc" name="desc" value="<%= data.desc %>" required>
                     </div>
                     <div class="form-group">
                         <label for="author">ผู้เขียน</label>
-                        <input type="text" class="form-control" id="author" name="author" required>
+                        <input type="text" class="form-control" id="author" name="author" value="<%= data.author %>" required>
                     </div>
                     <div class="form-group">
                         <label for="body">เนื้อหาสื่อมัลติมีเดีย</label>
@@ -85,7 +85,7 @@
                                     <button class="ql-clean"></button>
                                 </span>
                             </div>
-                            <div class="mx-auto" id="editor"></div>
+                            <div class="mx-auto" id="editor"><%- data.body %> </div>
 
                         </div>
 
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col">
                             <label for="files">รูปภาพหน้าปกสื่อมัลติมีเดีย</label>
-                            <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
+                            <input type="file" class="form-control-file" id="files" name="files" accept="image/*" >
                         </div>
                     </div>
                     <div class="form-group mt-3">
@@ -164,12 +164,19 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
+            $(document).ready(function(){
+                var tags = <%- JSON.stringify(data.tag) %>;
+                tags.forEach(element => {
+                    $("#tag").tagsinput('add', element);
+                });
+                $('#date').val( moment('<%- data.date %>').format('MM/DD/YYYY'));
+            })
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/media/create',
+                    url: '/media/<%- data._id%>/update',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
@@ -179,7 +186,7 @@
                         $('#Formsuccess').html('Success').fadeIn('slow');
                         $('#Formsuccess').delay(1000).fadeOut('slow');
                         $('#Formsuccess').delay(1100).queue(function() {
-                            location.reload();
+                            window.location.href = "/admin/media";
                             $(this).dequeue();
                         });
                     },
@@ -196,54 +203,6 @@
         </script>
         <hr>
     </div>
-    <div class="container">
-        <div class="cloud my-4">
-            <h2>แก้ไขสื่อมัลติมีเดีย</h2>
-        </div>
-        <table id="editTable">
-
-        </table>
-        <script>
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
-            $(document).ready(function () {
-                $.post(
-                    '/media/api', {
-                        query: '',
-                        sortParams: '-date',
-                        skip: 0,
-                        limit: 0,
-                    },
-                    function (data, status) {
-                        $("#editTable").dataTable({
-                            "data": data,
-                            "columns": [{
-                                    "data": "title",
-                                    "title": "ชื่อสื่อมัลติมีเดีย"
-                                },
-                                {
-                                    "data": "date",
-                                    "title": "เวลาที่เผยแพร่"
-                                }
-                            ],
-                            "aoColumnDefs": [{
-                                "aTargets": [2],
-                                "mData": "_id",
-                                "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-primary mx-3" href="/admin/article/' +
-                                        data +
-                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/article/' +
-                                        data + '/delete">Delete</a>';
-                                }
-                            }]
-                        });
-                    }
-                );
-            });
-        </script>
-    </div>
-
 </body>
 
 </html>

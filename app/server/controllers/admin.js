@@ -1,5 +1,8 @@
 const Article = require('../models/article');
 const Event = require('../models/event');
+const Research = require('../models/research');
+const News = require('../models/news');
+const Multimedia = require('../models/multimedia');
 
 exports.getIndex = (req, res) => {
 	res.render('admin/index');
@@ -36,6 +39,16 @@ exports.editEvent = (req, res) => {
 exports.getMultimedia = (req, res) => {
 	res.render('admin/create/media');
 };
+exports.editMultimedia = (req, res) => {
+	Multimedia.findById(req.params.id, function (err, media) {
+		if (err) {
+			return next(err);
+		}
+		res.render('admin/edit/media', {
+			data: media,
+		});
+	});
+};
 
 exports.getPublication = (req, res) => {
 	res.render('admin/create/book');
@@ -44,7 +57,27 @@ exports.getPublication = (req, res) => {
 exports.getNews = (req, res) => {
 	res.render('admin/create/news');
 };
+exports.editNews = (req, res) => {
+	News.findById(req.params.id, function (err, media) {
+		if (err) {
+			return next(err);
+		}
+		res.render('admin/edit/news', {
+			data: media,
+		});
+	});
+};
 
 exports.getResearch = (req, res) => {
 	res.render('admin/create/research');
+};
+exports.editResearch = (req, res) => {
+	Research.findById(req.params.id, function (err, media) {
+		if (err) {
+			return next(err);
+		}
+		res.render('admin/edit/research', {
+			data: media,
+		});
+	});
 };

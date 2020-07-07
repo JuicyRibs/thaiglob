@@ -35,6 +35,11 @@ router.get(
 	authMiddleware.isAuthenticated,
 	adminController.getMultimedia
 );
+router.get(
+	'/media/:id/edit',
+	authMiddleware.isAuthenticated,
+	adminController.editMultimedia
+);
 // NEWS
 router.get('/news', authMiddleware.isAuthenticated, adminController.getNews);
 // RESEARCH

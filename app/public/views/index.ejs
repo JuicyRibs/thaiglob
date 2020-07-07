@@ -103,7 +103,7 @@
   if(typeof data[0] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[0].dlPath}" >
+    <a href="/upload/${data[0].dlPath}" target="_blank">
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
@@ -118,7 +118,7 @@
   if(typeof data[1] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[1].dlPath}" >
+    <a href="/upload/${data[1].dlPath}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
@@ -131,7 +131,7 @@
 if(typeof data[2] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[2].dlPath}" >
+    <a href="/upload/${data[2].dlPath}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
@@ -144,7 +144,7 @@ if(typeof data[2] != "undefined"){
 if(typeof data[3] != "undefined"){
   html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[3].dlPath}" >
+    <a href="/upload/${data[3].dlPath}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
