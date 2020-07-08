@@ -10,6 +10,7 @@ router.get('/knowledge-corner', indexController.getCorner);
 router.get('/contact', indexController.getContact);
 router.get('/research-issues', indexController.getIssues);
 router.get('/upload/:fileName', indexController.getFile);
+router.get('/carousel-api', indexController.getCarousel);
 router.post('/upload/quill', multer.uploadFile, indexController.postQuill);
 
 module.exports = router;

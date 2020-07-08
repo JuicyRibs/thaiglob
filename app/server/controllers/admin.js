@@ -3,6 +3,7 @@ const Event = require('../models/event');
 const Research = require('../models/research');
 const News = require('../models/news');
 const Multimedia = require('../models/multimedia');
+const Carousel = require('../models/carousel');
 
 exports.getIndex = (req, res) => {
 	res.render('admin/index');
@@ -81,3 +82,5 @@ exports.editResearch = (req, res) => {
 		});
 	});
 };
+
+exports.addCarousel = (req, res) => {};
