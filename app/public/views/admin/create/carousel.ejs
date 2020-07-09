@@ -1,0 +1,134 @@
+<%- include('../header') %>
+</head>
+<body>
+    <%- include('../navbar') %>
+    <div style="background-color: #E8E8EE;">
+        <div class="container">
+            <div class="cloud py-4">
+                <h2>สร้างCarousel</h2>
+            </div>
+            <div>
+                <form enctype="multipart/form-data" id="create">
+                    <div class="form-group">
+                        <label for="header">ขั้วเนื้อหา</label>
+                        <input type="text" class="form-control" id="header" name="header" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subHeader">ขั้วเนื้อหารอง</label>
+                        <input type="text" class="form-control" id="subHeader" name="subHeader" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc">คำโปรย</label>
+                        <input type="text" class="form-control" id="desc" name="desc" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctaText">ข้อความบนปุ่ม</label>
+                        <input type="text" class="form-control" id="ctaText" name="ctaText" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctaLink">ลิงก์</label>
+                        <input type="text" class="form-control" id="ctaLink" name="ctaLink" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="files">รูปภาพด้านหลังเนื้อหา</label>
+                        <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
+                    <div class="alert alert-primary mt-3" role="alert" id="FormUploading" style="display: none;"></div>
+                    <div class="alert alert-danger mt-3" role="alert" id="FormFailed" style="display: none;">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <%- include('../footer') %>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+        </script>
+        <script>
+            $('#create').submit(function (e) {
+                e.preventDefault();
+                $('#FormUploading').html('Uploading').fadeIn('slow');
+                $.ajax({
+                    url: '/carousel/create',
+                    type: 'post',
+                    data: new FormData(this),
+                    processData: false,
+                    contentType: false,
+                    success: function () {
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#Formsuccess').html('Success').fadeIn('slow');
+                        $('#Formsuccess').delay(1000).fadeOut('slow');
+                        $('#Formsuccess').delay(1100).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    },
+                    error: function () {
+                        $('#FormUploading').delay(50).fadeOut('slow');
+                        $('#FormFailed').html('Error. Please try again.').fadeIn('slow');
+                        $('#FormFailed').delay(2000).queue(function() {
+                            location.reload();
+                            $(this).dequeue();
+                        });
+                    }
+                });
+            });
+        </script>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="cloud my-4">
+            <h2>ลบ Carousel</h2>
+        </div>
+        <table id="editTable"></table>
+        <script>
+            $(document).ready(function () {
+                $.get(
+                    '/carousel/api',
+                    function (data, status) {
+                        $("#editTable").dataTable({
+                            "data": data,
+                            "columns": [{
+                                    data: "header",
+                                    title: "ขั้วเนื้อหา"
+                                },
+                                {
+                                    data: "subHeader",
+                                    title: "ขั้วเนื้อหารอง"
+                                },
+                            ],
+                            "aoColumnDefs": [{
+                                "aTargets": [2],
+                                "mData": "_id",
+                                "sTitle": "Delete",
+                                "mRender": function (data, type, full) {
+                                    return '<button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
+                                }
+                            }]
+                        });
+                    }
+                );
+            });
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $('.deletebtn').click(function(){
+                        var x = $(this).attr('data');
+                        $.ajax({
+                            url: `/carousel/${x}/delete`,
+                            type: 'delete',
+                            processData: false,
+                            contentType: false,
+                            success: function () {
+                                location.reload();
+                            },
+                        });
+                    })
+                }, 1000);
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>
