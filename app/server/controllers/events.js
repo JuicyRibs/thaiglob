@@ -55,7 +55,7 @@ exports.showById = function (req, res) {
 		if (err) {
 			return next(err);
 		}
-		res.send('post', {
+		res.render('post', {
 			title: 'ThaiGlob - Events',
 			data: event,
 		});
