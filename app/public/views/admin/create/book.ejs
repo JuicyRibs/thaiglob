@@ -125,14 +125,30 @@
                             "aoColumnDefs": [{
                                 "aTargets": [1],
                                 "mData": "_id",
+                                "sTitle": "Delete",
                                 "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-danger mx-3" href="/admin/publication/' +
-                                        data + '/delete">Delete</a>';
+                                    return '<button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }
                             }]
                         });
                     }
                 );
+            });
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $('.deletebtn').click(function(){
+                        var x = $(this).attr('data');
+                        $.ajax({
+                            url: `/publication/${x}/delete`,
+                            type: 'delete',
+                            processData: false,
+                            contentType: false,
+                            success: function () {
+                                location.reload();
+                            },
+                        });
+                    })
+                }, 1000);
             });
         </script>
     </div>

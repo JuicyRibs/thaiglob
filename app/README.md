@@ -23,7 +23,7 @@ BACKEND
 -   [x] @ThanadonTee, add dummy data
 -   [x] @ThanadonTee, show new data
 -   [x] @ThanadonTee, Convert dataTable to fooTable
--   [ ] @ThanadonTee, Add ~edit~ and Delete pages
+-   [x] @ThanadonTee, Add ~edit~ and Delete pages
 -   [ ] @ThanadonTee, Add carosal selector
 
 # File Structure

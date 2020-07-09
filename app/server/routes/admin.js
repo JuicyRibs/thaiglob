@@ -42,11 +42,21 @@ router.get(
 );
 // NEWS
 router.get('/news', authMiddleware.isAuthenticated, adminController.getNews);
+router.get(
+	'/news/:id/edit',
+	authMiddleware.isAuthenticated,
+	adminController.editNews
+);
 // RESEARCH
 router.get(
 	'/research',
 	authMiddleware.isAuthenticated,
 	adminController.getResearch
+);
+router.get(
+	'/research/:id/edit',
+	authMiddleware.isAuthenticated,
+	adminController.editResearch
 );
 
 module.exports = router;
