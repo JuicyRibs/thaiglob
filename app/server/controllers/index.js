@@ -30,11 +30,6 @@ exports.getContact = async (req, res) =>
 		title: 'ThaiGlob - Contact Us',
 	});
 
-exports.getIssues = async (req, res) =>
-	res.render('issue', {
-		title: 'ThaiGlob - Research Issues',
-	});
-
 exports.getFile = (req, res) => {
 	const fileName = req.params.fileName;
 	const filePath = path.resolve('server', 'uploads', fileName);
