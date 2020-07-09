@@ -47,7 +47,7 @@
 	<div class="row cloud">
 		`;
 			if (typeof data[0] != 'undefined') {
-				html += `<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+				html += `<div class="col-sm-12 col-lg-4 px-sm-3 text-center">
 					<a href="/upload/${data[0].dlPath}" target="_blank">
 	       <img src="${
 				data[0].imgPath
@@ -166,7 +166,7 @@
 		`;
 			if (typeof data[0] != 'undefined') {
 				html += `
-	  <div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+	  <div class="col-sm-12 col-lg-4 px-sm-3 text-center">
 		<a href="/articles/${data[0]._id}">
         <img class="sevenfive showcase" src="${
 			data[0].imgPath
@@ -203,7 +203,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
 		<a href="/articles/${data[1]._id}">
 				
-              <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" src="${
+              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" src="${
 					data[1].imgPath
 						? '/upload/' + data[1].imgPath
 						: '/assets/images/210x297.jpg'
@@ -223,7 +223,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
 		<a href="/articles/${data[2]._id}">
 				
-              <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" 
+              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" 
                 src="${
 					data[2].imgPath
 						? '/upload/' + data[2].imgPath
@@ -243,7 +243,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
 		<a href="/articles/${data[3]._id}">
 				
-              <img class="mx-xs-3 mx-sm-5 mx-md-0 sevenfive" src="${
+              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" src="${
 					data[3].imgPath
 						? '/upload/' + data[3].imgPath
 						: '/assets/images/210x297.jpg'
@@ -498,7 +498,7 @@
 				`;
 			if (typeof data[0] != 'undefined') {
 				html += `
-				<div class="col-sm-12 col-lg-4 px-sm-5 text-center">
+				<div class="col-sm-12 col-lg-4 px-sm-3 text-center">
 				<a href="/events/${data[0]._id}">
 					<img class="sevenfive" src="${
 						data[0].imgPath

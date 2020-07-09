@@ -488,3 +488,15 @@ a:visited {
 	-webkit-filter: grayscale(100%) sepia(100%);
 	cursor: pointer;
 }
+
+.update-hori img{
+	height: 10rem;
+	object-fit: cover;
+}
+
+@media screen and (max-width: 1199px) {
+	.sevenfive{
+		width: 100% !important;
+		height: 17rem;
+	}
+}
