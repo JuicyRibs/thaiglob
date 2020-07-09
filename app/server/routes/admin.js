@@ -58,5 +58,11 @@ router.get(
 	authMiddleware.isAuthenticated,
 	adminController.editResearch
 );
+// CAROUSEL
+router.get(
+	'/carousel',
+	authMiddleware.isAuthenticated,
+	adminController.getCarousel
+);
 
 module.exports = router;

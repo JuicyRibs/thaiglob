@@ -24,7 +24,7 @@ BACKEND
 -   [x] @ThanadonTee, show new data
 -   [x] @ThanadonTee, Convert dataTable to fooTable
 -   [x] @ThanadonTee, Add ~edit~ and Delete pages
--   [ ] @ThanadonTee, Add carosal selector
+-   [x] @ThanadonTee, Add carosal selector
 
 # File Structure
 
