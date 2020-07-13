@@ -499,3 +499,25 @@ a:visited {
 		height: 17rem;
 	}
 }
+
+.tags>div:first-child{
+	font-weight: 600;
+	margin-right: 1.4em;
+}
+
+.tags span{
+	color: #28a745;
+	padding-right: 0.8em;
+	margin-right: 0.8em;
+	border-right: 1px solid black;
+}
+
+.tags span:last-child{
+	color: #28a745;
+	padding-right: 0.8em;
+	border-right: 0px solid black;
+}
+
+.tags{
+	border-bottom: 1px solid #A7A7A7;
+}
