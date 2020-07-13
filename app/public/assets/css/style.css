@@ -123,8 +123,7 @@ body {
 }
 
 .innerText {
-	padding-left: 10rem;
-	padding-right: 10rem;
+	padding: 0px 10rem
 }
 
 .bottom {
@@ -380,7 +379,7 @@ footer {
 	}
 
 	.innerText {
-		padding-left: 3em;
+		padding: 0px 3em;
 	}
 
 	.covertitle {
