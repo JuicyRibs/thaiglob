@@ -9,7 +9,7 @@
 -   [ ] related post and tags
 -   [ ] Research `taget="_blank"`
 -   [ ] title `...` if it's too long
--   [ ] research can't blank
+-   [ ] research **CAN** be blank
 
 FRONTEND
 
