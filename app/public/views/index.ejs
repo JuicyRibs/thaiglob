@@ -9,7 +9,7 @@
           <li data-target="#homecover" data-slide-to="0" class="active"></li>
           <li data-target="#homecover" data-slide-to="1"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" id="carousel">
           <div class="carousel-item active cover home">
             <div class="row">
               <div class="my-auto innerText">
@@ -22,10 +22,30 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item cover book">
-            <div class="row"></div>
-          </div>
         </div>
+        <script>
+          $.get('/carousel/api', function(data){
+            data.forEach(el => {
+              var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');">
+                            <div class="row">
+                              <div class="my-auto innerText">
+                                <h1>${el.header}</h1>
+                                <h2 class="cloud">${el.subHeader}</h2>
+                                <p>${el.desc}</p>
+                                <button
+                                  class="btn btn-success cloud px-4 py-2"
+                                  style="font-size: 1.2em;"
+                                  onclick="window.location.href='${el.ctaLink}'"
+                                >
+                                  ${el.ctaText}
+                                </button>
+                              </div>
+                            </div>
+                          </div>`
+              $('#carousel').append(html);
+            });
+          })
+        </script>
 
         <a class="carousel-control-prev" href="#homecover" role="button" data-slide="prev" style="width: 5rem;">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

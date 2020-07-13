@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CarouselSchema = new Schema({
-	type: String,
-	postId: String,
+	header: String,
+	subHeader: String,
+	desc: String,
+	ctaText: String,
+	ctaLink: String,
+	imgPath: String,
 });
 
 module.exports = mongoose.model('Carousel', CarouselSchema);

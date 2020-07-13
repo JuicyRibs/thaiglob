@@ -230,16 +230,32 @@
                             "aoColumnDefs": [{
                                 "aTargets": [2],
                                 "mData": "_id",
+                                "sTitle": "Edit/Delete",
                                 "mRender": function (data, type, full) {
                                     return '<a class="btn btn-primary mx-3" href="/admin/event/' +
                                         data +
-                                        '/edit">Edit</a><a class="btn btn-danger mx-3" href="/admin/event/' +
-                                        data + '/delete">Delete</a>';
+                                        '/edit">Edit</a><button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }
                             }]
                         });
                     }
                 );
+            });
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $('.deletebtn').click(function(){
+                        var x = $(this).attr('data');
+                        $.ajax({
+                            url: `/events/${x}/delete`,
+                            type: 'delete',
+                            processData: false,
+                            contentType: false,
+                            success: function () {
+                                location.reload();
+                            },
+                        });
+                    })
+                }, 1000);
             });
         </script>
     </div>

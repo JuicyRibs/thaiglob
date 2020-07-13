@@ -55,6 +55,7 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const bookRoutes = require('./routes/book');
 const articleRoutes = require('./routes/article');
+const carouselRoutes = require('./routes/carousel');
 const multimediaRoutes = require('./routes/multimedia');
 const eventsRoutes = require('./routes/events');
 const newsRoutes = require('./routes/news');
@@ -62,6 +63,7 @@ const researchRoutes = require('./routes/research');
 
 app.use(authRoutes);
 app.use('/admin', adminRoutes);
+app.use('/carousel', carouselRoutes);
 app.use('/articles', articleRoutes);
 app.use('/media', multimediaRoutes);
 app.use('/events', eventsRoutes);

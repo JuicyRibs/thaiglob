@@ -1,50 +1,37 @@
 <%- include('../header') %>
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="/assets/css/tagsinput.css">
-<style>
-    .ql-editor {
-        min-height: 400px;
-        width: 100%;
-    }
-
-    .ql-container,
-    .ql-toolbar {
-        background-color: white;
-    }
-</style>
 </head>
-
 <body>
     <%- include('../navbar') %>
     <div style="background-color: #E8E8EE;">
         <div class="container">
             <div class="cloud py-4">
-                <h2>อัพโหลดหนังสือและสิ่งพิมพ์</h2>
-                <p>Publications</p>
+                <h2>สร้างCarousel</h2>
             </div>
             <div>
-                <form action="/articles/create" method="POST" enctype="multipart/form-data" id="create">
+                <form enctype="multipart/form-data" id="create">
                     <div class="form-group">
-                        <label for="title">ชื่อหนังสือ</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <label for="header">ขั้วเนื้อหา</label>
+                        <input type="text" class="form-control" id="header" name="header" required>
                     </div>
                     <div class="form-group">
-                        <div class="date" data-provide="datepicker" id="datetimePicker">
-                            <label for="date">วันที่</label>
-                            <input type="text" class="form-control" id="date" name="date" required>
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </div>
-                        </div>
+                        <label for="subHeader">ขั้วเนื้อหารอง</label>
+                        <input type="text" class="form-control" id="subHeader" name="subHeader" required>
+                    </div>
                     <div class="form-group">
-                        <label for="files">รูปภาพหน้าปกหนังสือ</label>
+                        <label for="desc">คำโปรย</label>
+                        <input type="text" class="form-control" id="desc" name="desc" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctaText">ข้อความบนปุ่ม</label>
+                        <input type="text" class="form-control" id="ctaText" name="ctaText" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctaLink">ลิงก์</label>
+                        <input type="text" class="form-control" id="ctaLink" name="ctaLink" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="files">รูปภาพด้านหลังเนื้อหา</label>
                         <input type="file" class="form-control-file" id="files" name="files" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="files2">ไฟล์หนังสือ</label>
-                        <input type="file" class="form-control-file" id="files2" name="files" required>
-                    </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
@@ -53,22 +40,17 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
         <!-- Optional JavaScript -->
         <%- include('../footer') %>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
         </script>
-        <script src="/assets/js/moment.js"></script>    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <script>
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $('#FormUploading').html('Uploading').fadeIn('slow');
-
                 $.ajax({
-                    url: '/publication/create',
+                    url: '/carousel/create',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
@@ -97,33 +79,27 @@
     </div>
     <div class="container">
         <div class="cloud my-4">
-            <h2>แก้ไขบทความ</h2>
+            <h2>ลบ Carousel</h2>
         </div>
-        <table id="editTable">
-
-        </table>
+        <table id="editTable"></table>
         <script>
-            $(function () {
-                $('#datetimePicker').datepicker();
-            });
             $(document).ready(function () {
-                $.post(
-                    '/publication/api', {
-                        query: '',
-                        sortParams: '-date',
-                        skip: 0,
-                        limit: 0,
-                    },
+                $.get(
+                    '/carousel/api',
                     function (data, status) {
                         $("#editTable").dataTable({
                             "data": data,
                             "columns": [{
-                                    "data": "title",
-                                    "title": "ชื่อหนังสือ"
+                                    data: "header",
+                                    title: "ขั้วเนื้อหา"
+                                },
+                                {
+                                    data: "subHeader",
+                                    title: "ขั้วเนื้อหารอง"
                                 },
                             ],
                             "aoColumnDefs": [{
-                                "aTargets": [1],
+                                "aTargets": [2],
                                 "mData": "_id",
                                 "sTitle": "Delete",
                                 "mRender": function (data, type, full) {
@@ -139,7 +115,7 @@
                     $('.deletebtn').click(function(){
                         var x = $(this).attr('data');
                         $.ajax({
-                            url: `/publication/${x}/delete`,
+                            url: `/carousel/${x}/delete`,
                             type: 'delete',
                             processData: false,
                             contentType: false,
