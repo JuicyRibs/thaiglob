@@ -1,4 +1,9 @@
 <%- include('./includes/header.ejs') %>
+<style>
+	iframe{
+		margin-right: 0.6em;
+	}
+</style>
 
 <!-- #Cover -->
 
@@ -13,19 +18,23 @@
 				<h1><%- data.title %></h1>
 				<div><%- data.desc %></div>
 				<small><span style="padding-right: 1em; border-right: 1px solid grey;"><%- data.author %></span><span
-					style="padding-left: 1em;"><%- data.date.toString().slice(0,15); %></span></small>
+						style="padding-left: 1em;"><%- data.date.toString().slice(0,15); %></span></small>
 			</div>
 		</div>
 		<div class="row align-items-center my-4"
 			style="color: rgb(102, 102, 102); border-bottom: 1px solid rgb(102, 102, 102);">
 			<div style="padding-right: 1em; font-weight: bold;">SHARE</div>
 			<div id="share" style="margin-right: 0.6em;"></div>
+			<div class="line-it-button" data-lang="en" data-type="share-c" data-ver="3"
+				data-url="http://localhost:3000/articles/5f0c5ff1ed3f9d08ac5869df" data-color="grey" data-size="small"
+				data-count="false" style="display: none;"></div>
+			
 			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><i class="fa fa-link"></i></div>
 		</div>
-		<div class="row"
+		<!-- <div class="row"
 			style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
 			<div style="height: 70vh;"></div>
-		</div>
+		</div> -->
 		<div class="row d-flex flex-row-reverse">
 			<div class="col-sm-12 col-md-12 px-0">
 				<p><%- data.body %></p>
@@ -43,6 +52,8 @@
 	</div>
 </section>
 
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async"
+				defer="defer"></script>
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"
 	integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous"></script>
 <!-- <script
@@ -80,7 +91,13 @@
 	$("#share").jsSocials({
 		showLabel: false,
 		showCount: false,
-		shares: ["facebook", "twitter"]
+		shares: [{
+			share: "facebook",
+			logo: "/assets/images/icon/fb_green.png"
+		}, {
+			share: "twitter",
+			logo: "/assets/images/icon/Twitter_green.png"
+		}]
 	});
 </script>
 <!-- #endPostSection -->

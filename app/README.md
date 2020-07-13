@@ -2,9 +2,9 @@
 
 10/07/2020
 -   [ ] Remove `required` tag from admin panel
--   [ ] Remove Post cover from `post.ejs`
+-   [ ] Remove Post cover from `post.ejs` *(Backend only)*
 -   [ ] Quill.js Add Angsana New and font size options
--   [ ] Change share button Logo
+-   [X] Change share button Logo **needs new logo tho**
 -   [ ] Quill.js add line spacing
 -   [ ] related post and tags
 -   [ ] Research `taget="_blank"`
