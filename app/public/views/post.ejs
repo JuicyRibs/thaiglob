@@ -48,10 +48,9 @@
 		</div>
 		<div class="row mt-4 pb-4 mx-1 tags">
 			<div>TAGS</div>
-			<span>yes</span>
-			<span>dev</span>
-			<span>lol</span>
-			<span>hah</span>
+			<% data.tag.forEach(el => { %>
+			<span><%- el %></span>
+			<% }); %>
 		</div>
 		<div class="row mt-4">
 			<div class="col-12 mb-2">
