@@ -1,15 +1,17 @@
 # TODO List
 
 10/07/2020
+
 -   [ ] Remove `required` tag from admin panel
--   [ ] Remove Post cover from `post.ejs` *(Backend only)*
+-   [ ] Remove Post cover from `post.ejs` _(Backend only)_
 -   [ ] Quill.js Add Angsana New and font size options
--   [X] Change share button Logo **needs new logo tho**
+-   [x] Change share button Logo **needs new logo tho**
 -   [ ] Quill.js add line spacing
 -   [ ] related post and tags
 -   [ ] Research `taget="_blank"`
 -   [ ] title `...` if it's too long
 -   [ ] research **CAN** be blank
+-   [ ] fix tag something
 
 FRONTEND
 

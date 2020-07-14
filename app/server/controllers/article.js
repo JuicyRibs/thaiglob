@@ -13,7 +13,7 @@ exports.create = function (req, res) {
 		title: req.body.title,
 		body: req.body.body,
 		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
-		tag: req.body.tag,
+		tag: req.body.tag.split(','),
 		date: req.body.date,
 		desc: req.body.desc,
 		author: req.body.author,
@@ -96,7 +96,7 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		article.tag = req.body.tag;
+		article.tag = req.body.tag.split(',');
 		article.date = req.body.date;
 		article.desc = req.body.desc;
 		article.author = req.body.author;
