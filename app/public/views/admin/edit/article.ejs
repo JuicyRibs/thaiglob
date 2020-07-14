@@ -168,13 +168,12 @@
             });
             
             $(document).ready(function(){
-                $("#body").val(<%- data.body %>);
-                $("#body").val(justHtml);
+                $("#body").val("<%- data.body %>");
                 var tags = <%- JSON.stringify(data.tag) %>;
                 tags.forEach(element => {
                     $("#tag").tagsinput('add', element);
                 });
-                $('#date').val( moment('<%- data.date %>').format('MM/DD/YYYY'));
+                $('#date').val( moment('<%- data.date %>').format('DD/MM/YYYY'));
             })
             $('#create').submit(function (e) {
                 e.preventDefault();
