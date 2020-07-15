@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label for="files">Abstract</label>
-                        <input type="file" class="form-control-file" id="files" name="files" required>
+                        <input type="file" class="form-control-file" id="files" name="files" >
                     </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
@@ -149,7 +149,7 @@
                                 "mData": "_id",
                                 "sTitle": "Edit/Delete",
                                 "mRender": function (data, type, full) {
-                                    return '<a class="btn btn-primary mx-3" href="/admin/article/' +
+                                    return '<a class="btn btn-primary mx-3" href="/admin/research/' +
                                         data +
                                         '/edit">Edit</a><button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }

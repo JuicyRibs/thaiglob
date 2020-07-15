@@ -58,7 +58,11 @@
 			</thead>
 			<tbody>
 				<% for([index, research] of researches.entries()) {%>
-				<tr class="research-entry" data-expanded="true" style="margin-top: 50px;">
+				<tr
+					class="research-entry"
+					data-expanded="true"
+					style="margin-top: 50px;"
+				>
 					<td><%- index %></td>
 					<td>
 						<%- research.title %>
@@ -81,7 +85,7 @@
 						<a
 							class="btn btn-success"
 							href="upload/<%- research.dlPath %>"
-							download
+							target="_blank"
 						>
 							Download &nbsp;<i class="fa fa-download"></i
 						></a>

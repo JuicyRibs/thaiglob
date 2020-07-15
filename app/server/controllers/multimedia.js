@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
 
 const Multimedia = require('../models/multimedia');
 
@@ -12,9 +13,9 @@ exports.create = function (req, res) {
 	let multimedia = new Multimedia({
 		title: req.body.title,
 		body: req.body.body,
-		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
-		tag: req.body.tag,
-		date: req.body.date,
+		imgPath: req.files[0] ? req.files[0]['filename'] : null,
+		tag: req.body.tag.split(','),
+		date: moment(req.body.date, 'DD-MM-YYYY').toDate(),
 		desc: req.body.desc,
 		author: req.body.author,
 	});
@@ -96,8 +97,8 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		multimedia.tag = req.body.tag;
-		multimedia.date = req.body.date;
+		multimedia.tag = req.body.tag.split(',');
+		multimedia.date = moment(req.body.date, 'DD-MM-YYYY').toDate();
 		multimedia.desc = req.body.desc;
 		multimedia.author = req.body.author;
 		multimedia.save(function (err, multimedia) {

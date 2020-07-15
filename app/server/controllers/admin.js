@@ -72,12 +72,12 @@ exports.getResearch = (req, res) => {
 	res.render('admin/create/research');
 };
 exports.editResearch = (req, res) => {
-	Research.findById(req.params.id, function (err, media) {
+	Research.findById(req.params.id, function (err, research) {
 		if (err) {
 			return next(err);
 		}
 		res.render('admin/edit/research', {
-			data: media,
+			data: research,
 		});
 	});
 };

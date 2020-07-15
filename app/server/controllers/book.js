@@ -1,4 +1,6 @@
 const Book = require('../models/book');
+const fs = require('fs');
+var moment = require('moment');
 
 exports.create = async (req, res) => {
 	if (!req.files) {
@@ -10,7 +12,7 @@ exports.create = async (req, res) => {
 		title: req.body.title,
 		imgPath: req.files[0]['filename'],
 		dlPath: req.files[1]['filename'],
-		date: req.body.date,
+		date: moment(req.body.date, 'DD-MM-YYYY').toDate(),
 	});
 	book.save(function (err) {
 		if (err) {
