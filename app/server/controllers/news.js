@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
 
 const News = require('../models/news');
 
@@ -12,9 +13,9 @@ exports.create = function (req, res) {
 	let news = new News({
 		title: req.body.title,
 		body: req.body.body,
-		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
-		tag: req.body.tag,
-		date: req.body.date,
+		imgPath: req.files[0] ? req.files[0]['filename'] : null,
+		tag: req.body.tag.split(','),
+		date: moment(req.body.date, 'DD-MM-YYYY').toDate(),
 		desc: req.body.desc,
 		author: req.body.author,
 	});
@@ -96,8 +97,8 @@ exports.updateById = function (req, res) {
 				console.log(error);
 			}
 		}
-		news.tag = req.body.tag;
-		news.date = req.body.date;
+		news.tag = req.body.tag.split(',');
+		news.date = moment(req.body.date, 'DD-MM-YYYY').toDate();
 		news.desc = req.body.desc;
 		news.author = req.body.author;
 		news.save(function (err, news) {

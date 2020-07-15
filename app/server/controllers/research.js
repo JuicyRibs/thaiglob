@@ -24,7 +24,7 @@ exports.create = function (req, res) {
 		activeYear: req.body.activeYear,
 		fundSource: req.body.fundSource,
 		status: req.body.status,
-		dlPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
+		dlPath: req.files[0] ? req.files[0]['filename'] : null,
 	});
 	research.save(function (err) {
 		if (err) {

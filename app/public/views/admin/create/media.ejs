@@ -205,7 +205,9 @@
         </table>
         <script>
             $(function () {
-                $('#datetimePicker').datepicker();
+                $('#datetimePicker').datepicker({
+                    format: 'dd/mm/yyyy',
+                });
             });
             $(document).ready(function () {
                 $.post(

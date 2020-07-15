@@ -2,16 +2,16 @@
 
 10/07/2020
 
--   [ ] Remove `required` tag from admin panel
--   [ ] Remove Post cover from `post.ejs` _(Backend only)_
--   [ ] Quill.js Add Angsana New and font size options
+-   [x] Remove `required` tag from admin panel
+-   [x] Remove Post cover from `post.ejs` _(Backend only)_ <= Ima not do that. We still need it for other pages.
+-   [x] Quill.js Add Angsana New and font size options _No Ansana New. Not legal_
 -   [x] Change share button Logo **needs new logo tho**
 -   [ ] Quill.js add line spacing
--   [ ] related post and tags
--   [ ] Research `taget="_blank"`
--   [ ] title `...` if it's too long
--   [ ] research **CAN** be blank
--   [ ] fix tag something
+-   [x] related post and tags
+-   [x] Research `taget="_blank"`
+-   [ ] title `...` if it's too long. String Truncate
+-   [x] research **CAN** be blank
+-   [x] fix tag something
 
 FRONTEND
 
