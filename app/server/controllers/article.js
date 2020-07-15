@@ -102,7 +102,7 @@ exports.updateById = function (req, res) {
 		article.author = req.body.author;
 		article.save(function (err, article) {
 			if (err) {
-				return next(err);
+				console.log(err);
 			}
 			res.status(200).end();
 		});

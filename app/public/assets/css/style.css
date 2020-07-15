@@ -521,3 +521,7 @@ a:visited {
 .tags{
 	border-bottom: 1px solid #A7A7A7;
 }
+
+.postbody img{
+	max-width: 100%;
+}

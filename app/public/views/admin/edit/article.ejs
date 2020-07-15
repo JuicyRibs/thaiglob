@@ -168,7 +168,7 @@
             });
             
             $(document).ready(function(){
-                $("#body").val("<%- data.body %>");
+                $("#body").val("<%= data.body %>");
                 var tags = <%- JSON.stringify(data.tag) %>;
                 tags.forEach(element => {
                     $("#tag").tagsinput('add', element);
