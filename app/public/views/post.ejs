@@ -26,8 +26,8 @@
 			<div style="padding-right: 1em; font-weight: bold;">SHARE</div>
 			<div id="share" style="margin-right: 0.6em;"></div>
 			<div class="line-it-button" data-lang="en" data-type="share-c" data-ver="3"
-				data-url="http://localhost:3000/articles/5f0c5ff1ed3f9d08ac5869df" data-color="grey" data-size="small"
-				data-count="false" style="display: none;"></div>
+				data-url="" data-color="grey" data-size="small"
+				data-count="false" style="display: none;" id="lineshare"></div>
 
 			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><i class="fa fa-link"></i></div>
 		</div>
@@ -122,6 +122,9 @@
 			logo: "/assets/images/icon/Twitter_green.png"
 		}]
 	});
+</script>
+<script>
+	$("#lineshare").data('url', window.location.href);
 </script>
 <!-- #endPostSection -->
 <%- include('./includes/footer.ejs') %>
