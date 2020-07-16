@@ -13,40 +13,50 @@
 				<img src="/assets/images/project logo ใส.png" class="nav-img-small" />
 			</a>
 			<ul class="navbar-nav mt-xs-3 mt-lg-5">
-				<li class="nav-item active">
+				<li class="nav-item active" style="border: none;">
 					<a class="nav-link" href="/">Home</a>
-				  </li>
-				  <li class="nav-item active">
+				</li>
+				<li class="nav-item nav-divider" style="border-right: 1px solid rgb(175, 175, 175); height: 2rem; margin-top: 0.5rem;">
+				</li>
+				<li class="nav-item active">
 					<a class="nav-link" href="/research">Research Projects</a>
-				  </li>
-				  <li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="/knowledge-corner" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-					  Knowledge Corner
+				</li>
+				<li class="nav-item nav-divider" style="border-right: 1px solid rgb(175, 175, 175); height: 2rem; margin-top: 0.5rem;">
+				</li>
+				</li>
+				<li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle" href="/knowledge-corner" id="navbarDropdownMenuLink"
+						aria-haspopup="true" aria-expanded="false">
+						Knowledge Corner
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					  <a class="dropdown-item btn-outline-success" href="/publication">Publications</a>
-					  <a class="dropdown-item btn-outline-success" href="/articles">Articles and Infographics</a>
-					  <a class="dropdown-item btn-outline-success" href="/media">Multimedia</a>
-					  <a class="dropdown-item btn-outline-success" href="/news">Climate Change News</a>
-					  <a class="dropdown-item btn-outline-success" href="/events">Events</a>
+						<a class="dropdown-item btn-outline-success" href="/publication">Publications</a>
+						<a class="dropdown-item btn-outline-success" href="/articles">Articles and Infographics</a>
+						<a class="dropdown-item btn-outline-success" href="/media">Multimedia</a>
+						<a class="dropdown-item btn-outline-success" href="/news">Climate Change News</a>
+						<a class="dropdown-item btn-outline-success" href="/events">Events</a>
 					</div>
-				  </li>
-				  <li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-					  About Us
+				</li>
+				<li class="nav-item nav-divider" style="border-right: 1px solid rgb(175, 175, 175); height: 2rem; margin-top: 0.5rem;">
+				</li>
+				</li>
+				<li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink" aria-haspopup="true"
+						aria-expanded="false">
+						About Us
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					  <a class="dropdown-item btn-outline-success" href="/contact">Contact Us</a>
+						<a class="dropdown-item btn-outline-success" href="/contact">Contact Us</a>
 					</div>
-				  </li>
+				</li>
 			</ul>
 		</div>
 	</nav>
 </section>
 <script>
-	$('ul.nav li.dropdown').hover(function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-}, function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-});
+	$('ul.nav li.dropdown').hover(function () {
+		$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+	}, function () {
+		$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+	});
 </script>
