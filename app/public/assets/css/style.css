@@ -3,6 +3,10 @@ html {
 	overflow-y: auto;
 }
 
+.nav-img{
+	height: 4em;
+}
+
 body {
 	/* width: 100%;
     height: 100%; */
@@ -231,6 +235,7 @@ footer {
 
 @media screen and (min-width: 1200px) {
 	.tab {
+		text-align: start;
 		padding: 50px 0px;
 		width: 30vw;
 		background-color: #cecece;
@@ -241,7 +246,7 @@ footer {
 		display: block;
 		background-color: inherit;
 		color: black;
-		padding: 11px 0px 11px 75px;
+		padding: 11px 0px 11px 3rem;
 		width: 100%;
 		border: none;
 		outline: none;
@@ -283,13 +288,21 @@ footer {
 		background-color: #f1f1f1;
 	}
 }
+@media screen and (max-width: 602px){
+	.tab {
+		font-size: 1em !important;
+	}
+
+}
 
 @media screen and (max-width: 1199px) {
 	.tab {
 		overflow: hidden;
 		border: 1px solid #ccc;
-		background-color: #f1f1f1;
+		background-color: #cecece;
 		width: 100%;
+		font-size: 1.5em;
+		padding: 1em 0px;
 	}
 
 	.tablinks img {
@@ -300,6 +313,10 @@ footer {
 		border: #393838 1px solid;
 		border-radius: 30px;
 	}
+	
+	.tablinks{
+		width: 100%;
+	}
 
 	/* Style the buttons that are used to open the tab content */
 	.tab button {
@@ -308,12 +325,14 @@ footer {
 		border: none;
 		outline: none;
 		cursor: pointer;
-		padding: 14px 16px;
+		padding: 14px 5em;
 		transition: 0.3s;
+		text-align: left;
 	}
 
 	.tab div {
-		margin: 10px 16px !important;
+		width: 30vw;
+		margin: 10px 35vw !important;
 	}
 
 	/* Change background color of buttons on hover */
@@ -328,6 +347,8 @@ footer {
 
 	/* Style the tab content */
 	.tabcontent {
+		background-color: #f1f1f1;
+		width: 100%;
 		display: none;
 		padding: 6px 24px;
 		border: 1px solid #ccc;
@@ -370,6 +391,10 @@ footer {
 }
 
 @media screen and (max-width: 991px) {
+	.nav-img{
+		height: 3em;
+	}
+
 	#publication .corner img {
 		width: 80%;
 	}
@@ -492,6 +517,7 @@ a:visited {
 	height: 10rem;
 	object-fit: cover;
 }
+
 
 @media screen and (max-width: 1199px) {
 	/* .sevenfive{
