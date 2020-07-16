@@ -582,3 +582,18 @@ a:visited {
 .postbody img {
 	max-width: 100%;
 }
+
+
+.print-post{
+	margin-left: 0.6em;
+}
+
+.print-post:hover,.line-share:hover{
+	opacity: .5;
+	-webkit-filter: grayscale(100%) sepia(100%);
+	cursor: pointer;
+}
+
+.line-share{
+	margin-right: 0.6em;
+}
