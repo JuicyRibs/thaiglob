@@ -151,9 +151,9 @@ body {
 	width: 100vw;
 }
 
-.innerText {
+/* .innerText {
 	padding: 0px 10rem
-}
+} */
 
 .bottom {
 	position: absolute;
@@ -414,6 +414,7 @@ footer {
 
 .corner img {
 	width: 100%;
+	margin-bottom: 0.5em;
 }
 
 @media screen and (max-width: 991px) {

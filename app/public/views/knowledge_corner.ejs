@@ -2,12 +2,12 @@
 %>
 <!-- #Cover -->
 <div class="cover cornerc">
-	<div class="row" style="height: 100%;">
-		<div class="my-auto innerText">
-			<div class="covertitle">
-				Knowledge Corner
+	<div class="container" style="height: 100%;">
+		<div class="row" style="height: 100%;">
+			<div class="covertitle my-auto">
+				About Us
 				<p class="cloud">
-					มุมความรู้ด้านการเปลี่ยนแปลงภูมิอากาศ
+					เกี่ยวกับเรา
 				</p>
 			</div>
 		</div>
@@ -20,11 +20,7 @@
 		<a href="/" style="text-decoration: none; color: black;">Home</a>
 		>
 		<span>
-			<a
-				href="/knowledge-corner"
-				style="text-decoration: none; color: #28a745;"
-				>Knowledge Corner</a
-			>
+			<a href="/knowledge-corner" style="text-decoration: none; color: #28a745;">Knowledge Corner</a>
 		</span>
 	</p>
 </div>
@@ -32,8 +28,7 @@
 <!-- Publication -->
 <script>
 	$.post(
-		'publication/api',
-		{
+		'publication/api', {
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,
@@ -42,7 +37,7 @@
 		function (data, status) {
 			var html = `
 	       <div class="container corner">
-	   <a href="/publication"><h2>Publication</h2></a>
+	   <a href="/publication"><h2>Publications</h2></a>
 	   <p class="cloud">หนังสือและสิ่งพิมพ์</p>
 	<div class="row cloud">
 		`;
@@ -136,10 +131,11 @@
 			html += `
 	         </div>
 	   </div>
+	</div>
 	   <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/publication'">
 	     แสดงทั้งหมด <i class="fa fa-caret-down"></i>
 	   </button>
-	 </div>
+	 
 	         `;
 			$('#publication').append(html);
 		}
@@ -150,8 +146,7 @@
 <!-- Infographic -->
 <script>
 	$.post(
-		'articles/api',
-		{
+		'articles/api', {
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,
@@ -277,8 +272,7 @@
 <!-- Multimedia -->
 <script>
 	$.post(
-		'media/api',
-		{
+		'media/api', {
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,
@@ -378,8 +372,7 @@
 <!-- Climate news -->
 <script>
 	$.post(
-		'news/api',
-		{
+		'news/api', {
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,
@@ -482,8 +475,7 @@
 <!-- Event -->
 <script>
 	$.post(
-		'events/api',
-		{
+		'events/api', {
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,

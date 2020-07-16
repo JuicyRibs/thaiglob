@@ -2,33 +2,38 @@
 
 <!-- #Cover -->
 <!-- <section> -->
-  <div class="covershow">
-    <div class="row m-0">
-      <div id="homecover" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#homecover" data-slide-to="0" class="active"></li>
-          <li data-target="#homecover" data-slide-to="1"></li>
-        </ol>
-        <div class="carousel-inner" id="carousel">
-          <div class="carousel-item active cover home">
+<div class="covershow">
+  <div class="row m-0">
+    <div id="homecover" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#homecover" data-slide-to="0" class="active"></li>
+        <li data-target="#homecover" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" id="carousel">
+        <div class="carousel-item active cover home">
+          <div class="container" style="height: 100%;">
             <div class="row">
-              <div class="my-auto innerText">
+              <div class="my-auto">
                 <h1>THAI-GLOB</h1>
                 <h2 class="cloud">ศูนย์ประสานงานและพัฒนางานวิจัย
                   ด้านโลกร้อนและการเปลี่ยนแปลงสภาพภูมิอากาศ</h2>
-                <p>ภายใต้การสนับสนุนจากสำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์วิจัยและนวัตกรรม (สกสว.) 
+                <p>ภายใต้การสนับสนุนจากสำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์วิจัยและนวัตกรรม (สกสว.)
                 </p>
-                <button class="btn btn-success cloud px-4 py-2" style="font-size: 1.2em;" onclick="window.location.href='/about'">ทำความรู้จักเรา</button>
+                <button class="btn btn-success cloud px-4 py-2" style="font-size: 1.2em;"
+                  onclick="window.location.href='/about'">ทำความรู้จักเรา</button>
               </div>
             </div>
           </div>
         </div>
-        <script>
-          $.get('/carousel/api', function(data){
-            data.forEach(el => {
-              var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');">
-                            <div class="row">
-                              <div class="my-auto innerText">
+      </div>
+      <script>
+        $.get('/carousel/api', function (data) {
+          data.forEach(el => {
+            var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');">
+                            
+                              <div class="container" style="height: 100%;">
+                                <div class="row">
+                              <div class="my-auto">
                                 <h1>${el.header}</h1>
                                 <h2 class="cloud">${el.subHeader}</h2>
                                 <p>${el.desc}</p>
@@ -40,25 +45,26 @@
                                   ${el.ctaText}
                                 </button>
                               </div>
+                              </div>
                             </div>
                           </div>`
-              $('#carousel').append(html);
-            });
-          })
-        </script>
+            $('#carousel').append(html);
+          });
+        })
+      </script>
 
-        <a class="carousel-control-prev" href="#homecover" role="button" data-slide="prev" style="width: 5rem;">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <!-- <span class="sr-only">Prev</span> -->
+      <a class="carousel-control-prev" href="#homecover" role="button" data-slide="prev" style="width: 5rem;">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <!-- <span class="sr-only">Prev</span> -->
 
-          <a class="carousel-control-next" href="#homecover" role="button" data-slide="next" style="width: 5rem;">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <!-- <span class="sr-only">Next</span> -->
+        <a class="carousel-control-next" href="#homecover" role="button" data-slide="next" style="width: 5rem;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <!-- <span class="sr-only">Next</span> -->
 
-          </a>
-      </div>
+        </a>
     </div>
   </div>
+</div>
 <!-- </section> -->
 <!-- EndCover -->
 
@@ -95,10 +101,9 @@
 <!-- Update tab -->
 <section class="mb-0">
   <div class="row">
-    <div class="tab cloud" openTab(event, 'Book')>
+    <div class="tab cloud" openTab(event, 'Book' )>
       <button class="tablinks active" onclick="openTab(event, 'Book')">
-        <img
-          src="/assets/images/tabicon/book.png" />หนังสือและสิ่งพิมพ์</button>
+        <img src="/assets/images/tabicon/book.png" />หนังสือและสิ่งพิมพ์</button>
       <button class="tablinks" onclick="openTab(event, 'Article')"><img
           src="/assets/images/tabicon/info.png" />บทความและอินโฟกราฟฟิก</button>
       <button class="tablinks" onclick="openTab(event, 'Media')"><img
@@ -107,37 +112,38 @@
           src="/assets/images/tabicon/news.png" />ข่าวสาร</button>
       <button class="tablinks" onclick="openTab(event, 'Event')"><img
           src="/assets/images/tabicon/event.png" />งานกิจกรรมต่างๆ</button>
-      <div class="btn btn-success cloud px-3 py-2 mt-3 mb-0" style="font-size: 1.2em;" onclick="window.location.href='/knowledge-corner'">แสดงทั้งหมด</div>
+      <div class="btn btn-success cloud px-3 py-2 mt-3 mb-0" style="font-size: 1.2em;"
+        onclick="window.location.href='/knowledge-corner'">แสดงทั้งหมด</div>
     </div>
     <script>
-	$.post(
-		'publication/api',
-		{
-			query: $('#filter').val() || '',
-			sortParams: '-date',
-			skip: 0,
-			limit: 4,
-		},
-		function (data, status) {
-			var html = `
+      $.post(
+        'publication/api', {
+          query: $('#filter').val() || '',
+          sortParams: '-date',
+          skip: 0,
+          limit: 4,
+        },
+        function (data, status) {
+          var html = `
 <div class="row py-auto cloud">`
-  if(typeof data[0] != "undefined"){
-  html += `
+          if (typeof data[0] != "undefined") {
+            html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     <a href="/upload/${data[0].dlPath}" target="_blank">
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
   </div>
-  `}else{
-    html += `
+  `
+          } else {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     ไม่พบเนื้อหาดังกล่าว
   </div>
   `
-  }
-  if(typeof data[1] != "undefined"){
-  html += `
+          }
+          if (typeof data[1] != "undefined") {
+            html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     <a href="/upload/${data[1].dlPath}" target="_blank">
     <img
@@ -148,9 +154,9 @@
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
   </div>
   `
-}
-if(typeof data[2] != "undefined"){
-  html += `
+          }
+          if (typeof data[2] != "undefined") {
+            html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     <a href="/upload/${data[2].dlPath}" target="_blank">
     <img
@@ -161,9 +167,9 @@ if(typeof data[2] != "undefined"){
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
   </div>
   `
-}
-if(typeof data[3] != "undefined"){
-  html += `
+          }
+          if (typeof data[3] != "undefined") {
+            html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     <a href="/upload/${data[3].dlPath}" target="_blank">
     <img
@@ -174,27 +180,26 @@ if(typeof data[3] != "undefined"){
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
   </div>
   `
-}
-  html += `
+          }
+          html += `
 </div>
           `;
-			$('#Book').append(html);
-		}
-  );
-  	$.post(
-		'articles/api',
-		{
-			query: $('#filter').val() || '',
-			sortParams: '-date',
-			skip: 0,
-			limit: 6,
-		},
-		function (data, status) {
-			var html = `
+          $('#Book').append(html);
+        }
+      );
+      $.post(
+        'articles/api', {
+          query: $('#filter').val() || '',
+          sortParams: '-date',
+          skip: 0,
+          limit: 6,
+        },
+        function (data, status) {
+          var html = `
 <div class="row" style="padding-top: 2rem;">
   `
-  if(typeof data[0] != "undefined"){
-    html +=`
+          if (typeof data[0] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
@@ -202,291 +207,306 @@ if(typeof data[3] != "undefined"){
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
     `
-  }else{
-    html += `
+          } else {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     ไม่พบเนื้อหาดังกล่าว
   </div>
   `
-  }
-  if(typeof data[1] != "undefined"){
-    html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
+          }
+          if (typeof data[1] != "undefined") {
+            html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>`
-  }
-    if(typeof data[2] != "undefined"){
-    html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
+          }
+          if (typeof data[2] != "undefined") {
+            html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>`
-  }
-    if(typeof data[3] != "undefined"){
-    html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
+          }
+          if (typeof data[3] != "undefined") {
+            html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>`
-  }
-    if(typeof data[4] != "undefined"){
-    html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
+          }
+          if (typeof data[4] != "undefined") {
+            html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>`
-  }
-    if(typeof data[5] != "undefined"){
-    html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
+          }
+          if (typeof data[5] != "undefined") {
+            html += `<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/articles/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>`
-  }
-    html += `
+          }
+          html += `
 </div>
           `;
-			$('#Article').append(html);
-		}
-  );
-    	$.post(
-		'media/api',
-		{
-			query: $('#filter').val() || '',
-			sortParams: '-date',
-			skip: 0,
-			limit: 6,
-		},
-		function (data, status) {
-			var html = `
+          $('#Article').append(html);
+        }
+      );
+      $.post(
+        'media/api', {
+          query: $('#filter').val() || '',
+          sortParams: '-date',
+          skip: 0,
+          limit: 6,
+        },
+        function (data, status) {
+          var html = `
 <div class="row" style="padding-top: 2rem;">
   `
-  if(typeof data[0] != "undefined"){
-    html += `
+          if (typeof data[0] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
-    `}else{
-    html += `
+    `
+          } else {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     ไม่พบเนื้อหาดังกล่าว
   </div>
   `
-  }
-    if(typeof data[1] != "undefined"){
-      html += `
+          }
+          if (typeof data[1] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[2] != "undefined"){
-      html += `
+    `
+          }
+          if (typeof data[2] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[3] != "undefined"){
-      html += `
+    `
+          }
+          if (typeof data[3] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[4] != "undefined"){
-      html += `
+    `
+          }
+          if (typeof data[4] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[5] != "undefined"){
-      html += `
+    `
+          }
+          if (typeof data[5] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/media/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>
-    `}
+    `
+          }
 
-    html += `
+          html += `
 </div>
           `;
-			$('#Media').append(html);
-		}
-  );
-    	$.post(
-		'news/api',
-		{
-			query: $('#filter').val() || '',
-			sortParams: '-date',
-			skip: 0,
-			limit: 6,
-		},
-		function (data, status) {
-			var html = `
+          $('#Media').append(html);
+        }
+      );
+      $.post(
+        'news/api', {
+          query: $('#filter').val() || '',
+          sortParams: '-date',
+          skip: 0,
+          limit: 6,
+        },
+        function (data, status) {
+          var html = `
 <div class="row" style="padding-top: 2rem;">
   `
-    if(typeof data[0]!= "undefined"){
-      html += `
+          if (typeof data[0] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
-    </div>`}else{
-    html += `
+    </div>`
+          } else {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     ไม่พบเนื้อหาดังกล่าว
   </div>
   `
-  }
-    if(typeof data[1]!= "undefined"){
-      html += `
+          }
+          if (typeof data[1] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
-    </div>`}
-    if(typeof data[2]!= "undefined"){
-      html += `
+    </div>`
+          }
+          if (typeof data[2] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
-    </div>`}
-    if(typeof data[3]!= "undefined"){
-      html += `
+    </div>`
+          }
+          if (typeof data[3] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
-    </div>`}
-    if(typeof data[4]!= "undefined"){
-      html += `
+    </div>`
+          }
+          if (typeof data[4] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
-    </div>`}
-    if(typeof data[5]!= "undefined"){
-      html += `
+    </div>`
+          }
+          if (typeof data[5] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/news/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
-    </div>`}
-    html +=`
+    </div>`
+          }
+          html += `
 </div>
           `;
-			$('#News').append(html);
-		}
-  );
-    	$.post(
-		'events/api',
-		{
-			query: $('#filter').val() || '',
-			sortParams: '-date',
-			skip: 0,
-			limit: 6,
-		},
-		function (data, status) {
-			var html = `
+          $('#News').append(html);
+        }
+      );
+      $.post(
+        'events/api', {
+          query: $('#filter').val() || '',
+          sortParams: '-date',
+          skip: 0,
+          limit: 6,
+        },
+        function (data, status) {
+          var html = `
 <div class="row" style="padding-top: 2rem;">
   `
-    if(typeof data[0] != "undefined"){
-      html+= `
+          if (typeof data[0] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[0].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
     </div>
-    `}else{
-    html += `
+    `
+          } else {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
     ไม่พบเนื้อหาดังกล่าว
   </div>
   `
-  }
-    if(typeof data[1] != "undefined"){
-      html+= `
+          }
+          if (typeof data[1] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[1].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[2] != "undefined"){
-      html+= `
+    `
+          }
+          if (typeof data[2] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[2].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[3] != "undefined"){
-      html+= `
+    `
+          }
+          if (typeof data[3] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[3].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[4] != "undefined"){
-      html+= `
+    `
+          }
+          if (typeof data[4] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[4].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
     </div>
-    `}
-    if(typeof data[5] != "undefined"){
-      html+= `
+    `
+          }
+          if (typeof data[5] != "undefined") {
+            html += `
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 pb-3 update-hori">
       <a href="/events/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h6 class="pt-2">${data[5].title}</h6 class="pt-2">
         <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
     </div>
-    `}
-    html+=`
+    `
+          }
+          html += `
 </div>
           `;
-			$('#Event').append(html);
-		}
-	);
-</script>
+          $('#Event').append(html);
+        }
+      );
+    </script>
     <div id="Book" class="tabcontent" style="display: block;">
-      
+
     </div>
 
     <div id="Article" class="tabcontent" style="display: none;">
