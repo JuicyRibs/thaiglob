@@ -18,11 +18,11 @@ body {
 }
 
 /* img cropper */
-.sevenfive {
+/* .sevenfive {
 	width: 15rem !important;
 	height: 21rem;
 	object-fit: cover;
-}
+} */
 
 @font-face {
 	font-family: Cloud;
@@ -461,9 +461,9 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
-	.sevenfive{
+	/* .sevenfive{
 		width: 100% !important;
-	}
+	} */
 }
 
 a:link {
@@ -494,10 +494,10 @@ a:visited {
 }
 
 @media screen and (max-width: 1199px) {
-	.sevenfive{
+	/* .sevenfive{
 		width: 100% !important;
 		height: 17rem;
-	}
+	} */
 }
 
 .tags>div:first-child{
