@@ -1,59 +1,50 @@
 <section>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<a class="navbar-brand" href="/">
+			<img src="/assets/images/project logo ใส.png" class="nav-img" />
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+			aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-			<a class="navbar-brand" href="/">
-				<img src="/assets/images/project logo ใส.png" style="height: 5em;" />
-			</a>
-			<ul class="navbar-nav mt-5">
+		<div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo02">
+			<div></div>
+			<ul class="navbar-nav mt-xs-3 mt-lg-5">
 				<li class="nav-item active">
 					<a class="nav-link" href="/">Home</a>
-				</li>
-				
-				<li class="navbar-nav mt-5">
-					<li class="nav-item active">
-						<a class="nav-link" href="/research">Research Projects</a>
-					</li>
-				</li>
-				
-				<li class="nav-item dropdown active ">
-					<div class="btn-group">
-						<a type="button" href="/knowledge-corner" class="pr-0 nav-link active">Knowledge Coner</class=>
-						<a type="button" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  <span class="sr-only">Toggle Dropdown</span>
-						</a>
-						<div class="dropdown-menu">
-						  <a class="dropdown-item btn-outline-success" href="/publication">Publication</a>
-						  <a class="dropdown-item btn-outline-success" href="/articles">Articles and Infographics</a>
-						  <a class="dropdown-item btn-outline-success" href="/media">Multimedia</a>
-						  <a class="dropdown-item btn-outline-success" href="/news">Climate Change News</a>
-						  <a class="dropdown-item btn-outline-success" href="/events">Events</a>
-						</div>
-					  </div>
-				</li>
-				
-				<li class="nav-item active">
-					<li class="nav-item dropdown active ">
-						<div class="btn-group">
-							<a type="button" href="/about" class="pr-0 nav-link active">About Us</class=>
-							<a type="button" class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							  <span class="sr-only">Toggle Dropdown</span>
-							</a>
-							<d	iv class="dropdown-menu">
-							  <a class="dropdown-item btn-outline-success" href="/contact">Contact Us</a>
-							</d>
-						  </div>
-					</li>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/"><i class="fa fa-search"></i></a>
-
-				</li>
+				  </li>
+				  <li class="nav-item active">
+					<a class="nav-link" href="/research">Research Projects</a>
+				  </li>
+				  <li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle" href="/knowledge-corner" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+					  Knowledge Corner
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item btn-outline-success" href="/publication">Publications</a>
+					  <a class="dropdown-item btn-outline-success" href="/articles">Articles and Infographics</a>
+					  <a class="dropdown-item btn-outline-success" href="/media">Multimedia</a>
+					  <a class="dropdown-item btn-outline-success" href="/news">Climate Change News</a>
+					  <a class="dropdown-item btn-outline-success" href="/events">Events</a>
+					</div>
+				  </li>
+				  <li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle" href="/about" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+					  About Us
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					  <a class="dropdown-item btn-outline-success" href="/contact">Contact Us</a>
+					</div>
+				  </li>
 			</ul>
 		</div>
 	</nav>
 </section>
+<script>
+	$('ul.nav li.dropdown').hover(function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+}, function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+});
+</script>
