@@ -11,23 +11,23 @@ html {
 	height: 4em;
 }
 
-.nav-img-small{
+.nav-img-small {
 	display: none;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
 	.nav-img {
 		display: none;
 	}
 
-	.nav-img-small{
+	.nav-img-small {
 		display: block;
 		height: 3em;
 	}
 }
 
-@media screen and (max-width: 1024px){
-	.nav-divider{
+@media screen and (max-width: 1024px) {
+	.nav-divider {
 		display: none;
 	}
 }
@@ -71,6 +71,8 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	background-color: rgba(99, 99, 99, 0.836);
+	background-blend-mode: multiply;
 	color: white;
 	height: 20rem;
 }
@@ -90,6 +92,8 @@ body {
 
 .cover.home {
 	background-image: url('../images/bg.jpg');
+	background-color: rgba(99, 99, 99, 0);
+	background-blend-mode: multiply;
 }
 
 .cover.book {
