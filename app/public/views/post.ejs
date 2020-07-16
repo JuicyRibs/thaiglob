@@ -21,15 +21,15 @@
 						style="padding-left: 1em;"><%- data.date.toString().slice(0,15); %></span></small>
 			</div>
 		</div>
-		<div class="row align-items-center my-4"
+		<div class="row align-items-center my-4 no-print"
 			style="color: rgb(102, 102, 102); border-bottom: 1px solid rgb(102, 102, 102);">
 			<div style="padding-right: 1em; font-weight: bold;">SHARE</div>
 			<div id="share" style="margin-right: 0.6em;"></div>
-			<div class="line-it-button" data-lang="en" data-type="share-c" data-ver="3"
-				data-url="" data-color="grey" data-size="small"
-				data-count="false" style="display: none;" id="lineshare"></div>
-
-			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><img style="width: 1em;" src="/assets/images/icon/ctc.png"></div>
+			<div onclick="lineShare()" class="line-share"><img style="width: 1.7em;" src="/assets/images/icon/ls.png"></div>
+			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><img style="width: 1em;"
+					src="/assets/images/icon/ctc.png"></div>
+			<div onclick="print()" class="print-post"><img style="width: 1.2em;" src="/assets/images/icon/print.png">
+			</div>
 		</div>
 		<!-- <div class="row"
 			style="background-image: url(/upload/<%-data.imgPath%>); background-repeat: no-repeat; background-size: cover;">
@@ -46,13 +46,13 @@
 				</div>
 			</div> -->
 		</div>
-		<div class="row mt-4 pb-4 mx-1 tags">
+		<div class="row mt-4 pb-4 mx-1 tags no-print">
 			<div>TAGS</div>
 			<% data.tag.forEach(el => { %>
 			<span><%- el %></span>
 			<% }); %>
 		</div>
-		<div class="row mt-4">
+		<div class="row mt-4 no-print">
 			<div class="col-12 mb-2">
 				<h4>Related</h4>
 			</div>
@@ -124,7 +124,9 @@
 	});
 </script>
 <script>
-	$("#lineshare").data('url', window.location.href);
+	function lineShare() {
+		window.open("https://social-plugins.line.me/lineit/share?url=".concat(window.location.href));
+	}
 </script>
 <!-- #endPostSection -->
 <%- include('./includes/footer.ejs') %>
