@@ -14,7 +14,7 @@
 	<div class="container my-3">
 		<div class="row">
 			<div class="post-header">
-				<small style="font-weight: bold;"><%- title.split('-')[1] %> </small>
+				<small style="font-weight: bold; font-size: 1.2em;"><%- title.split('-')[1] %> </small>
 				<h1><%- data.title %></h1>
 				<div><%- data.desc %></div>
 				<small><span style="padding-right: 1em; border-right: 1px solid grey;"><%- data.author %></span><span
@@ -46,14 +46,14 @@
 				</div>
 			</div> -->
 		</div>
-		<div class="row mt-4 pb-4 mx-1 tags no-print">
+		<div class="row mt-4 pb-4 tags no-print">
 			<div>TAGS</div>
 			<% data.tag.forEach(el => { %>
 			<span><%- el %></span>
 			<% }); %>
 		</div>
 		<div class="row mt-4 no-print">
-			<div class="col-12 mb-2">
+			<div class="col-12 mb-2 px-0">
 				<h4>Related</h4>
 			</div>
 			<div class="col-sm-12 col-md-4">
