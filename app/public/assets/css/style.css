@@ -90,6 +90,11 @@ body {
 	height: 45rem;
 }
 
+.cover .row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
 .cover.home {
 	background-image: url('../images/bg.jpg');
 	background-color: rgba(99, 99, 99, 0);
@@ -583,7 +588,6 @@ a:visited {
 	max-width: 100%;
 }
 
-
 .print-post{
 	margin-left: 0.6em;
 }
@@ -596,4 +600,8 @@ a:visited {
 
 .line-share{
 	margin-right: 0.6em;
+}
+
+.postblock img{
+	margin-bottom: 0.5em;
 }
