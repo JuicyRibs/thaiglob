@@ -90,7 +90,7 @@ body {
 	height: 45rem;
 }
 
-.cover .row{
+.cover .row {
 	margin-left: 0px;
 	margin-right: 0px;
 }
@@ -492,6 +492,23 @@ footer {
 	font-weight: 600;
 }
 
+.contact-logo {
+	width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 992px) {
+	.contact-logo {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 765px) {
+	.contact-logo {
+		width: 60%;
+	}
+}
+
 .contactDetail img {
 	height: 3em;
 	margin-right: 1em;
@@ -588,20 +605,22 @@ a:visited {
 	max-width: 100%;
 }
 
-.print-post{
+.print-post {
 	margin-left: 0.6em;
 }
 
-.print-post:hover,.line-share:hover,.jssocials-share-logo:hover{
+.print-post:hover,
+.line-share:hover,
+.jssocials-share-logo:hover {
 	opacity: .5;
 	-webkit-filter: grayscale(100%) sepia(100%);
 	cursor: pointer;
 }
 
-.line-share{
+.line-share {
 	margin-right: 0.6em;
 }
 
-.postblock img{
+.postblock img {
 	margin-bottom: 0.5em;
 }
