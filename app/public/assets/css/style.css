@@ -58,6 +58,40 @@ body {
 	src: url(../fonts/Cloud-Light.otf);
 }
 
+@font-face {
+	font-family: Quark;
+	src: url(../fonts/Quark-Light.otf);
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: Quark-bold;
+	src: url(../fonts/Quark-Bold.otf);
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: Kanit;
+	src: url(../fonts/Kanit-Light.ttf);
+}
+
+@font-face {
+	font-family: Sarabun;
+	src: url(../fonts/THSarabunNew.ttf);
+}
+
+.kanit {
+	font-family: Kanit;
+}
+
+.quarkbold {
+	font-family: Quark-bold;
+}
+
+.quark {
+	font-family: Quark;
+}
+
 .cloud {
 	font-family: Cloud;
 }
@@ -180,10 +214,12 @@ body {
 
 .booklist img {
 	width: 100%;
+	margin-bottom: 0.5em;
 }
 
-.booklist .cloud {
-	font-size: large;
+.booklist .cloud,
+.booklist .quarkbold {
+	font-size: larger;
 	font-weight: 600;
 }
 
@@ -476,6 +512,7 @@ footer {
 
 .medialist img {
 	width: 100%;
+	margin-bottom: 0.5em;
 }
 
 .medialist a {
