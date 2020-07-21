@@ -143,7 +143,7 @@
                 $("#tag").val($("#tag").tagsinput('items'));
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
-                    url: '/news/<%- data._id %>'/update,
+                    url: '/news/<%- data._id %>/update',
                     type: 'post',
                     data: new FormData(this),
                     processData: false,
