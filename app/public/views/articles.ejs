@@ -7,12 +7,12 @@
 		<div class="row" style="height: 100%;">
 			<div class="covertitle my-auto">
 				Articles and Infographics
-			  <p class="cloud">
-				บทความและอินโฟกราฟิก
-			  </p>
+				<p class="cloud">
+					บทความและอินโฟกราฟิก
+				</p>
 			</div>
-		  </div>
-	  </div>
+		</div>
+	</div>
 </div>
 
 <!-- #EndCover -->
@@ -53,10 +53,7 @@
 					style="width: 20vw;"
 					id="filter"
 				/>
-				<button
-					class="btn btn-success my-0 mr-3 mr-md-0"
-					id="filter2"
-				>
+				<button class="btn btn-success my-0 mr-3 mr-md-0" id="filter2">
 					Search
 				</button>
 			</div>
@@ -144,6 +141,7 @@
 		);
 	}
 	$(document).ready(function () {
+		$('#filter').val('<%- search %>');
 		$('#before').hide();
 		getmore();
 	});

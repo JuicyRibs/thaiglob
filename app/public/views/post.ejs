@@ -14,21 +14,49 @@
 	<div class="container my-3">
 		<div class="row">
 			<div class="post-header">
-				<small style="font-weight: bold; font-size: 1.2em;"><%- title.split('-')[1] %> </small>
+				<small style="font-weight: bold; font-size: 1.2em;"
+					><%- title.split('-')[1] %>
+				</small>
 				<h1><%- data.title %></h1>
 				<div><%- data.desc %></div>
-				<small><span style="padding-right: 1em; border-right: 1px solid grey;"><%- data.author %></span><span
-						style="padding-left: 1em;"><%- data.date.toString().slice(0,15); %></span></small>
+				<small
+					><span
+						style="
+							padding-right: 1em;
+							border-right: 1px solid grey;
+						"
+						><%- data.author %></span
+					><span style="padding-left: 1em;"
+						><%- data.date.toString().slice(0,15); %></span
+					></small
+				>
 			</div>
 		</div>
-		<div class="row align-items-center my-4 no-print"
-			style="color: rgb(102, 102, 102); border-bottom: 1px solid rgb(102, 102, 102);">
+		<div
+			class="row align-items-center my-4 no-print"
+			style="
+				color: rgb(102, 102, 102);
+				border-bottom: 1px solid rgb(102, 102, 102);
+			"
+		>
 			<div style="padding-right: 1em; font-weight: bold;">SHARE</div>
 			<div id="share" style="margin-right: 0.6em;"></div>
-			<div onclick="lineShare()" class="line-share"><img style="width: 1.7em;" src="/assets/images/icon/ls.png"></div>
-			<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()"><img style="width: 1em;"
-					src="/assets/images/icon/ctc.png"></div>
-			<div onclick="print()" class="print-post"><img style="width: 1.2em;" src="/assets/images/icon/print.png">
+			<div onclick="lineShare()" class="line-share">
+				<img style="width: 1.7em;" src="/assets/images/icon/ls.png" />
+			</div>
+			<div
+				id="copy-to-clip"
+				title="คัดลอกไปยังคลิปบอร์ดแล้ว"
+				onclick="copyURL()"
+			>
+				<img style="width: 1em;" src="/assets/images/icon/ctc.png" />
+			</div>
+
+			<div onclick="print()" class="print-post">
+				<img
+					style="width: 1.2em;"
+					src="/assets/images/icon/print.png"
+				/>
 			</div>
 		</div>
 		<!-- <div class="row"
@@ -49,47 +77,64 @@
 		<div class="row mt-4 pb-4 tags no-print">
 			<div>TAGS</div>
 			<% data.tag.forEach(el => { %>
-			<span><%- el %></span>
+			<span
+				><a href="/<%- type %>/?search=<%- el %>" target="_blank">
+					<%- el %>
+				</a></span
+			>
 			<% }); %>
 		</div>
-		<div class="row mt-4 no-print">
+		<div class="row mt-4 no-print" id="related">
 			<div class="col-12 mb-2 px-0">
 				<h4>Related</h4>
 			</div>
-			<div class="col-sm-12 col-md-4">
-				<img style="width: 100%;" src="../../assets/images/articlecover.jpg">
-				<h6 class="pt-2">9 NEW FEATURES อัพเดทใหม่ที่ต้องลองใน Excel 2016</h6 class="pt-2">
-				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
-			</div>
-			<div class="col-sm-12 col-md-4">
-				<img style="width: 100%;" src="../../assets/images/articlecover.jpg">
-				<h6 class="pt-2">9 NEW FEATURES อัพเดทใหม่ที่ต้องลองใน Excel 2016</h6 class="pt-2">
-				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
-			</div>
-			<div class="col-sm-12 col-md-4">
-				<img style="width: 100%;" src="../../assets/images/articlecover.jpg">
-				<h6 class="pt-2">9 NEW FEATURES อัพเดทใหม่ที่ต้องลองใน Excel 2016</h6 class="pt-2">
-				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small>
-			</div>
 		</div>
+		<script>
+			$.post(
+				'/<%- type %>/api',
+				{
+					query: "<%- data.tag.join('|') %>",
+					sortParams: '-date',
+					skip: 0,
+					limit: 3,
+				},
+				function (data, status) {
+					data.forEach((post) => {
+						var html = `
+						<div class="col-sm-12 col-md-4"><a href="/<%- type %>/${
+							post._id
+						}" target="_blank">
+							<img style="width: 100%;" src="/upload/${post.imgPath}">
+							<h6 class="pt-2">${post.title}</h6>
+							<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
+								post.date.split('T')[0]
+							}</small>
+							</a>
+						</div>
+							`;
+						$('#related').append(html);
+					});
+				}
+			);
+		</script>
 	</div>
 </section>
 
-<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer">
-</script>
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"
-	integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous"></script>
+<script
+	src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
+	async="async"
+	defer="defer"
+></script>
 <!-- <script
   src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"
   integrity="sha256-z8sq+fwXy6xX1HLBJZ5doyrWmFBhQ9lG3p/AKoipKKs="
   crossorigin="anonymous"></script> -->
 <script>
 	$('#copy-to-clip').tooltip({
-
 		disabled: true,
 		close: function (event, ui) {
 			$(this).tooltip('disable');
-		}
+		},
 	});
 
 	$('#copy-to-clip').on('click', function () {
@@ -98,7 +143,7 @@
 </script>
 <script>
 	function copyURL() {
-		console.log("copy..");
+		console.log('copy..');
 		var dummy = document.createElement('input'),
 			text = window.location.href;
 
@@ -111,21 +156,28 @@
 </script>
 <script src="/assets/js/jssocials.min.js"></script>
 <script>
-	$("#share").jsSocials({
+	$('#share').jsSocials({
 		showLabel: false,
 		showCount: false,
-		shares: [{
-			share: "facebook",
-			logo: "/assets/images/icon/fs.png"
-		}, {
-			share: "twitter",
-			logo: "/assets/images/icon/ts.png"
-		}]
+		shares: [
+			{
+				share: 'facebook',
+				logo: '/assets/images/icon/fs.png',
+			},
+			{
+				share: 'twitter',
+				logo: '/assets/images/icon/ts.png',
+			},
+		],
 	});
 </script>
 <script>
 	function lineShare() {
-		window.open("https://social-plugins.line.me/lineit/share?url=".concat(window.location.href));
+		window.open(
+			'https://social-plugins.line.me/lineit/share?url='.concat(
+				window.location.href
+			)
+		);
 	}
 </script>
 <!-- #endPostSection -->

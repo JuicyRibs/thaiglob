@@ -1,18 +1,23 @@
-<%- include('./includes/header.ejs') %> <%- include('./includes/backtotop.ejs')
-%>
+<%- include('./includes/header.ejs') %> <%-
+include('./includes/backtotop.ejs')%>
+<style>
+	.caret {
+		display: none !important;
+	}
+</style>
 
 <!-- #Cover -->
 <div class="cover research">
 	<div class="container" style="height: 100%;">
 		<div class="row" style="height: 100%;">
 			<div class="covertitle my-auto">
-			  About Us
-			  <p class="cloud">
-				เกี่ยวกับเรา
-			  </p>
+				About Us
+				<p class="cloud">
+					เกี่ยวกับเรา
+				</p>
 			</div>
-		  </div>
-	  </div>
+		</div>
+	</div>
 </div>
 <!-- #EndCover -->
 <div class="container">
@@ -35,10 +40,10 @@
 			data-paging="true"
 			data-sorting="true"
 			data-filtering="true"
+			data-filter-dropdown-title="Search in:"
 		>
 			<thead>
 				<tr>
-					<!-- <th scope="col">No.</th> -->
 					<th
 						style="width: 6%;"
 						scope="col"
@@ -47,13 +52,23 @@
 					>
 						#
 					</th>
-					<th style="width: 49%;" scope="col">Title</th>
-					<th style="width: 15%;" scope="col">PI</th>
+					<th style="width: 49%; text-align: center;" scope="col">
+						Title
+					</th>
+					<th style="width: 15%; text-align: center;" scope="col">
+						PI
+					</th>
 					<!-- <th scope="col">Institute</th> -->
-					<th style="width: 10%;" scope="col">Active Year</th>
+					<th style="width: 10%; text-align: center;" scope="col">
+						Active Year
+					</th>
 					<!-- <th scope="col">Fund Source</th> -->
-					<th style="width: 10%;" scope="col">Status</th>
-					<th style="width: 10%;" scope="col">Download</th>
+					<th style="width: 10%; text-align: center;" scope="col">
+						Status
+					</th>
+					<th style="width: 10%; text-align: center;" scope="col">
+						Download
+					</th>
 				</tr>
 			</thead>
 			<tbody>

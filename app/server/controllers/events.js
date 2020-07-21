@@ -59,6 +59,7 @@ exports.showById = function (req, res) {
 		res.render('post', {
 			title: 'ThaiGlob - Events',
 			data: event,
+			type: 'events',
 		});
 	});
 };
@@ -140,5 +141,6 @@ exports.delete = function (req, res) {
 exports.getIndex = function (req, res) {
 	res.render('events', {
 		title: 'ThaiGlob - Events',
+		search: req.query.search,
 	});
 };

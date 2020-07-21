@@ -7,12 +7,12 @@
 		<div class="row" style="height: 100%;">
 			<div class="covertitle my-auto">
 				Climate Change News
-			  <p class="cloud">
-				ข่าวสารการเปลี่ยนแปลงสภาพภูมิอากาศ
-			  </p>
+				<p class="cloud">
+					ข่าวสารการเปลี่ยนแปลงสภาพภูมิอากาศ
+				</p>
 			</div>
-		  </div>
-	  </div>
+		</div>
+	</div>
 </div>
 <!-- #EndCover -->
 
@@ -52,10 +52,7 @@
 					style="width: 20vw;"
 					id="filter"
 				/>
-				<button
-					class="btn btn-success my-0 mr-3 mr-md-0"
-					id="filter2"
-				>
+				<button class="btn btn-success my-0 mr-3 mr-md-0" id="filter2">
 					Search
 				</button>
 			</div>
@@ -101,7 +98,7 @@
 	var limit = 9;
 	function getmore() {
 		$.post(
-			'news/api',
+			'/news/api',
 			{
 				query: $('#filter').val() || '',
 				sortParams: '-date',
@@ -140,6 +137,7 @@
 		);
 	}
 	$(document).ready(function () {
+		$('#filter').val('<%- search %>');
 		$('#before').hide();
 		getmore();
 	});

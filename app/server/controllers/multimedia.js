@@ -59,6 +59,7 @@ exports.showById = function (req, res) {
 		res.render('post', {
 			title: 'ThaiGlob - Multimedia',
 			data: multimedia,
+			type: 'media',
 		});
 	});
 };
@@ -140,5 +141,6 @@ exports.delete = function (req, res) {
 exports.getIndex = function (req, res) {
 	res.render('media', {
 		title: 'ThaiGlob - Multimedia',
+		search: req.query.search,
 	});
 };

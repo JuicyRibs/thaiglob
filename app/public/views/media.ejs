@@ -87,7 +87,7 @@
 	var limit = 9;
 	function getmore() {
 		$.post(
-			'media/api',
+			'/media/api',
 			{
 				query: $('#filter').val() || '',
 				sortParams: '-date',
@@ -121,6 +121,7 @@
 		);
 	}
 	$(document).ready(function () {
+		$('#filter').val('<%- search %>');
 		$('#before').hide();
 		getmore();
 	});
