@@ -81,7 +81,7 @@ exports.updateById = function (req, res) {
 		event.title = req.body.title;
 		event.body = req.body.body;
 		// if there is new file remove old one
-		if (req.files) {
+		if (req.files[0]) {
 			let oldFile = event.imgPath;
 			event.imgPath = req.files[0]['filename'];
 			const filePath = path.resolve('server', 'uploads', oldFile);

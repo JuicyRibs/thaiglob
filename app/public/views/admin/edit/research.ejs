@@ -89,7 +89,7 @@
                 $('#FormUploading').html('Uploading').fadeIn('slow');
             $.ajax({
                 url: '/research/<%- data._id %>/update',
-                type: 'post',
+                type: 'PUT',
                 data: new FormData(this),
                 processData: false,
                 contentType: false,

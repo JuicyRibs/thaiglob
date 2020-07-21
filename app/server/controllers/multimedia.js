@@ -81,7 +81,7 @@ exports.updateById = function (req, res) {
 		multimedia.title = req.body.title;
 		multimedia.body = req.body.body;
 		// if there is new file remove old one
-		if (req.files) {
+		if (req.files[0]) {
 			let oldFile = multimedia.imgPath;
 			multimedia.imgPath = req.files[0]['filename'];
 			const filePath = path.resolve('server', 'uploads', oldFile);

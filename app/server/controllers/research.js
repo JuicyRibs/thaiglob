@@ -46,7 +46,7 @@ exports.updateById = function (req, res) {
 		research.fundSource = req.body.fundSource;
 		research.status = req.body.status;
 		// if there is new file remove old file
-		if (req.files) {
+		if (req.files[0]) {
 			let oldFile = research.imgPath;
 			research.imgPath = req.files[0]['filename'];
 			const filePath = path.resolve('server', 'uploads', oldFile);

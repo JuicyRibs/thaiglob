@@ -144,7 +144,7 @@
                 $('#FormUploading').html('Uploading').fadeIn('slow');
                 $.ajax({
                     url: '/media/<%- data._id%>/update',
-                    type: 'post',
+                    type: 'PUT',
                     data: new FormData(this),
                     processData: false,
                     contentType: false,
