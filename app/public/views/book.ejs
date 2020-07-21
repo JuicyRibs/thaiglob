@@ -6,13 +6,13 @@
 	<div class="container" style="height: 100%;">
 		<div class="row" style="height: 100%;">
 			<div class="covertitle my-auto">
-			  Publications
-			  <p class="cloud">
-				หนังสือและสิ่งพิมพ์
-			  </p>
+				Publications
+				<p class="cloud">
+					หนังสือและสิ่งพิมพ์
+				</p>
 			</div>
-		  </div>
-	  </div>
+		</div>
+	</div>
 </div>
 <!-- EndCover -->
 
@@ -52,10 +52,7 @@
 					style="width: 20vw;"
 					id="filter"
 				/>
-				<button
-					class="btn btn-success my-0 mr-3 mr-md-0"
-					id="filter2"
-				>
+				<button class="btn btn-success my-0 mr-3 mr-md-0" id="filter2">
 					Search
 				</button>
 			</div>
@@ -100,7 +97,7 @@
 	var limit = 9;
 	function getmore() {
 		$.post(
-			'publication/api',
+			'/publication/api',
 			{
 				query: $('#filter').val() || '',
 				sortParams: '-date',
