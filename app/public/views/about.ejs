@@ -53,8 +53,30 @@
 <section class="gry py-5">
   <div class="container timeline">
     <h2 class="pb-4" style="font-weight: 700; color: #669900;">THAI-GLOB Timeline</h2>
-    <img src="../assets/images/timeline-flat.jpg" class="flat">
-    <img src="../assets/images/timeline-up.jpg" class="up mx-auto">
+    <img src="../assets/images/timeline-flat.jpg" class="flat" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <img src="../assets/images/timeline-up.jpg" class="up mx-auto" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalUp">
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog mx-5">
+      <div class="modal-content"  style="width: 90vw;">
+        
+        <div class="modal-body">
+          <img src="../assets/images/timeline-flat.jpg" style="width: 100%;">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog mx-5">
+      <div class="modal-content"  style="width: 90vw;">
+        
+        <div class="modal-body">
+          <img src="../assets/images/timeline-up.jpg" style="width: 100%;">
+        </div>
+        
+      </div>
+    </div>
   </div>
 </section>
 <%- include('./includes/footer.ejs') %>

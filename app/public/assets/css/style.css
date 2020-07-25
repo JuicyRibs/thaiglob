@@ -228,7 +228,8 @@ body {
 }
 
 .booklist .cloud,
-.booklist .quarkbold {
+.booklist .quarkbold,
+.medialist .quarkbold {
 	font-size: 1.4em;
 	font-weight: 600;
 }
