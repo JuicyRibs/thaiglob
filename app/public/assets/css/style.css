@@ -7,6 +7,12 @@ html {
 	display: block;
 }
 
+@media screen and (min-width: 1167px) {
+	.navbar {
+		padding: 0px 5rem;
+	}
+}
+
 .nav-img {
 	height: 4em;
 }
@@ -26,7 +32,7 @@ html {
 	}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1038px) {
 	.nav-divider {
 		display: none;
 	}
@@ -46,7 +52,7 @@ body {
 }
 
 .navbar-nav {
-	font-size: 1.3em;
+	font-size: 1.2em;
 	font-weight: 600;
 }
 
@@ -319,7 +325,7 @@ footer {
 		display: block;
 		background-color: inherit;
 		color: black;
-		padding: 11px 0px 11px 3rem;
+		padding: 11px 0px 11px 5rem;
 		width: 100%;
 		border: none;
 		outline: none;
@@ -336,7 +342,7 @@ footer {
 	.tablinks img {
 		width: 2.5em;
 		margin: 0px 15px;
-		padding: 8px;
+		padding: 4px;
 		background-color: #393838;
 		border: #393838 1px solid;
 		border-radius: 30px;
@@ -356,7 +362,7 @@ footer {
 	/* Style the tab content */
 	.tabcontent {
 		float: left;
-		padding: 0px 7vw 0px 5vw;
+		padding: 0px 2vw 0px 2vw;
 		width: 70vw;
 		border-left: none;
 		background-color: #f1f1f1;
@@ -364,7 +370,7 @@ footer {
 
 	.tabcontent h5 {
 		display: -webkit-box;
-		-webkit-line-clamp: 3;
+		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
@@ -439,7 +445,7 @@ footer {
 
 	.tabcontent h5 {
 		display: -webkit-box;
-		-webkit-line-clamp: 3;
+		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
@@ -622,7 +628,7 @@ a:visited {
 }
 
 .update-hori img {
-	height: 10rem;
+	height: 28vh;
 	object-fit: cover;
 }
 
