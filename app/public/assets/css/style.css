@@ -229,7 +229,7 @@ body {
 
 .booklist .cloud,
 .booklist .quarkbold {
-	font-size: larger;
+	font-size: 1.4em;
 	font-weight: 600;
 }
 
@@ -575,7 +575,7 @@ footer {
 	margin-right: 1em;
 }
 
-.contactDetail img:hover {
+.contactDetail:hover {
 	transform: scale(1.1);
 }
 
@@ -630,6 +630,25 @@ a:visited {
 .update-hori img {
 	height: 28vh;
 	object-fit: cover;
+}
+
+.corner-title {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.searchbar {
+	width: 20vw;
+	padding-right: 0px;
+	margin-right: 1em;
+}
+
+@media screen and (max-width: 768px) {
+	.searchbar {
+		width: 30vw;
+	}
 }
 
 @media screen and (max-width: 1199px) {
