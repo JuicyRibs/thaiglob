@@ -16,6 +16,7 @@ exports.create = function (req, res) {
 		ctaText: req.body.ctaText,
 		ctaLink: req.body.ctaLink,
 		imgPath: req.files[0]['filename'] ? req.files[0]['filename'] : null,
+		type: req.body.type,
 	});
 	carousel.save(function (err) {
 		if (err) {
