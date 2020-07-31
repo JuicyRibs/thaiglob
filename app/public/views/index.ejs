@@ -7,17 +7,7 @@
     <div id="homecover" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators" id="pagination">
         <li data-target="#homecover" data-slide-to="0" class="active"></li>   
-        
       </ol>
-      <script>
-        $.get('/carousel/api', function (data) {
-          data.forEach((el, i) => {
-            console.log(i);
-            var html = `<li data-target="#homecover" data-slide-to="${i}"></li>`
-            $('#pagination').append(html);
-          });
-        })
-      </script>
       <div class="carousel-inner" id="carousel">
         <div class="carousel-item active cover home">
           <div class="container" style="height: 100%;">
@@ -37,7 +27,7 @@
       </div>
       <script>
         $.get('/carousel/api', function (data) {
-          data.forEach(el => {
+          data.forEach((el,i )=> {
             if(el.type == 0){
               var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');">
                             
@@ -63,6 +53,7 @@
                           </div>`
             }
             $('#carousel').append(html);
+            $('#pagination').append(`<li data-target="#homecover" data-slide-to="${i}"></li>`);
           });
         })
       </script>

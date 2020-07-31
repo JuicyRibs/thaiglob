@@ -20,6 +20,17 @@ include('./includes/backtotop.ejs')%>
 	</div>
 </div>
 <!-- #EndCover -->
+<script>
+	$.get('/carousel/api', function (data) {
+		data.forEach((el, i) => {
+			console.log(i);
+			var html = `<li data-target="#homecover" data-slide-to="${i}"></li>`;
+			$('#pagination').append(
+				`<li data-target="#homecover" data-slide-to="${i}"></li>`
+			);
+		});
+	});
+</script>
 <div class="container">
 	<p class="my-3">
 		<a href="/" style="text-decoration: none; color: black;">Home</a>
@@ -78,7 +89,7 @@ include('./includes/backtotop.ejs')%>
 					data-expanded="true"
 					style="margin-top: 50px;"
 				>
-					<td><%- index %></td>
+					<td><%- index+1 %></td>
 					<td>
 						<%- research.title %>
 					</td>
