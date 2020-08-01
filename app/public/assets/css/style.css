@@ -115,10 +115,17 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	background-color: rgba(99, 99, 99, 0.836);
-	background-blend-mode: multiply;
 	color: white;
 	height: 20rem;
+}
+
+.cover .filter {
+	background-color: rgba(99, 99, 99, 0.836);
+	background-blend-mode: multiply;
+}
+
+.poster-highlight:hover {
+	cursor: pointer;
 }
 
 .covertitle {
