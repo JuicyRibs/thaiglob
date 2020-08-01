@@ -170,6 +170,8 @@
         <table id="editTable">
 
         </table>
+        <script src="/assets/js/jsrsasign-all-min.js"></script>
+        <script src="/assets/js/server-side-ga-auth.js"></script>
         <script>
             $(function () {
                 $('#datetimePicker').datepicker({
@@ -189,21 +191,35 @@
                             "data": data,
                             "columns": [{
                                     "data": "title",
-                                    "title": "ชื่ออีเว้นท์"
-                                },
-                                {
-                                    "data": "date",
-                                    "title": "เวลาที่เผยแพร่"
+                                    "title": "ชื่ออีเว้นท์",
+                                    "sWidth": '55%'
                                 }
                             ],
                             "aoColumnDefs": [{
+                                "aTargets": [1],
+                                "mData": "date",
+                                "sTitle": "วันที่เผยแพร่",
+                                "sWidth": '15%',
+                                "mRender": function (data, type, full) {
+                                    return moment(data).format('DD/MM/YYYY');
+                                }
+                            },{
                                 "aTargets": [2],
                                 "mData": "_id",
                                 "sTitle": "Edit/Delete",
+                                "sWidth": '20%',
                                 "mRender": function (data, type, full) {
                                     return '<a class="btn btn-primary mx-3" href="/admin/event/' +
                                         data +
                                         '/edit">Edit</a><button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
+                                }
+                            },{
+                                "aTargets": [3],
+                                "mData": "_id",
+                                "sTitle": "View Count",
+                                "sWidth": '10%',
+                                "mRender": function (data, type, full) {
+                                    return '<div class="container text-center" data="'+data+'">-</div';
                                 }
                             }]
                         });
@@ -226,6 +242,30 @@
                     })
                 }, 1000);
             });
+            gapi.analytics.ready(function(){
+                gapi.analytics.auth.authorize({
+                    'serverAuth': {
+                    'access_token': token
+                    }
+                });
+                var report = new gapi.analytics.report.Data({
+                    query: {
+                        ids: 'ga:222944204',
+                        metrics: 'ga:pageviews',
+                        dimensions: 'ga:pagePath',
+                    }
+                });
+
+                report.on('success', function(rs) {
+                    rs.rows.forEach(el => {
+                        if(el[0].includes('event')){
+                            $(`div[data|='${el[0].split('/')[2]}']`).html(`${el[1]}`)
+                        }
+                    })
+                });
+
+                report.execute();
+            })
         </script>
     </div>
 
