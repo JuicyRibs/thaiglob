@@ -29,7 +29,7 @@
         $.get('/carousel/api', function (data) {
           data.forEach((el,i )=> {
             if(el.type == 0){
-              var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');">
+              var html = `<div class="carousel-item cover filter" style="background-image: url('/upload/${el.imgPath}');">
                             
                               <div class="container" style="height: 100%;">
                                 <div class="row">
@@ -49,7 +49,7 @@
                             </div>
                           </div>`
             }else {
-              var html = `<div class="carousel-item cover" style="background-image: url('/upload/${el.imgPath}');" onclick="window.location.href='${el.ctaLink}'">
+              var html = `<div class="carousel-item cover poster-highlight" style="background-image: url('/upload/${el.imgPath}');" onclick="window.location.href='${el.ctaLink}'">
                           </div>`
             }
             $('#carousel').append(html);
