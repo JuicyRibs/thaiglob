@@ -57,7 +57,7 @@ exports.showById = function (req, res) {
 			return next(err);
 		}
 		res.render('post', {
-			title: 'ThaiGlob - Articles',
+			title: 'ThaiGlob - Articles and Infographics',
 			data: article,
 			type: 'articles',
 		});
