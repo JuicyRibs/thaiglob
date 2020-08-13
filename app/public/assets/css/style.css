@@ -272,6 +272,8 @@ tr td:last-child {
 
 .post-header>div {
 	font-size: 1.1em;
+	margin-bottom: 0.2rem;
+	margin-top: 0.2rem;
 }
 
 .post-header small:last-child {

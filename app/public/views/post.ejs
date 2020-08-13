@@ -63,7 +63,7 @@
 				</div>
 			</div> -->
 		</div>
-		<div class="row my-3 tags no-print">
+		<div class="row mt-3 pb-3 tags no-print">
 			<div>TAGS</div>
 			<% data.tag.forEach(el => { %>
 			<span><a href="/<%- type %>/?search=<%- el %>" target="_blank">
@@ -90,7 +90,7 @@
 						<div class="col-sm-12 col-md-4 medialist"><a href="/<%- type %>/${
 							post._id
 						}">
-							<img style="width: 100%; height: 25vh; object-fit: cover" src="/upload/${post.imgPath}">
+							<img style="width: 100%; height: 29vh; object-fit: cover" src="/upload/${post.imgPath}">
 							<h6 class="pt-2 quarkbold">${post.title}</h6>
 							<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
 								post.date.split('T')[0]
