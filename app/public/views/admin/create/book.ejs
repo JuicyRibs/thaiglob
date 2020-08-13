@@ -121,13 +121,15 @@
                             "data": data,
                             "columns": [{
                                     "data": "title",
-                                    "title": "ชื่อหนังสือ"
+                                    "title": "ชื่อหนังสือ",
+                                    "sWidth": '90%'
                                 },
                             ],
                             "aoColumnDefs": [{
                                 "aTargets": [1],
                                 "mData": "_id",
                                 "sTitle": "Delete",
+                                "sWidth": '10%',
                                 "mRender": function (data, type, full) {
                                     return '<button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }

@@ -22,11 +22,11 @@
                     </div>
                     <div class="form-group">
                         <label for="desc">เรื่องย่อบทความ</label>
-                        <input type="text" class="form-control" id="desc" name="desc" required>
+                        <input type="text" class="form-control" id="desc" name="desc" >
                     </div>
                     <div class="form-group">
                         <label for="author">ผู้เขียนบทความ</label>
-                        <input type="text" class="form-control" id="author" name="author" required>
+                        <input type="text" class="form-control" id="author" name="author" >
                     </div>
                     <div class="form-group">
                         <label for="body">เนื้อหาบทความ</label>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="tag">แท็ก</label>
-                        <input type="text" class="form-control" id="tag" name="tag"  data-role="tagsinput" required>
+                        <input type="text" class="form-control" id="tag" name="tag"  data-role="tagsinput" >
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     <div class="alert alert-success mt-3" role="alert" id="Formsuccess" style="display: none;"></div>
@@ -191,9 +191,9 @@
                         $("#editTable").dataTable({
                             "data": data,
                             "columns": [{
-                                    data: "title",
-                                    title: "ชื่อบทความ",
-                                    width: '55%'
+                                    "data": "title",
+                                    "title": "ชื่อบทความ",
+                                    "width": '55%'
                                 },
                             ],
                             "aoColumnDefs": [{
@@ -220,7 +220,7 @@
                                 "sTitle": "View Count",
                                 "sWidth": '10%',
                                 "mRender": function (data, type, full) {
-                                    return '<div class="container text-center" data="'+data+'"></div';
+                                    return '<div class="container text-center" data="'+data+'">-</div';
                                 }
                             }]
                         });
@@ -259,7 +259,7 @@
 
                 report.on('success', function(rs) {
                     rs.rows.forEach(el => {
-                        if(el[0].includes('articles')){
+                        if(el[0].includes('media')){
                             $(`div[data|='${el[0].split('/')[2]}']`).html(`${el[1]}`)
                         }
                     })

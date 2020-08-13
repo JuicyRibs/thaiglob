@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
 		title: req.body.title,
 		imgPath: req.files[0]['filename'],
 		dlPath: req.files[1]['filename'],
-		date: moment(req.body.date, 'DD-MM-YYYY').toDate(),
+		date: moment(req.body.date, 'DD-MM-YYYY').add(9, 'hours').toDate(),
 	});
 	book.save(function (err) {
 		if (err) {

@@ -15,7 +15,7 @@ exports.create = function (req, res) {
 		body: req.body.body,
 		imgPath: req.files[0] ? req.files[0]['filename'] : null,
 		tag: req.body.tag.split(','),
-		date: moment(req.body.date, 'DD-MM-YYYY').toDate(),
+		date: moment(req.body.date, 'DD-MM-YYYY').add(9, 'hours').toDate(),
 		desc: req.body.desc,
 		author: req.body.author,
 	});
