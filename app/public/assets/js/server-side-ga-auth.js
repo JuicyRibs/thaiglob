@@ -30,7 +30,7 @@ XHR.addEventListener('error', function (event) {
 	console.log('Oops! Something went wrong.');
 });
 
-XHR.open('POST', 'https://www.googleapis.com/oauth2/v3/token', false);
+XHR.open('POST', 'https://www.googleapis.com/oauth2/v3/token');
 XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 XHR.send(urlEncodedData);
 
