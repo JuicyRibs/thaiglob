@@ -387,7 +387,7 @@
 	padding: 6px 12px;
 	margin-left: -1px;
 	line-height: 1.42857143;
-	color: #337ab7;
+	color: #28a745;
 	text-decoration: none;
 	background-color: #fff;
 	border: 1px solid #ddd;
@@ -396,7 +396,7 @@
 .footable .pagination > li > a:hover,
 .footable .pagination > li > span:focus,
 .footable .pagination > li > span:hover {
-	color: #23527c;
+	color: #218838;
 	background-color: #eee;
 	border-color: #ddd;
 }
@@ -409,8 +409,8 @@
 	z-index: 2;
 	color: #fff;
 	cursor: default;
-	background-color: #337ab7;
-	border-color: #337ab7;
+	background-color: #218838;
+	border-color: #218838;
 }
 .footable .pagination > .disabled > a,
 .footable .pagination > .disabled > a:focus,
@@ -621,12 +621,15 @@ table.footable > tbody > tr.footable-empty > th {
 }
 .fooicon-sort:before {
 	content: '\f0dc';
+	opacity: 50%;
 }
 .fooicon-sort-asc:before {
-	content: '\f160';
+	content: '\f0de';
+	opacity: 50%;
 }
 .fooicon-sort-desc:before {
-	content: '\f161';
+	content: '\f0dd';
+	opacity: 50%;
 }
 .fooicon-pencil:before {
 	content: '\f040';

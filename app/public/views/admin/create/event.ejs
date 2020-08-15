@@ -257,6 +257,7 @@
                 });
 
                 report.on('success', function(rs) {
+                    console.log('Data loaded');
                     rs.rows.forEach(el => {
                         if(el[0].includes('event')){
                             $(`div[data|='${el[0].split('/')[2]}']`).html(`${el[1]}`)

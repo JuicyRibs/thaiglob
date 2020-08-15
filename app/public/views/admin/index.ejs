@@ -7,16 +7,15 @@
 	<!-- End Here -->
 	<section>
 		<div class="container">
-			<div class="text-center m-5 cloud">
-				<p style="font-size: 1.5em;">คลิ๊กแทปด้านบนเพื่อเลือกประเภทบทความ</h4>
+			<div class="container">
+				<canvas id="users"></canvas>
 			</div>
+			<div id="chart-2-container"></div>
 		</div>
 	</section>
-	<div class="container">
-		<div id="chart-1-container"></div>
-		<div id="chart-2-container"></div>
-	</div>
 	<%- include('footer') %>
+	<script src="/assets/js/moment.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 	<script src="/assets/js/jsrsasign-all-min.js"></script>
 	<script src="/assets/js/server-side-ga-auth.js"></script>
 	<script>
@@ -30,50 +29,83 @@
 			'access_token': token
 			}
 		});
-
-
-		/**
-		 * Creates a new DataChart instance showing sessions over the past 30 days.
-		 * It will be rendered inside an element with the id "chart-1-container".
-		 */
-		var dataChart1 = new gapi.analytics.googleCharts.DataChart({
+		var report1 = new gapi.analytics.report.Data({
 			query: {
 			'ids': 'ga:222944204', // <-- Replace with the ids value for your view.
-			'start-date': '7daysAgo',
-			'end-date': 'yesterday',
+			'start-date': '30daysAgo',
+			'end-date': 'today',
 			'metrics': 'ga:sessions,ga:users',
 			'dimensions': 'ga:date'
-			},
-			chart: {
-			'container': 'chart-1-container',
-			'type': 'LINE',
-			'options': {
-				'width': '100%'
-			}
 			}
 		});
-		dataChart1.execute();
-
-		var report = new gapi.analytics.report.Data({
-			query: {
-				ids: 'ga:222944204',
-				metrics: 'ga:pageviews',
-				dimensions: 'ga:pagePath',
+		report1.on('success', function(response) {
+			var sessions = new Array();
+			var users = new Array();
+			response.rows.forEach(element => {
+				sessions.push({x: moment(element[0],'YYYYMMDD').toDate(),y: element[1]})
+				users.push({x: moment(element[0],'YYYYMMDD').toDate(),y: element[2]})
+			});
+			var color = Chart.helpers.color;
+			var config = {
+				type: 'line',
+				data: {
+					datasets: [{
+						label: 'จำนวนเข้าชม',
+						backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+						borderColor: 'rgb(255, 99, 132)',
+						fill: false,
+						data: sessions,
+						fontSize: 16
+					},{
+						label: 'จำนวนผู้เข้าชม',
+						backgroundColor: color('rgb(54, 162, 235)').alpha(0.5).rgbString(),
+						borderColor: 'rgb(54, 162, 235)',
+						fill: false,
+						data: users,
+						fontSize: 16
+					}]
+				},
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						text: 'สถิติผู้เข้าชมย้อนหลัง 30 วัน',
+						fontSize: 24
+					},
+					scales: {
+						xAxes: [{
+							type: 'time',
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'วันที่',
+								fontSize: 16
+							},
+							ticks: {
+								major: {
+									fontStyle: 'bold',
+									fontColor: '#FF0000'
+								}
+							},
+							distribution: 'series',
+							time: {
+								tooltipFormat:'DD/MM/YYYY'
+							}
+						}],
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'จำนวน',
+								fontSize: 16
+							}
+						}]
+					}
+				}
 			}
+			new Chart(document.getElementById('users').getContext('2d'), config);
 		});
-
-		report.on('success', function(response) {
-		console.log(response.rows);
-		});
-
-		report.execute();
-
-
-		/**
-		 * Creates a new DataChart instance showing top 5 most popular demos/tools
-		 * amongst returning users only.
-		 * It will be rendered inside an element with the id "chart-3-container".
-		 */
+		report1.execute();
 		var dataChart2 = new gapi.analytics.googleCharts.DataChart({
 			query: {
 			'ids': 'ga:222944204', // <-- Replace with the ids value for your view.
@@ -95,7 +127,6 @@
 			}
 		});
 		dataChart2.execute();
-
 		});
 	</script>
 </body>

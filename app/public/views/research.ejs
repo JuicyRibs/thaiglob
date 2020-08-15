@@ -52,6 +52,7 @@ include('./includes/backtotop.ejs')%>
 			data-sorting="true"
 			data-filtering="true"
 			data-filter-dropdown-title="Search in:"
+			data-paging-count-format="Showing {PF} - {PL} out of {TR} entries"
 		>
 			<thead>
 				<tr>
@@ -61,7 +62,7 @@ include('./includes/backtotop.ejs')%>
 						data-type="number"
 						data-sorted="true"
 					>
-						#
+						No.
 					</th>
 					<th style="width: 49%; text-align: center;" scope="col">
 						Title
@@ -125,7 +126,7 @@ include('./includes/backtotop.ejs')%>
 <!-- #EndTable -->
 
 <!-- #StartPagination -->
-<script src="/assets/js/footable.min.js"></script>
+<script src="/assets/js/footable.js"></script>
 <script>
 	$(document).ready(function () {
 		$('#table_id').footable();
