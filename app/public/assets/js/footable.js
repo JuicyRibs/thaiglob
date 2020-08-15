@@ -5809,11 +5809,13 @@
 						}
 						F.arr.each(self.ft.columns.array, function (col) {
 							if (col.sortable) {
-								col.$el.addClass('footable-sortable').append(
-									$('<span/>', {
-										class: 'fooicon fooicon-sort',
-									})
-								);
+								col.$el
+									.addClass('footable-sortable align-middle')
+									.append(
+										$('<span/>', {
+											class: 'fooicon fooicon-sort',
+										})
+									);
 							}
 						});
 						self.ft.$el.on(
