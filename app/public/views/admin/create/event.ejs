@@ -241,6 +241,9 @@
                         });
                     })
                 }, 1000);
+                $("#editTable").on('page.dt', function () {
+                    report.execute();
+                } );
             });
             gapi.analytics.ready(function(){
                 gapi.analytics.auth.authorize({
@@ -264,7 +267,7 @@
                         }
                     })
                 });
-
+                window.report = report;
                 report.execute();
             })
         </script>
