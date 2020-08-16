@@ -64,10 +64,10 @@ exports.showById = function (req, res) {
 	});
 };
 
-exports.jsonById = function (req, res) {
+exports.jsonById = function (req, res, next) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {
-			return err;
+			return next(err);
 		}
 		res.json(article);
 	});

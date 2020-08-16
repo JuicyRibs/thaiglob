@@ -64,10 +64,10 @@ exports.showById = function (req, res) {
 	});
 };
 
-exports.jsonById = function (req, res) {
+exports.jsonById = function (req, res, next) {
 	News.findById(req.params.id, function (err, data) {
 		if (err) {
-			return err;
+			return next(err);
 		}
 		res.json(data);
 	});
