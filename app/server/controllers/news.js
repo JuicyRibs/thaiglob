@@ -67,7 +67,7 @@ exports.showById = function (req, res) {
 exports.jsonById = function (req, res) {
 	News.findById(req.params.id, function (err, data) {
 		if (err) {
-			return next(err);
+			return err;
 		}
 		res.json(data);
 	});
