@@ -67,7 +67,6 @@ exports.showById = function (req, res) {
 exports.jsonById = function (req, res, next) {
 	Event.findById(req.params.id, function (err, data) {
 		if (err) {
-			console.log(err);
 			return next(err);
 		}
 		res.json(data);

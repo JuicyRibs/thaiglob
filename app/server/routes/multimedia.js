@@ -12,8 +12,8 @@ router.post(
 	multimediaController.create
 );
 router.get('/:id', multimediaController.showById);
-router.post('/:id', multimediaController.jsonById);
 router.post('/api', multimediaController.showByQuery);
+router.post('/:id', multimediaController.jsonById);
 
 router.put(
 	'/:id/update',

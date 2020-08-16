@@ -12,8 +12,8 @@ router.post(
 	articleController.create
 );
 router.get('/:id', articleController.showById);
-router.post('/:id', articleController.jsonById);
 router.post('/api', articleController.showByQuery);
+router.post('/:id', articleController.jsonById);
 
 router.put(
 	'/:id/update',
