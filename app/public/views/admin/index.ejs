@@ -9,7 +9,14 @@
 		<div class="container">
 			<div class="container">
 				<canvas id="users"></canvas>
-				<canvas id="views"></canvas>
+				<div class="container">
+					<h1 class="align-middle">สำหรับข้อมูลที่ขึ้น Undefined เป็นข้อมูลที่อยู่ในระบบทดสอบ</h1>
+					<h3 class="align-middle">หากเริ่มใช้งานระบบจริงจะลบค่าข้อมูลออก</h3>
+				</div>
+				<canvas id="article"></canvas>
+				<canvas id="media"></canvas>
+				<canvas id="news"></canvas>
+				<canvas id="event"></canvas>
 			</div>
 		</div>
 	</section>
@@ -108,7 +115,7 @@
 		report1.execute();
 		var report2 = new gapi.analytics.report.Data({
 			query: {
-			'ids': 'ga:222944204', // <-- Replace with the ids value for your view.
+			'ids': 'ga:222944204',
 			'start-date': '30daysAgo',
 			'end-date': 'yesterday',
 			'metrics': 'ga:pageviews',
@@ -118,31 +125,81 @@
 			}
 		});
 		report2.on('success', function(response) {
-			var labels = new Array();
-			var count = new Array();
+			var articleLabel = new Array();
+			var articleCount = new Array();
+			var mediaLabel = new Array();
+			var mediaCount = new Array();
+			var newsLabel = new Array();
+			var newsCount = new Array();
+			var eventLabel = new Array();
+			var eventCount = new Array();
 			response.rows.forEach(element => {
-				if(element[0].includes('/articles/') && !element[0].includes('?search=')){
+				if(!element[0].includes('?search=')){
 					$.ajax(`${element[0]}`,{async:false,method:'POST'}).done(function(data){
-						labels.push(data?.title)
+						if(element[0].includes('/articles/')){
+							articleLabel.push(data?.title);
+							articleCount.push(element[1])
+						}else if(element[0].includes('/media/')){
+							mediaLabel.push(data?.title);
+							mediaCount.push(element[1])
+						}else if(element[0].includes('/news/')){
+							newsLabel.push(data?.title);
+							newsCount.push(element[1])
+						}else if(element[0].includes('/events/')){
+							eventLabel.push(data?.title);
+							eventCount.push(element[1])
+						}
 					})
-					count.push(element[1])
 				}
 			});
 			var color = Chart.helpers.color;
-			var horizontalBarChartData = {
-				labels: labels,
+			var articleHorizontalBarChartData = {
+				labels: articleLabel,
 				datasets: [{
-					label: 'Views',
+					label: 'ยอดผู้เข้าชม',
 					backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
 					borderColor: 'rgb(255, 99, 132)',
 					borderWidth: 1,
-					data: count,
+					data: articleCount,
 				}]
 
 			};
-			new Chart(document.getElementById('views').getContext('2d'), {
+			var mediaHorizontalBarChartData = {
+				labels: mediaLabel,
+				datasets: [{
+					label: 'ยอดผู้เข้าชม',
+					backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+					borderColor: 'rgb(255, 99, 132)',
+					borderWidth: 1,
+					data: mediaCount,
+				}]
+
+			};
+			var newsHorizontalBarChartData = {
+				labels: newsLabel,
+				datasets: [{
+					label: 'ยอดผู้เข้าชม',
+					backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+					borderColor: 'rgb(255, 99, 132)',
+					borderWidth: 1,
+					data: newsCount,
+				}]
+
+			};
+			var eventHorizontalBarChartData = {
+				labels: eventLabel,
+				datasets: [{
+					label: 'ยอดผู้เข้าชม',
+					backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+					borderColor: 'rgb(255, 99, 132)',
+					borderWidth: 1,
+					data: eventCount,
+				}]
+
+			};
+			new Chart(document.getElementById('article').getContext('2d'), {
 				type: 'horizontalBar',
-				data: horizontalBarChartData,
+				data: articleHorizontalBarChartData,
 				options: {
 					elements: {
 						rectangle: {
@@ -150,12 +207,61 @@
 						}
 					},
 					responsive: true,
-					legend: {
-						position: 'right',
-					},
 					title: {
 						display: true,
-						text: 'Chart.js Horizontal Bar Chart'
+						text: 'Articles and Infographics',
+						fontSize: 24
+					}
+				}
+			});
+			new Chart(document.getElementById('media').getContext('2d'), {
+				type: 'horizontalBar',
+				data: mediaHorizontalBarChartData,
+				options: {
+					elements: {
+						rectangle: {
+							borderWidth: 2,
+						}
+					},
+					responsive: true,
+					title: {
+						display: true,
+						text: 'Multimedia',
+						fontSize: 24
+					}
+				}
+			});
+			new Chart(document.getElementById('news').getContext('2d'), {
+				type: 'horizontalBar',
+				data: newsHorizontalBarChartData,
+				options: {
+					elements: {
+						rectangle: {
+							borderWidth: 2,
+						}
+					},
+					responsive: true,
+					title: {
+						display: true,
+						text: 'Climate Change News',
+						fontSize: 24
+					}
+				}
+			});
+			new Chart(document.getElementById('event').getContext('2d'), {
+				type: 'horizontalBar',
+				data: eventHorizontalBarChartData,
+				options: {
+					elements: {
+						rectangle: {
+							borderWidth: 2,
+						}
+					},
+					responsive: true,
+					title: {
+						display: true,
+						text: 'Events',
+						fontSize: 24
 					}
 				}
 			});
