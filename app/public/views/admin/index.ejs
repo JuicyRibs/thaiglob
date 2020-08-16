@@ -9,8 +9,8 @@
 		<div class="container">
 			<div class="container">
 				<canvas id="users"></canvas>
+				<canvas id="views"></canvas>
 			</div>
-			<div id="chart-2-container"></div>
 		</div>
 	</section>
 	<%- include('footer') %>
@@ -106,7 +106,7 @@
 			new Chart(document.getElementById('users').getContext('2d'), config);
 		});
 		report1.execute();
-		var dataChart2 = new gapi.analytics.googleCharts.DataChart({
+		var report2 = new gapi.analytics.report.Data({
 			query: {
 			'ids': 'ga:222944204', // <-- Replace with the ids value for your view.
 			'start-date': '30daysAgo',
@@ -114,19 +114,53 @@
 			'metrics': 'ga:pageviews',
 			'dimensions': 'ga:pagePath',
 			'sort': '-ga:pageviews',
-			'filters': 'ga:pagePathLevel1!=/',
-			'max-results': 7
-			},
-			chart: {
-			'container': 'chart-2-container',
-			'type': 'BAR',
-			'options': {
-				'width': '100%',
-				'pieHole': 4/9,
-			}
+			'filters': 'ga:pagePathLevel1!=/'
 			}
 		});
-		dataChart2.execute();
+		report2.on('success', function(response) {
+			var labels = new Array();
+			var count = new Array();
+			response.rows.forEach(element => {
+				if(element[0].includes('/articles/') && !element[0].includes('?search=')){
+					$.ajax(`${element[0]}`,{async:false,method:'POST'}).done(function(data){
+						labels.push(data?.title)
+					})
+					count.push(element[1])
+				}
+			});
+			var color = Chart.helpers.color;
+			var horizontalBarChartData = {
+				labels: labels,
+				datasets: [{
+					label: 'Views',
+					backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+					borderColor: 'rgb(255, 99, 132)',
+					borderWidth: 1,
+					data: count,
+				}]
+
+			};
+			new Chart(document.getElementById('views').getContext('2d'), {
+				type: 'horizontalBar',
+				data: horizontalBarChartData,
+				options: {
+					elements: {
+						rectangle: {
+							borderWidth: 2,
+						}
+					},
+					responsive: true,
+					legend: {
+						position: 'right',
+					},
+					title: {
+						display: true,
+						text: 'Chart.js Horizontal Bar Chart'
+					}
+				}
+			});
+		});
+		report2.execute();
 		});
 	</script>
 </body>

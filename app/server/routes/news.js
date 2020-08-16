@@ -12,6 +12,7 @@ router.post(
 	newsController.create
 );
 router.get('/:id', newsController.showById);
+router.post('/:id', newsController.jsonById);
 router.post('/api', newsController.showByQuery);
 
 router.put(

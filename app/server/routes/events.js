@@ -12,6 +12,7 @@ router.post(
 	eventController.create
 );
 router.get('/:id', eventController.showById);
+router.post('/:id', eventController.jsonById);
 router.post('/api', eventController.showByQuery);
 
 router.put(
