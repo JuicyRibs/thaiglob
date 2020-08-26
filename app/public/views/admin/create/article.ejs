@@ -182,6 +182,7 @@
         </table>
         <script src="/assets/js/jsrsasign-all-min.js"></script>
         <script src="/assets/js/server-side-ga-auth.js"></script>
+        <script src="/assets/js/date-euro.js"></script>
         <script>
             
             $(document).ready(function () {
@@ -206,6 +207,8 @@
                                 "mData": "date",
                                 "sTitle": "วันที่เผยแพร่",
                                 "sWidth": '15%',
+                                "sType" : 'date-euro',
+                                displayFormat: 'DD/MM/YYYY',
                                 "mRender": function (data, type, full) {
                                     return moment(data).format('DD/MM/YYYY');
                                 }

@@ -138,6 +138,11 @@
                 $("#body").val(justHtml);
             });
             
+            $(function () {
+                $('#datetimePicker').datepicker({
+                    format: 'dd/mm/yyyy',
+                });
+            });
             $(document).ready(function(){
                 $("#body").val(editor.root.innerHTML);
                 var tags = <%- JSON.stringify(data.tag) %>;
