@@ -13,7 +13,7 @@ router.post(
 	multer.uploadFile,
 	bookController.create
 );
-router.post(
+router.delete(
 	'/:id/delete',
 	authMiddleware.isAuthenticated,
 	bookController.delete
