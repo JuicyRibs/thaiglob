@@ -13,5 +13,10 @@ router.post(
 	multer.uploadFile,
 	bookController.create
 );
+router.post(
+	'/:id/delete',
+	authMiddleware.isAuthenticated,
+	bookController.delete
+);
 
 module.exports = router;
