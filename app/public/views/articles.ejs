@@ -116,23 +116,14 @@
 					}
 					skip = skip + limit;
 					data.forEach((article) => {
-						var html = `
-					<div class="col-lg-4 col-md-6 py-4 booklist">
-						<a href="/articles/${
-							article._id
-						}" class="postblock" style="text-decoration: none;">
-					<img class="sevenfive" src="${
-						article.imgPath
-							? '/upload/' + article.imgPath
-							: '/assets/images/demoarticle.jpg'
-					}" />
-					<div class="quarkbold">${article.title}</div>
-					<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
-						article.date.split('T')[0]
-					}</small>
-						</a>
-					</div>
-							`;
+						var html = `<div class="col-lg-4 col-md-6 py-4 medialist">
+						<a href="/article/${article._id}">
+				<img src="${
+			article.imgPath ?'/upload/' +  article.imgPath : '/assets/images/newscover.jpg'
+		}"/>
+				<div class="quarkbold">${article.title}</div>
+				<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${article.date.split('T')[0]}</small></a>
+			</div>`;
 						$('#shelf').append(html);
 					});
 				}

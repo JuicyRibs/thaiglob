@@ -150,7 +150,7 @@
 			query: $('#filter').val() || '',
 			sortParams: '-date',
 			skip: 0,
-			limit: 4,
+			limit: 3,
 		},
 		function (data, status) {
 			var html = `
@@ -161,28 +161,23 @@
 		`;
 			if (typeof data[0] != 'undefined') {
 				html += `
-	  <div class="col-sm-12 col-lg-4 px-sm-3 text-center">
-		<a href="/articles/${data[0]._id}">
-        <img class="sevenfive showcase" src="${
+	  <div class="col-sm-12 col-md-9">
+		<a href="/media/${data[0]._id}">
+        <img src="${
 			data[0].imgPath
 				? '/upload/' + data[0].imgPath
-				: '/assets/images/210x297.jpg'
+				: '/assets/images/800x600.jpg'
 		}" />
-      </div>
-      <div class="col-sm-12 col-lg-8">
-        <div class="row">
-          <div class="col py-3">
-            <div style="font-size: 2.0em; font-weight: 600; font-family: Quark-bold" class="corner-title">
-              ${data[0].title}
-            </div>
-            <small class="date"
-              ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[0].date.split('T')[0]
-				}</small
-			>
-			</a>
-		  </div>
-		  `;
+        <div style="font-size: 2.0em; font-weight: 600; font-family: Quark-bold" class="corner-title">
+          ${data[0].title}
+        </div>
+        <small class="date"
+          ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[0].date.split('T')[0]
+			}</small
+		>
+		</a>
+	  </div>`;
 			} else {
 				html += `
 	           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
@@ -192,76 +187,56 @@
 				`;
 			}
 			html += `
-		  <div class="row mx-auto" style="width: 100%;">`;
+			<div class="col-sm-12 col-md-3 px-0">
+				`;
 			if (typeof data[1] != 'undefined') {
 				html += `
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-		<a href="/articles/${data[1]._id}">
-				
-              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" src="${
-					data[1].imgPath
-						? '/upload/' + data[1].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-              <div style="font-size: 1.2em" class="corner-title">${data[1].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; ${
+				<div class="col px-xs-3 px-md-0">
+					<a href="/media/${data[1]._id}">
+            <img src="${
+				data[1].imgPath
+					? '/upload/' + data[1].imgPath
+					: '/assets/images/800x600.jpg'
+			}" />
+            <div style="font-size: 1.2em" class="corner-title">
+              ${data[1].title}
+            </div>
+            <small class="date"
+              ><i class="fa fa-clock-o"></i>&nbsp; ${
 					data[1].date.split('T')[0]
 				}</small
-			  >
-			  </a>
-			</div>
-			`;
+			>
+			</a>
+		</div>`;
 			}
 			if (typeof data[2] != 'undefined') {
 				html += `
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-		<a href="/articles/${data[2]._id}">
-				
-              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" 
-                src="${
-					data[2].imgPath
-						? '/upload/' + data[2].imgPath
-						: '/assets/images/210x297.jpg'
-				}"
-              />
-              <div style="font-size: 1.2em" class="corner-title">${data[2].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; 05-04-2012</small
-			  >
-			  </a>
-			</div>
-			`;
-			}
-			if (typeof data[3] != 'undefined') {
-				html += `
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 px-4">
-		<a href="/articles/${data[3]._id}">
-				
-              <img class="mx-xs-3 mx-sm-0 mx-md-0 sevenfive" src="${
-					data[3].imgPath
-						? '/upload/' + data[3].imgPath
-						: '/assets/images/210x297.jpg'
-				}" />
-              <div style="font-size: 1.2em" class="corner-title">${data[3].title}</div>
-              <small class="date"
-                ><i class="fa fa-clock-o"></i>&nbsp; ${
-					data[3].date.split('T')[0]
-				}</small
-			  >
-			  </a>
-			</div>
-			`;
+        <div class="col px-xs-3 px-md-0">
+		<a href="/media/${data[2]._id}">
+          <img src="${
+				data[2].imgPath
+					? '/upload/' + data[2].imgPath
+					: '/assets/images/800x600.jpg'
+			}" />
+			<div style="font-size: 1.2em" class="corner-title">
+            ${data[2].title}
+          </div>
+          <small class="date"
+            ><i class="fa fa-clock-o"></i>&nbsp; ${
+				data[2].date.split('T')[0]
+			}</small
+		  >
+		  </a>
+		  </div>`;
 			}
 			html += `
-          </div>
-        </div>
-      </div>
+		</div>
     </div>
-    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/articles'">
+    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/media'">
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
+          
           `;
 			$('#infographics').append(html);
 		}

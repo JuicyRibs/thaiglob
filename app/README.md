@@ -16,7 +16,9 @@
 FRONTEND
 
 -   [x] @JuicyRibs , ADD Every pages
--   [ ] @JuicyRibs , Responsive
+-   [X] @JuicyRibs , Responsive
+-   [ ] @JuicyRibs , TH Date format
+-   [ ] @JuicyRibs , Overall fonts fix
 
 BACKEND
 

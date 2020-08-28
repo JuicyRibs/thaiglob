@@ -124,11 +124,6 @@ body {
 	height: 20rem;
 }
 
-.cover .filter {
-	background-color: rgba(99, 99, 99, 0.836);
-	background-blend-mode: multiply;
-}
-
 .poster-highlight:hover {
 	cursor: pointer;
 }
