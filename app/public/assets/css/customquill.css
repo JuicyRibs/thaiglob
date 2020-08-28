@@ -132,10 +132,48 @@
 	content: '96px' !important;
 }
 @font-face {
-	font-family: Sarabun;
-	src: url(../fonts/THSarabunNew.ttf);
+	font-family: 'Sarabun';
+	src: url(/assets/fonts/THSarabunNew.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Set droplist names - -item is the currently selected font, -label is the font's appearance in the droplist*/
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='Sarabun']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='Sarabun']::before {
+	content: 'TH Sarabun New';
+	font-family: 'Sarabun';
 }
 
-.ql-editor {
-	font-family: Saraban;
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='Roboto']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='Roboto']::before {
+	content: 'Roboto';
+	font-family: 'Roboto', sans-serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='arial']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='arial']::before {
+	content: 'Arial';
+	font-family: 'Arial';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='Cloud']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='Cloud']::before {
+	content: 'Cloud';
+	font-family: 'Cloud';
+}
+
+/****************************************************
+Set the font-family content used for the HTML content.
+*****************************************************/
+.ql-font-arial {
+	font-family: 'Arial';
+}
+.ql-font-Sarabun {
+	font-family: 'Sarabun';
+}
+.ql-font-Roboto {
+	font-family: 'Roboto', sans-serif;
+}
+.ql-font-Cloud {
+	font-family: 'Cloud';
 }
