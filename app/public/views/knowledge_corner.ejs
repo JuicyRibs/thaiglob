@@ -162,7 +162,7 @@
 			if (typeof data[0] != 'undefined') {
 				html += `
 	  <div class="col-sm-12 col-md-9">
-		<a href="/media/${data[0]._id}">
+		<a href="/articles/${data[0]._id}">
         <img src="${
 			data[0].imgPath
 				? '/upload/' + data[0].imgPath
@@ -192,7 +192,7 @@
 			if (typeof data[1] != 'undefined') {
 				html += `
 				<div class="col px-xs-3 px-md-0">
-					<a href="/media/${data[1]._id}">
+					<a href="/articles/${data[1]._id}">
             <img src="${
 				data[1].imgPath
 					? '/upload/' + data[1].imgPath
@@ -212,7 +212,7 @@
 			if (typeof data[2] != 'undefined') {
 				html += `
         <div class="col px-xs-3 px-md-0">
-		<a href="/media/${data[2]._id}">
+		<a href="/articles/${data[2]._id}">
           <img src="${
 				data[2].imgPath
 					? '/upload/' + data[2].imgPath
@@ -232,7 +232,7 @@
 			html += `
 		</div>
     </div>
-    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/media'">
+    <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/articles'">
       แสดงทั้งหมด <i class="fa fa-caret-down"></i>
     </button>
   </div>
