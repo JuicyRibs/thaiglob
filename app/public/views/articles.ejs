@@ -117,7 +117,7 @@
 					skip = skip + limit;
 					data.forEach((article) => {
 						var html = `<div class="col-lg-4 col-md-6 py-4 medialist">
-						<a href="/article/${article._id}">
+						<a href="/articles/${article._id}">
 				<img src="${
 			article.imgPath ?'/upload/' +  article.imgPath : '/assets/images/newscover.jpg'
 		}"/>

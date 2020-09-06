@@ -14,26 +14,18 @@
 	<div class="container my-3">
 		<div class="row">
 			<div class="post-header">
-				<small style="font-weight: bold; font-size: 1.2em;"
-					><%- title.split('-')[1] %>
-				</small>
-				<h1 style="margin: 0.4em 0"><%- data.title %></h1>
+				<a href="/<%-type %>">
+					<div style="font-weight: bold; font-size: 1.1em;"><%- title.split('-')[1] %>
+					</div>
+				</a>
+				<h1 style="margin: 0.4em 0" class="post-title"><%- data.title %></h1>
 				<div><%- data.desc %></div>
 			</div>
 		</div>
-		<div
-			class="row mt-2 align-items-center no-print"
-			style="border-bottom: 1px solid rgb(102, 102, 102)"
-		>
+		<div class="row mt-2 align-items-center no-print" style="border-bottom: 1px solid rgb(102, 102, 102)">
 			<div class="col-12 col-sm-6 px-0" style="font-size: 1.1em">
-				<small
-					><span
-						style="padding-right: 1em; border-right: 1px solid grey"
-						><%- data.author %></span
-					><span style="padding-left: 1em"
-						><%- data.date.toString().slice(0,15); %></span
-					></small
-				>
+				<small><span style="padding-right: 1em; border-right: 1px solid grey"><%- data.author %></span><span
+						style="padding-left: 1em"><%- data.date.toString().slice(0,15); %></span></small>
 			</div>
 			<div class="col-12 col-sm-6">
 				<div class="row align-items-center justify-content-end">
@@ -41,32 +33,15 @@
 						SHARE
 					</div>
 					<div id="share" style="margin-right: 0.6em"></div>
-					<div
-						onclick="lineShare()"
-						class="line-share"
-						target="_blank"
-					>
-						<img
-							style="width: 1.7em"
-							src="/assets/images/icon/ls.png"
-						/>
+					<div onclick="lineShare()" class="line-share" target="_blank">
+						<img style="width: 1.7em" src="/assets/images/icon/ls.png" />
 					</div>
-					<div
-						id="copy-to-clip"
-						title="คัดลอกไปยังคลิปบอร์ดแล้ว"
-						onclick="copyURL()"
-					>
-						<img
-							style="width: 1em"
-							src="/assets/images/icon/ctc.png"
-						/>
+					<div id="copy-to-clip" title="คัดลอกไปยังคลิปบอร์ดแล้ว" onclick="copyURL()">
+						<img style="width: 1em" src="/assets/images/icon/ctc.png" />
 					</div>
 
 					<div onclick="print()" class="print-post">
-						<img
-							style="width: 1.2em"
-							src="/assets/images/icon/print.png"
-						/>
+						<img style="width: 1.2em" src="/assets/images/icon/print.png" />
 					</div>
 				</div>
 			</div>
@@ -89,11 +64,9 @@
 		<div class="row mt-3 pb-3 tags no-print">
 			<div>TAGS</div>
 			<% data.tag.forEach(el => { %>
-			<span
-				><a href="/<%- type %>/?search=<%- el %>" target="_blank">
+			<span><a href="/<%- type %>/?search=<%- el %>" target="_blank">
 					<%- el %>
-				</a></span
-			>
+				</a></span>
 			<% }); %>
 		</div>
 		<div class="row mt-4 no-print" id="related">
@@ -103,8 +76,7 @@
 		</div>
 		<script>
 			$.post(
-				'/<%- type %>/api',
-				{
+				'/<%- type %>/api', {
 					query: "<%- data.tag.join('|') %>",
 					sortParams: '-date',
 					skip: 0,
@@ -132,11 +104,8 @@
 	</div>
 </section>
 
-<script
-	src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
-	async="async"
-	defer="defer"
-></script>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer">
+</script>
 <!-- <script
   src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"
   integrity="sha256-z8sq+fwXy6xX1HLBJZ5doyrWmFBhQ9lG3p/AKoipKKs="
@@ -171,8 +140,7 @@
 	$('#share').jsSocials({
 		showLabel: false,
 		showCount: false,
-		shares: [
-			{
+		shares: [{
 				share: 'facebook',
 				logo: '/assets/images/icon/fs.png',
 			},
