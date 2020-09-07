@@ -127,6 +127,16 @@
                             ],
                             "aoColumnDefs": [{
                                 "aTargets": [1],
+                                "mData": "date",
+                                "sTitle": "วันที่เผยแพร่",
+                                "sWidth": '15%',
+                                "sType" : 'date-euro',
+                                displayFormat: 'DD/MM/YYYY',
+                                "mRender": function (data, type, full) {
+                                    return moment(data).format('DD/MM/YYYY');;
+                                }
+                            },{
+                                "aTargets": [2],
                                 "mData": "_id",
                                 "sTitle": "Delete",
                                 "sWidth": '10%',
