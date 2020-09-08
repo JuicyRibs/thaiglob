@@ -72,6 +72,8 @@
         <%- include('../footer') %>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
         </script>
+        <script src="/assets/js/date-euro.js"></script>
+        <script src="/assets/js/moment.js"></script>    
         <script>
             $('#image-only').hide();
             $('#toggle1').click(function(){
@@ -129,18 +131,30 @@
                             "data": data,
                             "columns": [{
                                     data: "header",
-                                    title: "ขั้วเนื้อหา"
+                                    title: "ขั้วเนื้อหา",
+                                    width: '40%',
                                 },
                                 {
                                     data: "subHeader",
                                     title: "ขั้วเนื้อหารอง",
-                                    defaultContent: "แบบรูปภาพเท่านั้น",
+                                    defaultContent: "<p class='text-info'>แบบรูปภาพเท่านั้น</p>",
+                                    width: '40%',
                                 },
                             ],
                             "aoColumnDefs": [{
                                 "aTargets": [2],
+                                "mData": "date",
+                                "sTitle": "วันที่เผยแพร่",
+                                "sWidth": '10%',
+                                "sType" : 'date-euro',
+                                "mRender": function (data, type, full) {
+                                    return moment(data).format('DD/MM/YYYY');
+                                }
+                            },{
+                                "aTargets": [3],
                                 "mData": "_id",
                                 "sTitle": "Delete",
+                                "sWidth": '10%',
                                 "mRender": function (data, type, full) {
                                     return '<button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }

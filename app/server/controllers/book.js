@@ -37,6 +37,57 @@ exports.showByQuery = async function (req, res) {
 	res.json(result);
 };
 
+exports.updateById = function (req, res) {
+	Book.findById(req.params.id, function (err, book) {
+		if (err) {
+			return next(err);
+		}
+		book.title = req.body.title;
+		// if there is new file remove old file
+		if (req.files[0]) {
+			let oldFile = book.imgPath;
+			book.imgPath = req.files[0]['filename'];
+			const filePath = path.resolve('server', 'uploads', oldFile);
+			try {
+				if (fs.existsSync(filePath)) {
+					fs.unlinkSync(filePath, function (err) {
+						if (err) {
+							console.error(err);
+						}
+						console.log('File has been Deleted');
+					});
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		}
+		if (req.files[1]) {
+			let oldFile = book.dlPath;
+			book.dlPath = req.files[1]['filename'];
+			const filePath = path.resolve('server', 'uploads', oldFile);
+			try {
+				if (fs.existsSync(filePath)) {
+					fs.unlinkSync(filePath, function (err) {
+						if (err) {
+							console.error(err);
+						}
+						console.log('File has been Deleted');
+					});
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		}
+		book.date = moment(req.body.date, 'DD-MM-YYYY').toDate();
+		book.save(function (err, book) {
+			if (err) {
+				console.log(err);
+			}
+			res.status(200).end();
+		});
+	});
+};
+
 exports.delete = function (req, res) {
 	Book.findById(req.params.id, function (err, book) {
 		if (err) {
@@ -65,7 +116,7 @@ exports.delete = function (req, res) {
 			console.log(error);
 		}
 	});
-	Article.findByIdAndRemove(req.params.id, function (err) {
+	Book.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
 			return next(err);
 		}

@@ -29,6 +29,11 @@ router.get(
 	authMiddleware.isAuthenticated,
 	adminController.getPublication
 );
+router.get(
+	'/book/:id/edit',
+	authMiddleware.isAuthenticated,
+	adminController.editPublication
+);
 // MEDIA
 router.get(
 	'/media',

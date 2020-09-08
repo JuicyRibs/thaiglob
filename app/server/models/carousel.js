@@ -8,6 +8,7 @@ const CarouselSchema = new Schema({
 	ctaText: String,
 	ctaLink: String,
 	imgPath: String,
+	date: { type: Date, default: Date.now },
 	type: { type: Number, default: 0 },
 });
 

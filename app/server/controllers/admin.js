@@ -3,6 +3,7 @@ const Event = require('../models/event');
 const Research = require('../models/research');
 const News = require('../models/news');
 const Multimedia = require('../models/multimedia');
+const Book = require('../models/book');
 
 exports.getIndex = (req, res) => {
 	res.render('admin/index');
@@ -52,6 +53,16 @@ exports.editMultimedia = (req, res) => {
 
 exports.getPublication = (req, res) => {
 	res.render('admin/create/book');
+};
+exports.editPublication = (req, res) => {
+	Book.findById(req.params.id, function (err, book) {
+		if (err) {
+			return next(err);
+		}
+		res.render('admin/edit/book', {
+			data: book,
+		});
+	});
 };
 
 exports.getNews = (req, res) => {
