@@ -97,7 +97,7 @@
     </div>
     <div class="container">
         <div class="cloud my-4">
-            <h2>แก้ไขบทความ</h2>
+            <h2>แก้ไขหนังสือและสิ่งพิมพ์</h2>
         </div>
         <table id="editTable">
 
@@ -122,7 +122,7 @@
                             "columns": [{
                                     "data": "title",
                                     "title": "ชื่อหนังสือ",
-                                    "sWidth": '90%'
+                                    "sWidth": '65%'
                                 },
                             ],
                             "aoColumnDefs": [{
@@ -138,10 +138,12 @@
                             },{
                                 "aTargets": [2],
                                 "mData": "_id",
-                                "sTitle": "Delete",
-                                "sWidth": '10%',
+                                "sTitle": "Edit/Delete",
+                                "sWidth": '20%',
                                 "mRender": function (data, type, full) {
-                                    return '<button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
+                                    return '<a class="btn btn-primary mx-3" href="/admin/book/' +
+                                        data +
+                                        '/edit">Edit</a><button class="btn btn-danger mx-3 deletebtn" data="'+data+'">Delete</button>';
                                 }
                             }]
                         });
