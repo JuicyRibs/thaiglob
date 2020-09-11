@@ -21,7 +21,7 @@ exports.create = function (req, res) {
 	});
 	carousel.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -35,7 +35,7 @@ exports.showAll = async function (req, res) {
 exports.delete = function (req, res) {
 	Carousel.findById(req.params.id, function (err, carousel) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const filePath = path.resolve('server', 'uploads', carousel.imgPath);
 		try {
@@ -53,7 +53,7 @@ exports.delete = function (req, res) {
 	});
 	Carousel.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});

@@ -21,7 +21,7 @@ exports.create = function (req, res) {
 	});
 	news.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -54,7 +54,7 @@ exports.showByQuery = async function (req, res) {
 exports.showById = function (req, res) {
 	News.findById(req.params.id, function (err, news) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.render('post', {
 			title: 'ThaiGlob - News',
@@ -67,7 +67,7 @@ exports.showById = function (req, res) {
 exports.jsonById = function (req, res, next) {
 	News.findById(req.params.id, function (err, data) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.json(data);
 	});
@@ -76,7 +76,7 @@ exports.jsonById = function (req, res, next) {
 exports.updateById = function (req, res) {
 	News.findById(req.params.id, function (err, news) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		news.title = req.body.title;
 		news.body = req.body.body;
@@ -104,7 +104,7 @@ exports.updateById = function (req, res) {
 		news.author = req.body.author;
 		news.save(function (err, news) {
 			if (err) {
-				return next(err);
+				throw err;
 			}
 			res.status(200).end();
 		});
@@ -114,7 +114,7 @@ exports.updateById = function (req, res) {
 exports.delete = function (req, res) {
 	News.findById(req.params.id, function (err, news) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const filePath = path.resolve('server', 'uploads', news.imgPath);
 		try {
@@ -132,7 +132,7 @@ exports.delete = function (req, res) {
 	});
 	News.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});

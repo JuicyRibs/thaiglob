@@ -1,4 +1,5 @@
 const Book = require('../models/book');
+const path = require('path');
 const fs = require('fs');
 var moment = require('moment');
 
@@ -16,7 +17,7 @@ exports.create = async (req, res) => {
 	});
 	book.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -40,7 +41,7 @@ exports.showByQuery = async function (req, res) {
 exports.updateById = function (req, res) {
 	Book.findById(req.params.id, function (err, book) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		book.title = req.body.title;
 		// if there is new file remove old file
@@ -91,7 +92,7 @@ exports.updateById = function (req, res) {
 exports.delete = function (req, res) {
 	Book.findById(req.params.id, function (err, book) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const imgPath = path.resolve('server', 'uploads', book.imgPath);
 		const dlPath = path.resolve('server', 'uploads', book.dlPath);
@@ -118,7 +119,7 @@ exports.delete = function (req, res) {
 	});
 	Book.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});

@@ -21,7 +21,7 @@ exports.create = function (req, res) {
 	});
 	article.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -54,7 +54,7 @@ exports.showByQuery = async function (req, res) {
 exports.showById = function (req, res) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.render('post', {
 			title: 'ThaiGlob - Articles and Infographics',
@@ -67,7 +67,7 @@ exports.showById = function (req, res) {
 exports.jsonById = function (req, res, next) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.json(article);
 	});
@@ -76,7 +76,7 @@ exports.jsonById = function (req, res, next) {
 exports.updateById = function (req, res) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		article.title = req.body.title;
 		article.body = req.body.body;
@@ -114,7 +114,7 @@ exports.updateById = function (req, res) {
 exports.delete = function (req, res) {
 	Article.findById(req.params.id, function (err, article) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const filePath = path.resolve('server', 'uploads', article.imgPath);
 		try {
@@ -132,7 +132,7 @@ exports.delete = function (req, res) {
 	});
 	Article.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
