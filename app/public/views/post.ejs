@@ -4,6 +4,7 @@
 		margin-right: 0.8em;
 	}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- #Cover -->
 
@@ -75,18 +76,21 @@
 			</div>
 		</div>
 		<script>
-			$.post(
-				'/<%- type %>/api', {
-					query: "<%- data.tag.join('|') %>",
-					sortParams: '-date',
-					skip: 0,
-					limit: 3,
-				},
-				function (data, status) {
-					data.forEach((post) => {
-						var html = `
-						<div class="col-sm-12 col-md-4 medialist"><a href="/<%- type %>/${post._id}">
-							<img style="width: 100%; height: 29vh; object-fit: cover" src="/upload/${
+			let type = "<%-type %>"
+			console.log(type)
+			if (type==="events") {
+				$.post(
+					'/<%- type %>/api', {
+						query: "<%- data.tag.join('|') %>",
+						sortParams: '-date',
+						skip: 0,
+						limit: 4,
+					},
+					function (data, status) {
+						data.forEach((post) => {
+							var html = `
+						<div class="col-sm-12 col-md-3 medialist"><a href="/<%- type %>/${post._id}">
+							<img style="width: 100%; object-fit: cover" src="/upload/${
 								post.imgPath
 							}">
 							<h6 class="pt-2 quarkbold">${post.title}</h6>
@@ -96,10 +100,37 @@
 							</a>
 						</div>
 							`;
-						$('#related').append(html);
-					});
-				}
-			);
+							$('#related').append(html);
+						});
+					}
+				);
+			} else {
+				$.post(
+					'/<%- type %>/api', {
+						query: "<%- data.tag.join('|') %>",
+						sortParams: '-date',
+						skip: 0,
+						limit: 3,
+					},
+					function (data, status) {
+						data.forEach((post) => {
+							var html = `
+						<div class="col-sm-12 col-md-4 medialist"><a href="/<%- type %>/${post._id}">
+							<img style="width: 100%; object-fit: cover" src="/upload/${
+								post.imgPath
+							}">
+							<h6 class="pt-2 quarkbold">${post.title}</h6>
+							<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
+								post.date.split('T')[0]
+							}</small>
+							</a>
+						</div>
+							`;
+							$('#related').append(html);
+						});
+					}
+				);
+			}
 		</script>
 	</div>
 </section>
