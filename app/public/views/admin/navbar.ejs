@@ -1,61 +1,70 @@
+<style>
+	.admin-nav .nav-item {
+		border-right: 1px solid rgb(175, 175, 175);
+		;
+	}
+	.admin-nav .nav-item:last-child {
+		border-right: 0px solid rgb(175, 175, 175);
+		;
+	}
+
+	.text-body div:hover{
+		font-weight: bold;
+	}
+</style>
+
+
 <nav class="navbar navbar-expand-lg nav-fill bg-light">
 	<a class="navbar-brand" href="/admin">
-		<img src="/assets/images/svglogo.svg" height="50em"/>
+		<img src="/assets/images/logo.png" height="55em" />
 
 	</a>
-	<button
-		class="navbar-toggler"
-		type="button"
-		data-toggle="collapse"
-		data-target="#navbarNavDropdown"
-		aria-controls="navbarNavDropdown"
-		aria-expanded="false"
-		aria-label="Toggle navigation"
-	>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+		aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-		<ul class="navbar-nav">
+		<ul class="navbar-nav admin-nav">
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/carousel"
-					><h6>Highlights</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/carousel">
+					<div>Highlights</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/research"
-					><h6>Research Projects</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/research">
+					<div>Research Projects</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/book"
-					><h6>Publications</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/book">
+					<div>Publications</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/article"
-					><h6>Articles and Infographics</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/article">
+					<div>Articles and Infographics</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/media"
-					><h6>Multimedia</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/media">
+					<div>Multimedia</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/news"
-					><h6>News</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/news">
+					<div>News</div>
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/admin/event"
-					><h6>Events</h6></a
-				>
+				<a class="nav-link text-body" href="/admin/event">
+					<div>Events</div>
+				</a>
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link text-body" href="/" target="_blank"
-					><h6>กลับสู่หน้าเว็บไซต์</h6></a
-				>
+				<a class="nav-link text-body" href="/" target="_blank">
+					<div>กลับสู่หน้าเว็บไซต์</div>
+				</a>
 			</li>
 		</ul>
 	</div>
