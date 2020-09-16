@@ -21,7 +21,7 @@ exports.create = function (req, res) {
 	});
 	event.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -54,7 +54,7 @@ exports.showByQuery = async function (req, res) {
 exports.showById = function (req, res) {
 	Event.findById(req.params.id, function (err, event) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.render('post', {
 			title: 'ThaiGlob - Events',
@@ -67,7 +67,7 @@ exports.showById = function (req, res) {
 exports.jsonById = function (req, res, next) {
 	Event.findById(req.params.id, function (err, data) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.json(data);
 	});
@@ -76,7 +76,7 @@ exports.jsonById = function (req, res, next) {
 exports.updateById = function (req, res) {
 	Event.findById(req.params.id, function (err, event) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		event.title = req.body.title;
 		event.body = req.body.body;
@@ -104,7 +104,7 @@ exports.updateById = function (req, res) {
 		event.author = req.body.author;
 		event.save(function (err, event) {
 			if (err) {
-				return next(err);
+				throw err;
 			}
 			res.status(200).end();
 		});
@@ -114,7 +114,7 @@ exports.updateById = function (req, res) {
 exports.delete = function (req, res) {
 	Event.findById(req.params.id, function (err, event) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const filePath = path.resolve('server', 'uploads', event.imgPath);
 		try {
@@ -132,7 +132,7 @@ exports.delete = function (req, res) {
 	});
 	Event.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});

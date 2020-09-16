@@ -28,7 +28,7 @@ exports.create = function (req, res) {
 	});
 	research.save(function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
@@ -37,7 +37,7 @@ exports.create = function (req, res) {
 exports.updateById = function (req, res) {
 	Research.findById(req.params.id, function (err, research) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		research.title = req.body.title;
 		research.author = req.body.author;
@@ -65,7 +65,7 @@ exports.updateById = function (req, res) {
 		}
 		research.save(function (err, research) {
 			if (err) {
-				return next(err);
+				throw err;
 			}
 			res.status(200).end();
 		});
@@ -75,7 +75,7 @@ exports.updateById = function (req, res) {
 exports.delete = function (req, res) {
 	Research.findById(req.params.id, function (err, research) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		const filePath = path.resolve('server', 'uploads', research.imgPath);
 		try {
@@ -93,7 +93,7 @@ exports.delete = function (req, res) {
 	});
 	Research.findByIdAndRemove(req.params.id, function (err) {
 		if (err) {
-			return next(err);
+			throw err;
 		}
 		res.status(200).end();
 	});
