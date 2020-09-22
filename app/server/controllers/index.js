@@ -10,6 +10,9 @@ const Carousel = require('../models/carousel');
 const multimedia = require('../models/multimedia');
 const article = require('../models/article');
 
+var moment = require('moment'); // require
+moment().format(); 
+
 exports.getIndex = async (req, res) =>
 	res.render('index', {
 		title: 'ThaiGlob',

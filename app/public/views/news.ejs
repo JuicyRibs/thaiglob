@@ -125,7 +125,7 @@
 		}" />
 		<div class="quarkbold">${news.title}</div>
 		<small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${
-			news.date.split('T')[0]
+			moment(news.date).format("DD-MM-YYYY")
 		}</small>
 	</a>
 </div>`;

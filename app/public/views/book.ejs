@@ -124,7 +124,7 @@
 									}" />
 									<div class="quarkbold">${book.title}</div>
 									<small class="date">
-										<i class="fa fa-clock-o"></i>&nbsp; ${book.date.split('T')[0]}
+										<i class="fa fa-clock-o"></i>&nbsp; ${moment(book.date).format("DD-MM-YYYY")}
 									</small>
 									</a>
 								</div>

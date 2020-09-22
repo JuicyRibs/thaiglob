@@ -129,6 +129,7 @@
           limit: 4,
         },
         function (data, status) {
+          console.log(moment(data[0].date).format('DD-MM-YYYY'))
           var html = `
 <div class="row py-auto">`
           if (typeof data[0] != "undefined") {
@@ -137,7 +138,7 @@
     <a href="/upload/${data[0].dlPath}" target="_blank">
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h5 class="pt-2 quarkbold">${data[0].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           } else {
@@ -156,7 +157,7 @@
       src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[1].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[1].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
@@ -169,7 +170,7 @@
       src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[2].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[2].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
@@ -182,7 +183,7 @@
       src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[3].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[3].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
@@ -209,7 +210,7 @@
       <a href="/articles/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[0].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           } else {
@@ -225,7 +226,7 @@
       <a href="/articles/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[1].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[1].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -235,7 +236,7 @@
       <a href="/articles/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[2].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[2].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -245,7 +246,7 @@
       <a href="/articles/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[3].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[3].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -255,7 +256,7 @@
       <a href="/articles/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[4].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[4].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -265,7 +266,7 @@
       <a href="/articles/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[5].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[5].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -293,7 +294,7 @@
       <a href="/media/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[0].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           } else {
@@ -309,7 +310,7 @@
       <a href="/media/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[1].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[1].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -319,7 +320,7 @@
       <a href="/media/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[2].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[2].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -329,7 +330,7 @@
       <a href="/media/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[3].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[3].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -339,7 +340,7 @@
       <a href="/media/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[4].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[4].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -349,7 +350,7 @@
       <a href="/media/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[5].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[5].date).format('DD-MM-YYYY')}</small></a>
     </div>
     `
           }
@@ -377,7 +378,7 @@
       <a href="/news/${data[0]._id}">
         <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[0].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           } else {
             html += `
@@ -392,7 +393,7 @@
       <a href="/news/${data[1]._id}">
         <img style="width: 100%;" src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[1].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[1].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           }
           if (typeof data[2] != "undefined") {
@@ -401,7 +402,7 @@
       <a href="/news/${data[2]._id}">
         <img style="width: 100%;" src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[2].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[2].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           }
           if (typeof data[3] != "undefined") {
@@ -410,7 +411,7 @@
       <a href="/news/${data[3]._id}">
         <img style="width: 100%;" src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[3].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[3].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           }
           if (typeof data[4] != "undefined") {
@@ -419,7 +420,7 @@
       <a href="/news/${data[4]._id}">
         <img style="width: 100%;" src="${data[4].imgPath?'/upload/' + data[4].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[4].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[4].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[4].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           }
           if (typeof data[5] != "undefined") {
@@ -428,7 +429,7 @@
       <a href="/news/${data[5]._id}">
         <img style="width: 100%;" src="${data[5].imgPath?'/upload/' + data[5].imgPath:'/assets/images/800x600.jpg' }">
         <h5 class="pt-2 quarkbold">${data[5].title}</h5>
-        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[5].date.split('T')[0]}</small></a>
+        <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[5].date).format('DD-MM-YYYY')}</small></a>
     </div>`
           }
           html += `
@@ -453,7 +454,7 @@
     <a href="/upload/${data[0].dlPath}" target="_blank">
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h5 class="pt-2 quarkbold">${data[0].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[0].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           } else {
@@ -472,7 +473,7 @@
       src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[1].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[1].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[1].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
@@ -485,7 +486,7 @@
       src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[2].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[2].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[2].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
@@ -498,7 +499,7 @@
       src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
     />
     <h5 class="pt-2 quarkbold">${data[3].title}</h5>
-    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${data[3].date.split('T')[0]}</small></a>
+    <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[3].date).format('DD-MM-YYYY')}</small></a>
   </div>
   `
           }
