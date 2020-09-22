@@ -223,6 +223,7 @@ body {
 }
 
 .showmore {
+	z-index: 100;
 	margin-right: 1em;
 	font-size: 1.2em;
 	font-weight: bold;
