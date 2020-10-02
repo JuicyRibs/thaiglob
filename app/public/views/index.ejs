@@ -451,7 +451,7 @@
           if (typeof data[0] != "undefined") {
             html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[0].dlPath}" target="_blank">
+    <a href="/events/${data[0]._id}">
     <img style="width: 100%;" src="${data[0].imgPath?'/upload/' + data[0].imgPath:'/assets/images/210x297.jpg' }" />
     <h5 class="pt-2 quarkbold">${data[0].title}</h5>
     <small class="date"><i class="fa fa-clock-o"></i>&nbsp; ${moment(data[0].date).format('DD-MM-YYYY')}</small></a>
@@ -467,7 +467,7 @@
           if (typeof data[1] != "undefined") {
             html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[1].dlPath}" target="_blank">
+    <a href="/events/${data[1]._id}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[1].imgPath?'/upload/' + data[1].imgPath:'/assets/images/210x297.jpg' }"
@@ -480,7 +480,7 @@
           if (typeof data[2] != "undefined") {
             html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[2].dlPath}" target="_blank">
+    <a href="/events/${data[2]._id}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[2].imgPath?'/upload/' + data[2].imgPath:'/assets/images/210x297.jpg' }"
@@ -493,7 +493,7 @@
           if (typeof data[3] != "undefined") {
             html += `
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 py-5">
-    <a href="/upload/${data[3].dlPath}" target="_blank">
+    <a href="/events/${data[3]._id}" target="_blank">
     <img
       style="width: 100%;"
       src="${data[3].imgPath?'/upload/' + data[3].imgPath:'/assets/images/210x297.jpg' }"
