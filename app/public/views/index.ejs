@@ -49,7 +49,7 @@
                             </div>
                           </div>`
             } else {
-              var html = `<div class="carousel-item cover poster-highlight" style="background-image: url('/upload/${el.imgPath}');" onclick="window.location.href='${el.ctaLink}'">
+              var html = `<div class="carousel-item cover poster-highlight" style="background-image: url('/upload/${el.imgPath}'); background-size: contain; background-color: #F8F9FA;" onclick="window.location.href='${el.ctaLink}'">
                           </div>`
             }
             $('#carousel').append(html);
