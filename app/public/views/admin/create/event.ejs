@@ -3,6 +3,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 <link rel="stylesheet" href="/assets/css/tagsinput.css">
 <link rel="stylesheet" href="/assets/css/resize.css">
+<style>
+    #editorcontainer {
+	height: 500px;
+}
+.ql-container{
+    height: 90%;
+}
+.ql-toolbar{
+    height: 10%;
+}
+</style>
 </head>
 
 <body>
@@ -29,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="body">เนื้อหาอีเว้นท์</label>
-                        <div style="background-color: #FFF;">
+                        <div style="background-color: #fff;" id="editorcontainer">
                             <div class="mx-auto" id="editor"></div>
                         </div>
 
@@ -136,6 +147,38 @@
                 var justHtml = editor.root.innerHTML;
                 $("#body").val(justHtml);
             });
+            $(function () {
+                customSpan = document.createElement("span");
+                customSpan.classList.add("ql-formats");
+
+                customButton = document.createElement("button");
+                customButton.innerHTML = 'A⁺';
+                customButton.id="fontIncreaseSize";
+                customButton2 = document.createElement("button");
+                customButton2.innerHTML = 'A⁻';
+                customButton2.id="fontDecreaseSize";
+
+                customSpan.append(customButton);
+                customSpan.append(customButton2);
+                $('.ql-toolbar').append(customSpan);
+                customButton.addEventListener('click', function() {
+                    var selected = editor.getFormat();
+                    size = ['8px','9px','10px','11px','12px','13px','14px', '16px','18px','20px','24px','26px','28px','30px','36px','48px','60px','72px','96px']
+                    var currentIndex = (selected['size'] == null)? 5 :size.indexOf(selected['size']);
+                    if(currentIndex < (size.length-1)){
+                        editor.format('size',size[currentIndex+1]);
+                    }
+                });
+                customButton2.addEventListener('click', function() {
+                    var selected = editor.getFormat();
+                    size = ['8px','9px','10px','11px','12px','13px','14px', '16px','18px','20px','24px','26px','28px','30px','36px','48px','60px','72px','96px']
+                    var currentIndex = (selected['size'] == null)? 5 :size.indexOf(selected['size']);
+                    if(currentIndex > 0){
+                        editor.format('size',size[currentIndex-1]);
+                    }
+                });
+
+            })
             $('#create').submit(function (e) {
                 e.preventDefault();
                 $("#tag").val($("#tag").tagsinput('items'));
