@@ -129,19 +129,21 @@
 			var newsCount = new Array();
 			var eventLabel = new Array();
 			var eventCount = new Array();
+			console.log(response.rows)
 			response.rows.forEach(element => {
-				if(!element[0].includes('?search=')){
+				if(!element[0].includes('?search=') && element[0].match(/(\/.+\/.+$)/gis) !== null){
 					$.ajax(`${element[0]}`,{async:false,method:'POST'}).done(function(data){
-						if(element[0].includes('/articles/')){
+						if (typeof data !== 'undefined') {
+						}else if(element[0].includes('/articles/') || typeof data !== 'undefined'){
 							articleLabel.push(data?.title);
 							articleCount.push(element[1])
-						}else if(element[0].includes('/media/')){
+						}else if(element[0].includes('/media/') || typeof data !== 'undefined'){
 							mediaLabel.push(data?.title);
 							mediaCount.push(element[1])
-						}else if(element[0].includes('/news/')){
+						}else if(element[0].includes('/news/') || typeof data !== 'undefined'){
 							newsLabel.push(data?.title);
 							newsCount.push(element[1])
-						}else if(element[0].includes('/events/')){
+						}else if(element[0].includes('/events/') || typeof data !== 'undefined'){
 							eventLabel.push(data?.title);
 							eventCount.push(element[1])
 						}
