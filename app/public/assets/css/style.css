@@ -47,6 +47,11 @@ html {
 	margin: 0px 0.4rem;
 }
 
+@media screen and (min-width: 995px) {
+	.hidden {
+		display: none;
+	}
+}
 
 
 body {

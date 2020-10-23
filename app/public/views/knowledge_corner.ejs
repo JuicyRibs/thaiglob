@@ -39,6 +39,7 @@
 	       <div class="container corner">
 	   <a href="/publication"><h2>Publications</h2></a>
 	   <p class="cloud">หนังสือและสิ่งพิมพ์</p>
+	   <div class="container">
 	<div class="row cloud">
 		`;
 			if (typeof data[0] != 'undefined') {
@@ -134,7 +135,7 @@
 	</div>
 	   <button class="btn btn-outline-dark cloud my-4" onclick="window.location.href='/publication'">
 	     แสดงทั้งหมด <i class="fa fa-caret-down"></i>
-	   </button>
+	   </button></div>
 	 
 	         `;
 			$('#publication').append(html);
@@ -547,7 +548,7 @@
 			}
 			html += `
 						</div>
-			</div>
+			</div></div>
 			<button
 				class="btn btn-outline-dark cloud my-4"
 				onclick="window.location.href='/events'"
@@ -562,3 +563,4 @@
 </script>
 <section class="py-4" id="events"></section>
 <%- include('./includes/footer.ejs') %>
+
