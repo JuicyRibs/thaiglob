@@ -79,6 +79,12 @@
 		<link href="/assets/css/quill.snow.css" rel="stylesheet" />
 
 		<link rel="stylesheet" href="/assets/css/customquill.css" />
+		<%if (typeof data !== 'undefined') { %>
+			<meta property="og:type"  content="article" />
+			<meta property="og:title" content="<%- data.title %>"/>
+			<meta property="og:description" content="<%- data.desc %>" />
+			<meta property="og:image" content="https://thaiglob.org/upload/<%- data.imgPath %>"/>
+		<% } %>
 	</head>
 
 	<body>
